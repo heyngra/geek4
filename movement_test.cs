@@ -24,6 +24,7 @@ public partial class movement_test : CharacterBody2D
 	private float _jumpVelocity;
 	private float _jumpGravity;
 	private float _fallGravity;
+	private float _animProgress = 0.0f;
 	
 	public override void _Ready()
 	{
@@ -46,12 +47,16 @@ public partial class movement_test : CharacterBody2D
 	{
 		_velocity.Y += GetGravity() * (float)delta;
 		_velocity.X = get_input_velocity() * _walkSpeed;
-		if (_velocity.X != 0)
+		if (_velocity.X != 0 && IsOnFloor())
 		{
+			if(!_animatedSprite.IsPlaying()){
+				_animatedSprite.SetFrameAndProgress((int)_animProgress,_animProgress);
+			}
 			_animatedSprite.Play("walk");
-		}
+		} 
 		else
 		{
+			_animProgress = _animatedSprite.FrameProgress;
 			_animatedSprite.Stop();
 		}
 		if (Input.IsActionPressed("ui_up") && IsOnFloor())
