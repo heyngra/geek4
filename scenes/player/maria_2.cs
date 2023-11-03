@@ -7,17 +7,20 @@ public partial class maria_2 : CharacterBody2D
 	public float Speed = 200.0f;
 	[Export]
 	public float JumpVelocity = -200.0f;
-
-	private bool _animationLocked = false;
-	private bool _wasInAir = false;
-	private AnimatedSprite2D _animatedSprite;
+	
+	private Sprite2D _sprite;
+	private AnimationTree _animationTree;
 	private Vector2 _direction = Vector2.Zero;
+	private CharacterStateMachine _characterStateMachine;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
 	public override void _Ready()
 	{
-		_animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
+		_animationTree = GetNode<AnimationTree>("AnimationTree");
+		_characterStateMachine = GetNode<CharacterStateMachine>("CharacterStateMachine");
+		_sprite = GetNode<Sprite2D>("Sprite2D");
+		_animationTree.Active = true;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -25,20 +28,9 @@ public partial class maria_2 : CharacterBody2D
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
-		if (!IsOnFloor())
-			velocity.Y += gravity * (float)delta;
-		else
-		{
-			if (_wasInAir)
-			{
-				_wasInAir = false;
-				_animationLocked = false;
-			}
-		}
+		if (!IsOnFloor()) velocity.Y += gravity * (float)delta;
 
-		// Handle Jump.
-		if (Input.IsActionJustPressed("jump") && IsOnFloor())
-			velocity = Jump(velocity);
+
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
@@ -60,29 +52,8 @@ public partial class maria_2 : CharacterBody2D
 	
 	private void update_animation()
 	{
-		_animatedSprite.FlipH = _direction.X < 0 || !(_direction.X > 0) && _animatedSprite.FlipH; // Flip the sprite if the direction is negative, or positive. Don't flip it, if it's 0.
-		if (!_animationLocked)
-		{
-			if (_direction.X != 0)
-			{
-				_animatedSprite.Play("run");
-				
-			}
-			else
-			{
-				_animatedSprite.Play("idle");
-			}
-		}	
-	}
-
-	private Vector2 Jump(Vector2 velocity)
-	{
-		velocity.Y = JumpVelocity;
-		_animatedSprite.Play("jump_start");
-		_wasInAir = true;
-		_animationLocked = true;
-		return velocity;
-	}
-	
+		_animationTree.Set("parameters/Move/blend_position", _direction.X);
+		_sprite.FlipH = _direction.X < 0 || !(_direction.X > 0) && _sprite.FlipH; // Flip the sprite if the direction is negative, or positive. Don't flip it, if it's 0.
+	}	
 	
 }
