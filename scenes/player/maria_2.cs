@@ -17,10 +17,19 @@ public partial class maria_2 : CharacterBody2D
 
 	public override void _Ready()
 	{
+
+		if (GetNode<singleton>("/root/Singleton").Maria != null)
+		{
+			QueueFree();
+			return;
+		}
+		
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_characterStateMachine = GetNode<CharacterStateMachine>("CharacterStateMachine");
 		_sprite = GetNode<Sprite2D>("Sprite2D");
 		_animationTree.Active = true;
+		AddUserSignal("SceneChange");
+		GetNode<singleton>("/root/Singleton").Maria = this;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -52,6 +61,10 @@ public partial class maria_2 : CharacterBody2D
 	
 	private void update_animation()
 	{
+		if (_animationTree == null)
+		{
+			return;
+		}
 		_animationTree.Set("parameters/Move/blend_position", _direction.X);
 		_sprite.FlipH = _direction.X < 0 || !(_direction.X > 0) && _sprite.FlipH; // Flip the sprite if the direction is negative, or positive. Don't flip it, if it's 0.
 	}	

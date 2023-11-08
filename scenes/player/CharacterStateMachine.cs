@@ -24,8 +24,6 @@ public partial class CharacterStateMachine : Node
 
                 stateChild.Character = Character;
                 stateChild.Playback = AnimationTree.Get("parameters/playback").As<AnimationNodeStateMachinePlayback>();
-                GD.Print(stateChild.Playback);
-
 
             }
             else
