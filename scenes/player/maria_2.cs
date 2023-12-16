@@ -12,6 +12,8 @@ public partial class maria_2 : CharacterBody2D
 	private AnimationTree _animationTree;
 	private Vector2 _direction = Vector2.Zero;
 	private CharacterStateMachine _characterStateMachine;
+
+	private singleton Singleton;
 	// Get the gravity from the project settings to be synced with RigidBody nodes.
 	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
 
@@ -27,9 +29,10 @@ public partial class maria_2 : CharacterBody2D
 		_animationTree = GetNode<AnimationTree>("AnimationTree");
 		_characterStateMachine = GetNode<CharacterStateMachine>("CharacterStateMachine");
 		_sprite = GetNode<Sprite2D>("Sprite2D");
+		Singleton = GetNode<singleton>("/root/Singleton");
 		_animationTree.Active = true;
 		AddUserSignal("SceneChange");
-		GetNode<singleton>("/root/Singleton").Maria = this;
+		Singleton.Maria = this;
 	}
 	
 	public override void _PhysicsProcess(double delta)
@@ -45,6 +48,7 @@ public partial class maria_2 : CharacterBody2D
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		
 		_direction = Input.GetVector("left", "right", "up", "down");
+		if (Singleton.UiLock) _direction = Vector2.Zero;
 		if (_direction != Vector2.Zero)
 		{
 			velocity.X = _direction.X * Speed;

@@ -10,11 +10,17 @@ public partial class singleton : Node
     public maria_2 Maria { get; set; }
     public scene_transition Transition { get; set; }
 
+    public dialog Dialog { get; set; }
+    /// <summary>
+    ///  If true, the UI currently opened is supposed to block normal actions, such as mob/character movement.
+    /// </summary>
+    public bool UiLock = false; 
+
     /// <summary>
     /// Array of paths to objects that shouldn't be instanced when changing scenes. An example could be enemies.
     /// Warning: Deleted object will still use _Ready() function.
     /// </summary>
-    public HashSet<NodePath> DeletedObjects = new HashSet<NodePath>();
+    public readonly HashSet<NodePath> DeletedObjects = new HashSet<NodePath>();
 
     /// <summary>
     /// A dictionary, that consists of paused scenes. These scenes are now removed, but they are hold in memory. It is not recommended to modify this dictionary, as removal of scenes might cause a memory leak.
@@ -26,6 +32,7 @@ public partial class singleton : Node
         Viewport root = GetTree().Root;
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
         Transition = GetNode<scene_transition>("/root/SceneTransition");
+        Dialog = GetNode<dialog>("/root/Gui/Dialog/DialogControl");
     }
     
     /// <summary>
@@ -63,7 +70,7 @@ public partial class singleton : Node
         }
     }
 
-    public async void DeferredGotoScene(string path, string transition)
+    private async void DeferredGotoScene(string path, string transition)
     {
 
         maria_2 maria = Maria;
@@ -135,10 +142,42 @@ public partial class singleton : Node
         Transition.UnloadTransition("dissolve");
     }
 
-    public void DeferredPauseScene(string path, string transition)
+    private void DeferredPauseScene(string path, string transition)
     {
         PausedScenes.Add(CurrentScene.SceneFilePath, CurrentScene);
         GD.Print("Paused scene "+CurrentScene.SceneFilePath);
         DeferredGotoScene(path, transition);
+    }
+
+    /// <summary>
+    /// Plays the specified audio file. 
+    /// </summary>
+    /// <param name="audiopath">Path to the audio</param>
+    /// <param name="volumedb">Volume of the audio</param>
+    /// <param name="bus">On which bus should the audio play</param>
+    /// <returns>The AudioStreamPlayer2D object. It can be used with StopAudio() to stop the audio from playing.</returns>
+    
+    public AudioStreamPlayer2D PlayAudio(String audiopath, float volumedb = -5, String bus = "Master")
+    {
+        AudioStreamPlayer2D player = new AudioStreamPlayer2D();
+        player.Bus = bus;
+        player.Stream = GD.Load<AudioStream>(audiopath);
+        player.VolumeDb = volumedb;
+        AddChild(player);
+        player.Play();
+        StopAudio(player, player.Stream.GetLength());
+        return player;
+    }
+
+    /// <summary>
+    /// Stops the audio from playing.
+    /// </summary>
+    /// <param name="player">The AudioStreamPlayer2D object.</param>
+    /// <param name="timeLeft">Time after which the audio should be stopped. It is not recommended to set this to value that is not 0.</param>
+    
+    public async void StopAudio(AudioStreamPlayer2D player, double timeLeft = 0)
+    {
+        if (timeLeft!=0) await ToSignal(GetTree().CreateTimer(timeLeft), "timeout");
+        if (IsInstanceValid(player)) player.Stop();player.QueueFree();
     }
 }

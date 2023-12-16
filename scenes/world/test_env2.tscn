@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://tgyi5i31ixy5"]
+[gd_scene load_steps=8 format=3 uid="uid://tgyi5i31ixy5"]
 
 [ext_resource type="Texture2D" uid="uid://t6o58jh6g6li" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tiles.png" id="1_o2jit"]
 [ext_resource type="Texture2D" uid="uid://8ykwu15gn1xg" path="res://Legacy-Fantasy - High Forest 2.3/Assets/Tree-Assets.png" id="2_ewmbq"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_ml5gi"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="4_kfoi5"]
-[ext_resource type="Texture2D" uid="uid://c7sbd3nbg657o" path="res://Legacy-Fantasy - High Forest 2.3/Mob/Boar/Idle/Idle-Sheet.png" id="5_xv3u2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h6bcd"]
 texture = ExtResource("1_o2jit")
@@ -2315,9 +2314,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_h6bcd")
 sources/1 = SubResource("TileSetAtlasSource_0uymm")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v65cg"]
-size = Vector2(40, 27)
-
 [node name="test_env2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -2340,14 +2336,3 @@ position = Vector2(111, -46)
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(111, -70)
 script = ExtResource("4_kfoi5")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-position = Vector2(0, -45)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-texture = ExtResource("5_xv3u2")
-hframes = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(-2, 2.5)
-shape = SubResource("RectangleShape2D_v65cg")

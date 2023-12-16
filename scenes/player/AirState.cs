@@ -26,13 +26,23 @@ public partial class AirState : State
         if (Character.Position.Y > 1000 && !sceneChanged) // part of changing a scene, debug only
         {
             sceneChanged = true;
+            singleton Singleton = GetNode<singleton>("/root/Singleton");
             if (GD.Randi() % 2 == 1)
             {
-                GetNode<singleton>("/root/Singleton").PauseScene("res://scenes/world/test_env3.tscn");
+                Singleton.PauseScene("res://scenes/world/test_env3.tscn");
+                Singleton.Dialog.PlayNextDialog();
+                
             }
             else
             {
-                GetNode<singleton>("/root/Singleton").PauseScene("res://scenes/world/test_env2.tscn");
+                Singleton.PauseScene("res://scenes/world/test_env2.tscn");
+                
+                Singleton.Dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
+                Singleton.Dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");
+                Singleton.Dialog.AddDialog("Kamila", "a nie w Elblągu.", "res://assets/ui/qs.png");
+                Singleton.Dialog.AddDialog("Kamil", "Aha, no to faktycznie.", "res://assets/ui/Haley.png");
+                Singleton.Dialog.PlayNextDialog();
+                
             }
         }
     }

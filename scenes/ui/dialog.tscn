@@ -1,0 +1,220 @@
+[gd_scene load_steps=17 format=3 uid="uid://bkgda3j4nhuw0"]
+
+[ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="1_8k8yi"]
+[ext_resource type="Script" path="res://scenes/ui/dialog.cs" id="1_wkmi0"]
+[ext_resource type="Texture2D" uid="uid://dg53045thqycu" path="res://assets/ui/Haley.png" id="3_8613w"]
+[ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="3_kwk2y"]
+[ext_resource type="Texture2D" uid="uid://dwj52mtrx5vln" path="res://assets/ui/pixel-art-gui-elements/gui_avatar.png" id="4_48507"]
+[ext_resource type="Texture2D" uid="uid://3cvpa5wsshv5" path="res://assets/ui/arrow-down.png" id="4_eb3le"]
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="6_0muag"]
+[ext_resource type="LabelSettings" uid="uid://cc5uqifa85cvn" path="res://scenes/ui/dialog_text.tres" id="6_appea"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7iq0l"]
+texture = ExtResource("4_48507")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="LabelSettings" id="LabelSettings_xepon"]
+font = ExtResource("6_0muag")
+font_size = 11
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.317647)
+shadow_offset = Vector2(0.915, 1)
+
+[sub_resource type="Animation" id="Animation_145e2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(111.645, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wnxbj"]
+resource_name = "dialog_appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(111.645, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anqn5"]
+_data = {
+"RESET": SubResource("Animation_145e2"),
+"dialog_appear": SubResource("Animation_wnxbj")
+}
+
+[sub_resource type="Theme" id="Theme_4wo4q"]
+
+[sub_resource type="Animation" id="Animation_7nrtj"]
+resource_name = "animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(288, -30), Vector2(288, -37), Vector2(288, -30)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a216n"]
+_data = {
+"animation": SubResource("Animation_7nrtj")
+}
+
+[node name="Dialog" type="CanvasLayer"]
+offset = Vector2(0, 111.645)
+transform = Transform2D(1, 0, 0, 1, 0, 111.645)
+
+[node name="DialogControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 0.0549927
+offset_right = 0.0549927
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_wkmi0")
+
+[node name="Panel" type="Panel" parent="DialogControl"]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -108.0
+offset_right = 320.0
+offset_bottom = 1.0
+theme = ExtResource("1_8k8yi")
+theme_override_styles/panel = ExtResource("3_kwk2y")
+
+[node name="Panel2" type="Panel" parent="DialogControl"]
+layout_mode = 0
+offset_left = -311.0
+offset_top = -101.0
+offset_right = -223.0
+offset_bottom = -24.0002
+theme_override_styles/panel = SubResource("StyleBoxTexture_7iq0l")
+
+[node name="Art" type="TextureRect" parent="DialogControl"]
+layout_mode = 0
+offset_left = -306.0
+offset_top = -100.05
+offset_right = -228.0
+offset_bottom = -25.0502
+texture = ExtResource("3_8613w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Speaker" type="Label" parent="DialogControl"]
+layout_mode = 0
+offset_left = -311.0
+offset_top = -23.0002
+offset_right = -225.0
+offset_bottom = -4.00021
+text = "Marie's Mom"
+label_settings = SubResource("LabelSettings_xepon")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Text" type="Label" parent="DialogControl"]
+layout_mode = 0
+offset_left = -215.0
+offset_top = -99.0
+offset_right = 310.0
+offset_bottom = -25.0
+text = "Lorem impsum dolor sit amet. "
+label_settings = ExtResource("6_appea")
+autowrap_mode = 3
+text_overrun_behavior = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_anqn5")
+}
+
+[node name="arrow_down" type="TextureRect" parent="DialogControl"]
+layout_mode = 0
+offset_left = 288.0
+offset_top = -30.0
+offset_right = 312.0
+offset_bottom = -5.0
+theme = SubResource("Theme_4wo4q")
+texture = ExtResource("4_eb3le")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl/arrow_down"]
+autoplay = "animation"
+libraries = {
+"": SubResource("AnimationLibrary_a216n")
+}
