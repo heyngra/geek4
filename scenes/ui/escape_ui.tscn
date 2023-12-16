@@ -87,8 +87,7 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y8020")
 theme_override_font_sizes/font_size = 21
-text = "Play
-"
+text = "Graj"
 
 [node name="MarginContainer2" type="MarginContainer" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -98,7 +97,7 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y8020")
 theme_override_font_sizes/font_size = 21
-text = "Settings"
+text = "Ustawienia"
 
 [node name="MarginContainer3" type="MarginContainer" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -108,7 +107,7 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y8020")
 theme_override_font_sizes/font_size = 21
-text = "Exit"
+text = "Wyjdź do menu"
 
 [connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/PlayButton" to="EscapeUIControl" method="_on_play_button_pressed"]
 [connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/SettingsButton" to="EscapeUIControl" method="_on_settings_button_pressed"]

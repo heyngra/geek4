@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dky6yxss0itow"]
+[gd_scene load_steps=30 format=3 uid="uid://dky6yxss0itow"]
 
 [ext_resource type="Texture2D" uid="uid://bulvqo2ffs4bw" path="res://Legacy-Fantasy - High Forest 2.3/Character/Idle/Idle-Sheet.png" id="1_6q3ur"]
 [ext_resource type="Script" path="res://scenes/player/maria_2.cs" id="1_cp08y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/player/CharacterStateMachine.cs" id="7_yo1em"]
 [ext_resource type="Script" path="res://scenes/player/GroundState.cs" id="8_kaibg"]
 [ext_resource type="Script" path="res://scenes/player/AirState.cs" id="9_j4fkc"]
+[ext_resource type="Texture2D" uid="uid://bbsjkcels3j23" path="res://assets/misc/2d_lights_and_shadows_neutral_point_light.webp" id="9_p6wqh"]
 [ext_resource type="Script" path="res://scenes/player/StateDebugLabel.cs" id="10_2886u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eq6pb"]
@@ -363,3 +364,9 @@ position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
 drag_left_margin = 0.05
 drag_right_margin = 0.05
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+shadow_enabled = true
+texture = ExtResource("9_p6wqh")
+texture_scale = 0.71
