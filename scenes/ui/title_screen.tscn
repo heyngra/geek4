@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://dhjtmhlkdts2e"]
+[gd_scene load_steps=12 format=3 uid="uid://dhjtmhlkdts2e"]
 
 [ext_resource type="Texture2D" uid="uid://p5jh77lj0o7x" path="res://assets/textures/chemistry_table/bez nazwy.png" id="1_53isw"]
+[ext_resource type="Script" path="res://scenes/ui/titlescreencanvaslayer.cs" id="1_mxx0l"]
 [ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="1_ogh8r"]
 [ext_resource type="TileSet" uid="uid://b0lf3l2i5fu80" path="res://assets/tilesets/test_env2.tres" id="2_dnhth"]
 [ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="2_qrmti"]
@@ -52,6 +53,7 @@ loop = true
 [node name="title_screen" type="Node2D"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("1_mxx0l")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
