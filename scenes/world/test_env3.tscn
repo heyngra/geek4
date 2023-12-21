@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dspt7tk0xunun"]
+[gd_scene load_steps=5 format=3 uid="uid://dspt7tk0xunun"]
 
 [ext_resource type="TileSet" uid="uid://b41t65bototqx" path="res://assets/tilesets/test_env3.tres" id="1_x66ym"]
+[ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="3_dw86y"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="3_x4g4l"]
+[ext_resource type="Script" path="res://scenes/world/test.cs" id="4_6bcug"]
 
 [node name="test_env3" type="Node2D"]
 
@@ -10,10 +12,16 @@ tile_set = ExtResource("1_x66ym")
 format = 2
 layer_0/tile_data = PackedInt32Array(0, 262144, 0, 65536, 262144, 1, 131072, 262144, 2, 196608, 262144, 3, 262144, 262144, 4, 65533, 65536, 0, 131069, 65536, 1, 196605, 65536, 2, 262141, 65536, 3, 327677, 65536, 4, 65534, 131072, 0, 131070, 131072, 1, 196606, 131072, 2, 262142, 131072, 3, 327678, 131072, 4, 65535, 196608, 0, 131071, 196608, 1, 196607, 196608, 2, 262143, 196608, 3, 327679, 196608, 4, 65530, 65536, 0, 131066, 65536, 1, 196602, 65536, 2, 262138, 65536, 3, 327674, 65536, 4, 65531, 131072, 0, 131067, 131072, 1, 196603, 131072, 2, 262139, 131072, 3, 327675, 131072, 4, 65532, 196608, 0, 131068, 196608, 1, 196604, 196608, 2, 262140, 196608, 3, 327676, 196608, 4, 65529, 0, 0, 131065, 0, 1, 196601, 0, 2, 262137, 0, 3, 327673, 0, 4, 65528, 0, 0, 131064, 0, 1, 196600, 0, 2, 262136, 0, 3, 327672, 0, 4)
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Maria2" parent="." instance=ExtResource("3_dw86y")]
 position = Vector2(-52, -53)
+
+[node name="PlayerSpawner" type="Node2D" parent="."]
+position = Vector2(-53, -49)
 script = ExtResource("3_x4g4l")
 
 [node name="Ciemnosc" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0.0235294, 0.0156863, 0.0156863, 1)
+
+[node name="test" type="Node" parent="."]
+script = ExtResource("4_6bcug")

@@ -37,6 +37,7 @@ public partial class maria_2 : CharacterBody2D
 	
 	public override void _PhysicsProcess(double delta)
 	{
+		if (IsQueuedForDeletion()) return;
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.

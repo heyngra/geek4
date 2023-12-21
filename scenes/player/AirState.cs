@@ -35,7 +35,7 @@ public partial class AirState : State
             }
             else
             {
-                Singleton.PauseScene("res://scenes/world/test_env2.tscn");
+                Singleton.GotoScene("res://scenes/world/test_env2.tscn");
                 
                 Singleton.Dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
                 Singleton.Dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");

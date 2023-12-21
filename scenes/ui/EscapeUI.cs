@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 
 public partial class EscapeUI : Control
 {
@@ -31,10 +32,21 @@ public partial class EscapeUI : Control
 		Singleton.UiLock = false;
 	}
 	
-	public void _on_exit_button_pressed()
+	public async void _on_exit_button_pressed()
 	{
 		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
-		GetTree().Quit();
+		exitMenu();
+		await ToSignal(GetTree().CreateTimer(Singleton.Transition.LoadTransition("dissolve")), "timeout");
+		Singleton.SaveHandler.SaveGame();
+		maria_2 maria = Singleton.Maria;
+		Singleton.Maria = null;
+		maria.Free();
+		foreach (KeyValuePair<string, Node> scene in Singleton.PausedScenes)
+		{
+			scene.Value.Free();
+			Singleton.PausedScenes.Remove(scene.Key);
+		}
+		Singleton.GotoScene("res://scenes/ui/title_screen.tscn");
 	}
 
 	public void _on_play_button_pressed()

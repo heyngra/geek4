@@ -9,8 +9,14 @@ public partial class singleton : Node
     public Node CurrentScene { get; set; }
     public maria_2 Maria { get; set; }
     public scene_transition Transition { get; set; }
-
+    public SaveHandler SaveHandler { get; set; }
     public dialog Dialog { get; set; }
+
+    public string OverrideSaveName = "singleton";
+
+    public float HP = 100; // to test saving
+    
+    public Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Variant>> Save = null;
     /// <summary>
     ///  If true, the UI currently opened is supposed to block normal actions, such as mob/character movement.
     /// </summary>
@@ -33,6 +39,7 @@ public partial class singleton : Node
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
         Transition = GetNode<scene_transition>("/root/SceneTransition");
         Dialog = GetNode<dialog>("/root/Gui/Dialog/DialogControl");
+        SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
     }
     
     /// <summary>
@@ -78,7 +85,6 @@ public partial class singleton : Node
         {
             foreach (var child in GetAllChildren(GetTree().Root))
             {
-                GD.Print("Another child" + child);
                 if (child is maria_2)
                 {
                     maria = (maria_2)child;
@@ -95,18 +101,18 @@ public partial class singleton : Node
         if (PausedScenes.ContainsKey(CurrentScene.SceneFilePath))
         {
             GetTree().Root.RemoveChild(CurrentScene);
-            GD.Print("Removed scene "+CurrentScene.SceneFilePath+" from root as a part of pausing.");
+            //GD.Print("Removed scene "+CurrentScene.SceneFilePath+" from root as a part of pausing.");
         }
         else
         {
-            GD.Print("Freed scene "+CurrentScene.SceneFilePath+" as a part of changing scenes.");
+            //GD.Print("Freed scene "+CurrentScene.SceneFilePath+" as a part of changing scenes.");
             CurrentScene.Free();
         }
         
         if (PausedScenes.TryGetValue(path, out var scene))
         {
             CurrentScene = scene;
-            GD.Print("Resumed scene "+path+" as a part of changing scenes.");
+            //GD.Print("Resumed scene "+path+" as a part of changing scenes.");
             PausedScenes.Remove(path);
         }
         else
@@ -114,7 +120,7 @@ public partial class singleton : Node
             nextScene = (PackedScene)GD.Load(path);
         
             CurrentScene = nextScene.Instantiate();
-            GD.Print("Instantiated scene "+path+" as a part of changing scenes.");
+            //GD.Print("Instantiated scene "+path+" as a part of changing scenes.");
         }
         
         GetTree().Root.AddChild(CurrentScene);
@@ -180,4 +186,15 @@ public partial class singleton : Node
         if (timeLeft!=0) await ToSignal(GetTree().CreateTimer(timeLeft), "timeout");
         if (IsInstanceValid(player)) player.Stop();player.QueueFree();
     }
+
+    public Godot.Collections.Dictionary<string, Variant> SaveData()
+    {
+        return new Godot.Collections.Dictionary<string, Variant>
+        {
+            {"HP", HP}
+        };
+    }
+    
+    
+    
 }

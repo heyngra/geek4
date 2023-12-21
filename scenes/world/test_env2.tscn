@@ -28,10 +28,9 @@ position = Vector2(111, -70)
 script = ExtResource("4_kfoi5")
 
 [node name="Ciemnosc" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0.0235294, 0.0156863, 0.0156863, 1)
+color = Color(0.164706, 0.341176, 0.368627, 1)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 energy = 0.45
 shadow_enabled = true
+shadow_filter = 2

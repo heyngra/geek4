@@ -23,6 +23,7 @@ shadow_color = Color(0, 0, 0, 0.709804)
 [node name="EscapeUI" type="CanvasLayer"]
 
 [node name="EscapeUIControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,7 +108,7 @@ theme_override_constants/margin_top = 5
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_y8020")
 theme_override_font_sizes/font_size = 21
-text = "Wyjdź do menu"
+text = "Zapisz i wyjdź"
 
 [connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/PlayButton" to="EscapeUIControl" method="_on_play_button_pressed"]
 [connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/SettingsButton" to="EscapeUIControl" method="_on_settings_button_pressed"]
