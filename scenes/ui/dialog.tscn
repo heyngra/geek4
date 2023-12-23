@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bkgda3j4nhuw0"]
 
+[ext_resource type="Script" path="res://scripts/dialoghandler.cs" id="1_6i1gl"]
 [ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="1_8k8yi"]
-[ext_resource type="Script" path="res://scenes/ui/dialog.cs" id="1_wkmi0"]
 [ext_resource type="Texture2D" uid="uid://dg53045thqycu" path="res://assets/ui/Haley.png" id="3_8613w"]
 [ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="3_kwk2y"]
 [ext_resource type="Texture2D" uid="uid://dwj52mtrx5vln" path="res://assets/ui/pixel-art-gui-elements/gui_avatar.png" id="4_48507"]
@@ -145,7 +145,7 @@ offset_left = 0.0549927
 offset_right = 0.0549927
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_wkmi0")
+script = ExtResource("1_6i1gl")
 
 [node name="Panel" type="Panel" parent="DialogControl"]
 layout_mode = 0

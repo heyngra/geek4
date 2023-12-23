@@ -10,7 +10,7 @@ public partial class singleton : Node
     public maria_2 Maria { get; set; }
     public scene_transition Transition { get; set; }
     public SaveHandler SaveHandler { get; set; }
-    public dialog Dialog { get; set; }
+    public dialoghandler Dialoghandler { get; set; }
 
     public string OverrideSaveName = "singleton";
 
@@ -38,7 +38,7 @@ public partial class singleton : Node
         Viewport root = GetTree().Root;
         CurrentScene = root.GetChild(root.GetChildCount() - 1);
         Transition = GetNode<scene_transition>("/root/SceneTransition");
-        Dialog = GetNode<dialog>("/root/Gui/Dialog/DialogControl");
+        Dialoghandler = GetNode<dialoghandler>("/root/Gui/Dialog/DialogControl");
         SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
     }
     

@@ -30,18 +30,22 @@ public partial class AirState : State
             if (GD.Randi() % 2 == 1)
             {
                 Singleton.PauseScene("res://scenes/world/test_env3.tscn");
-                Singleton.Dialog.PlayNextDialog();
+                Singleton.Dialoghandler.PlayNextDialog();
                 
             }
             else
             {
                 Singleton.GotoScene("res://scenes/world/test_env2.tscn");
+
+                Dialog dialog = new Dialog();
                 
-                Singleton.Dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
-                Singleton.Dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");
-                Singleton.Dialog.AddDialog("Kamila", "a nie w Elblągu.", "res://assets/ui/qs.png");
-                Singleton.Dialog.AddDialog("Kamil", "Aha, no to faktycznie.", "res://assets/ui/Haley.png");
-                Singleton.Dialog.PlayNextDialog();
+                dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
+                dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");
+                dialog.AddDialog("Kamila", "a nie w Elblągu.", "res://assets/ui/qs.png");
+                dialog.AddDialog("Kamil", "Aha, no to faktycznie.", "res://assets/ui/Haley.png");
+                
+                Singleton.Dialoghandler.PlayDialog(dialog);
+                Singleton.Dialoghandler.PlayNextDialog();
                 
             }
         }
