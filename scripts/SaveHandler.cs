@@ -1,49 +1,6 @@
 using Godot;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Godot.Collections;
-using Microsoft.VisualBasic;
-
-    /*public class SavedObject
-{
-    public Dictionary<string, Object> SavedValues = new();
-    
-    public void Save(string name, Object value)
-    {
-        SavedValues[name] = value;
-    }
-
-    public void Save(string[] nameTree, Object value)
-    {
-        if (nameTree.Length == 1)
-        {
-            Save(nameTree[0], value);
-            return;
-        }
-        if (!SavedValues.ContainsKey(nameTree[0])) SavedValues[nameTree[0]] = new SavedObject();
-        ((SavedObject) SavedValues[nameTree[0]]).Save(nameTree.Skip(1).ToArray(), value);
-    }
-    
-    public Object Get(string name)
-    {
-        return SavedValues[name];
-    }
-
-    public string toJSON()
-    {
-        return JsonConvert.SerializeObject(SavedValues);
-    }
-    
-    public static SavedObject fromJSON(string json)
-    {
-        SavedObject savedObject = new();
-        savedObject.SavedValues = JsonConvert.DeserializeObject<Dictionary<string, Object>>(json);
-        return savedObject;
-    }
-}*/
-
-
 
 public partial class SaveHandler : Node
 {
@@ -62,17 +19,6 @@ public partial class SaveHandler : Node
         GD.Print(savedNodes+"\n\n\n\n");
         scenes.Add(GetNode<Node>("/root"));
         foreach (Node pausedScenesValue in Singleton.PausedScenes.Values) scenes.Add(pausedScenesValue);
-
-        /*foreach (KeyValuePair<string, Godot.Collections.Dictionary<string, Variant>> savedNode in savedNodes)
-        {
-            foreach (KeyValuePair<string, Variant> savedNode2 in savedNode.Value)
-            {
-                if (savedNode2.Value.VariantType == Variant.Type.Dictionary)
-                {
-                    savedNodes[savedNode.Key][savedNode2.Key] = savedNode2.Value.Obj;
-                }
-            }
-        }*/
         
         foreach (Node scene in scenes)
         {
