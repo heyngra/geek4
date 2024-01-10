@@ -8,7 +8,6 @@ public partial class titlescreencanvaslayer : CanvasLayer
 	public override void _Ready()
 	{
 		Singleton = GetNode<singleton>("/root/Singleton");
-		
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -58,7 +58,7 @@ public partial class EscapeUI : Control
 	public void _on_settings_button_pressed()
 	{
 		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
-		// todo
+		GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl").OpenMenu();
 	}
 	
 }

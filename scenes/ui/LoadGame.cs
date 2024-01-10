@@ -4,8 +4,6 @@ using System;
 public partial class LoadGame : Button
 {
 	private singleton Singleton;
-
-	[Export] public PackedScene Scene;
 	
 	public override void _Ready()
 	{

@@ -23,7 +23,6 @@ shadow_color = Color(0, 0, 0, 0.709804)
 [node name="EscapeUI" type="CanvasLayer"]
 
 [node name="EscapeUIControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5

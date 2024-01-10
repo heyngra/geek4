@@ -16,7 +16,6 @@ public partial class SaveHandler : Node
         using var saveGame = FileAccess.Open("user://save1.dat", FileAccess.ModeFlags.Write);
         List<Node> scenes = new();
         Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Variant>> savedNodes = Singleton.Save ?? new();
-        GD.Print(savedNodes+"\n\n\n\n");
         scenes.Add(GetNode<Node>("/root"));
         foreach (Node pausedScenesValue in Singleton.PausedScenes.Values) scenes.Add(pausedScenesValue);
         
@@ -46,7 +45,6 @@ public partial class SaveHandler : Node
         
         string json = Json.Stringify(savedNodes);
         saveGame.StoreString(json);
-        GD.Print(json);
     }
 
     public void LoadGame()
@@ -100,6 +98,12 @@ public partial class SaveHandler : Node
         var callerObject = Singleton.Save[name!];
         return callerObject[key];
 
+    }
+
+    public void SetUniqueValue(string key, Object value)
+    {
+        Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Variant>> savedNodes = Singleton.Save ?? new();
+        savedNodes["unique"][key] = (Variant)value;
     }
     
 }

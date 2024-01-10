@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Geek4"
+config/name="Przygoda Marii"
 run/main_scene="res://scenes/ui/title_screen.tscn"
 config/features=PackedStringArray("4.1", "C#", "Forward Plus")
 boot_splash/show_image=false
@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 
 SceneTransition="*res://scenes/ui/scene_transition.tscn"
 SaveHandler="*res://scripts/SaveHandler.cs"
+ConfigHandler="*res://scripts/ConfigHandler.cs"
 Gui="*res://scenes/ui/gui.tscn"
 Singleton="*res://scripts/singleton.cs"
 

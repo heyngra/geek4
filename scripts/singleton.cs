@@ -11,6 +11,7 @@ public partial class singleton : Node
     public scene_transition Transition { get; set; }
     public SaveHandler SaveHandler { get; set; }
     public dialoghandler Dialoghandler { get; set; }
+    public ConfigHandler ConfigHandler { get; set; }
 
     public string OverrideSaveName = "singleton";
 
@@ -40,6 +41,18 @@ public partial class singleton : Node
         Transition = GetNode<scene_transition>("/root/SceneTransition");
         Dialoghandler = GetNode<dialoghandler>("/root/Gui/Dialog/DialogControl");
         SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
+        ConfigHandler = GetNode<ConfigHandler>("/root/ConfigHandler");
+        
+        // load config
+        foreach (var node in singleton.GetAllChildren(GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl")))
+        {
+            if (node.HasMethod("_on_visibility_changed"))
+            {
+                node.Call("_on_visibility_changed");
+            }
+        }
+        
+        
     }
     
     /// <summary>
@@ -47,9 +60,10 @@ public partial class singleton : Node
     /// </summary>
     /// <param name="path">Scene path</param>
     /// <param name="transition">Transition used in changing scene</param>
-    public void GotoScene(string path, string transition = "dissolve")
+    /// <param name="ignoreSave">Ignore saving the game while changing scenes></param>
+    public void GotoScene(string path, string transition = "dissolve", bool ignoreSave=false)
     {
-        CallDeferred(MethodName.DeferredGotoScene, path, transition);
+        CallDeferred(MethodName.DeferredGotoScene, path, transition, ignoreSave);
     }
     /// <summary>
     /// Use this method to pause the current scene, and then 
@@ -77,7 +91,7 @@ public partial class singleton : Node
         }
     }
 
-    private async void DeferredGotoScene(string path, string transition)
+    private async void DeferredGotoScene(string path, string transition, bool ignoreSave=false)
     {
 
         maria_2 maria = Maria;
@@ -95,6 +109,7 @@ public partial class singleton : Node
         GD.Print(maria);
         await ToSignal(GetTree().CreateTimer(Transition.LoadTransition("dissolve")), "timeout"); // may sometimes generate errors(?)
         GD.Print("animation finished1");
+        SaveHandler.SaveGame();
         maria?.GetParent().RemoveChild(maria); // maria? == if (maria != null)
         PackedScene nextScene = null;
         
@@ -152,7 +167,7 @@ public partial class singleton : Node
     {
         PausedScenes.Add(CurrentScene.SceneFilePath, CurrentScene);
         GD.Print("Paused scene "+CurrentScene.SceneFilePath);
-        DeferredGotoScene(path, transition);
+        DeferredGotoScene(path, transition, true);
     }
 
     /// <summary>
