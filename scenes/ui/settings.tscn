@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cxrrsldc8fvcw"]
+[gd_scene load_steps=16 format=3 uid="uid://cxrrsldc8fvcw"]
 
 [ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="1_b0a28"]
 [ext_resource type="Script" path="res://scenes/ui/SettingsControl.cs" id="1_nh5kt"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scenes/ui/settings/statUpdater.cs" id="8_4svy6"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Brightness.cs" id="8_f4joe"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Cursor.cs" id="8_xgscy"]
+[ext_resource type="Script" path="res://scenes/ui/settings/audiobushandler.cs" id="12_2nl3a"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3kyi"]
 font_size = 32
@@ -207,6 +208,7 @@ offset_right = -1.5
 offset_bottom = 27.0
 text = "0"
 horizontal_alignment = 2
+vertical_alignment = 1
 script = ExtResource("8_4svy6")
 
 [node name="V-Sync" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items"]
@@ -279,6 +281,163 @@ grow_horizontal = 0
 button_pressed = true
 script = ExtResource("8_xgscy")
 
+[node name="Dźwiek" type="MarginContainer" parent="SettingsControl/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="GridContainer" type="GridContainer" parent="SettingsControl/TabContainer/Dźwiek"]
+layout_mode = 2
+theme_override_constants/h_separation = 40
+columns = 4
+
+[node name="Master" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("12_2nl3a")
+AudioBusName = "Master"
+Slider = NodePath("VSlider")
+Label = NodePath("VSlider/Label")
+
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Master"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 161.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = 5.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Master - 0 db"
+horizontal_alignment = 1
+
+[node name="Music" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("12_2nl3a")
+AudioBusName = "Music"
+Slider = NodePath("VSlider")
+Label = NodePath("VSlider/Label")
+
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Music"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 161.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = 5.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Master - 0 db"
+horizontal_alignment = 1
+
+[node name="SFX" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("12_2nl3a")
+AudioBusName = "SFX"
+Slider = NodePath("VSlider")
+Label = NodePath("VSlider/Label")
+
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 161.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = 5.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Master - 0 db"
+horizontal_alignment = 1
+
+[node name="Ambience" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("12_2nl3a")
+AudioBusName = "Ambient"
+Slider = NodePath("VSlider")
+Label = NodePath("VSlider/Label")
+
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 161.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -29.0
+offset_top = 5.0
+offset_right = 31.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Master - 0 db"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsControl/TabContainer/Dźwiek"]
+visible = false
+layout_mode = 2
+
 [node name="ExitButton" type="Button" parent="SettingsControl"]
 layout_mode = 1
 anchors_preset = 3
@@ -307,4 +466,12 @@ text = "Wyjdź"
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" to="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" method="_on_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" to="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" method="_on_pressed"]
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" to="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" method="_on_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Master" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Master" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Music" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Music" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience" method="_on_slider_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/ExitButton" to="SettingsControl" method="_on_exit_button_pressed"]

@@ -1,6 +1,11 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bhj68x8vfk8s0"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://bhj68x8vfk8s0"]
+
+[ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="1_q80vj"]
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="2_efxt4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_adioc"]
 
 [resource]
+default_font = ExtResource("2_efxt4")
+Button/fonts/font = ExtResource("1_q80vj")
 Button/styles/focus = SubResource("StyleBoxEmpty_adioc")

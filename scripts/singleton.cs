@@ -43,8 +43,8 @@ public partial class singleton : Node
         SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
         ConfigHandler = GetNode<ConfigHandler>("/root/ConfigHandler");
         
-        // load config
-        foreach (var node in singleton.GetAllChildren(GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl")))
+        // load config in settings
+        foreach (var node in GetAllChildren(GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl")))
         {
             if (node.HasMethod("_on_visibility_changed"))
             {
