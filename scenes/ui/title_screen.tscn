@@ -7,10 +7,10 @@
 [ext_resource type="Script" path="res://scenes/ui/TitleScreenControl.cs" id="2_tyc4g"]
 [ext_resource type="PackedScene" uid="uid://dspt7tk0xunun" path="res://scenes/world/test_env3.tscn" id="4_8fmq0"]
 [ext_resource type="Script" path="res://scenes/ui/LoadGame.cs" id="5_jcf3j"]
-[ext_resource type="StyleBox" uid="uid://cl40wo664e8bh" path="res://menutlo.tres" id="5_xsp5a"]
+[ext_resource type="StyleBox" path="res://menutlo.tres" id="5_xsp5a"]
 [ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="6_aldpt"]
 [ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="7_u1plu"]
-[ext_resource type="Theme" uid="uid://bkkxygp1kidli" path="res://scenes/ui/przycisk.tres" id="8_4jpsv"]
+[ext_resource type="Theme" uid="uid://c13f8qarn8iww" path="res://scenes/ui/przycisk.tres" id="8_4jpsv"]
 
 [sub_resource type="Theme" id="Theme_lupsb"]
 default_font = ExtResource("6_aldpt")

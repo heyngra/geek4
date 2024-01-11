@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://c05tu4jjikoup"]
 
 [ext_resource type="Script" path="res://scenes/ui/EscapeUI.cs" id="1_kdu55"]
-[ext_resource type="StyleBox" uid="uid://cl40wo664e8bh" path="res://menutlo.tres" id="2_gbipm"]
-[ext_resource type="Theme" uid="uid://bkkxygp1kidli" path="res://scenes/ui/przycisk.tres" id="4_0jfan"]
+[ext_resource type="StyleBox" path="res://menutlo.tres" id="2_gbipm"]
+[ext_resource type="Theme" uid="uid://c13f8qarn8iww" path="res://scenes/ui/przycisk.tres" id="4_0jfan"]
 [ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="4_y8020"]
 
 [sub_resource type="Gradient" id="Gradient_kik5h"]
