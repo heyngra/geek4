@@ -18,11 +18,11 @@ public partial class SettingsControl : Control
 
 	public void ExitMenu()
 	{
-		Visible = false;
 		Singleton.UiLock = false;
+		Visible = false;
 	}
 
-	public async void _on_exit_button_pressed()
+	public void _on_exit_button_pressed()
 	{
 		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
 		ExitMenu();

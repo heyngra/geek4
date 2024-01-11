@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxrrsldc8fvcw"]
+[gd_scene load_steps=15 format=3 uid="uid://cxrrsldc8fvcw"]
 
 [ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="1_b0a28"]
 [ext_resource type="Script" path="res://scenes/ui/SettingsControl.cs" id="1_nh5kt"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" path="res://scenes/ui/settings/Fullscreen.cs" id="5_mivo0"]
 [ext_resource type="Script" path="res://scenes/ui/settings/VSync.cs" id="6_gjyhc"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Resolution.cs" id="6_p8shx"]
+[ext_resource type="Script" path="res://scenes/ui/settings/statUpdater.cs" id="8_4svy6"]
+[ext_resource type="Script" path="res://scenes/ui/settings/Brightness.cs" id="8_f4joe"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Cursor.cs" id="8_xgscy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3kyi"]
@@ -154,7 +156,6 @@ anchor_right = 1.0
 offset_left = -78.0
 offset_bottom = 31.0
 grow_horizontal = 0
-selected = 0
 fit_to_longest_item = false
 script = ExtResource("6_p8shx")
 
@@ -195,6 +196,18 @@ theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = 0
 rounded = true
 scrollable = false
+script = ExtResource("8_f4joe")
+
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider"]
+layout_direction = 2
+layout_mode = 1
+offset_left = -65.5
+offset_top = 1.0
+offset_right = -1.5
+offset_bottom = 27.0
+text = "0"
+horizontal_alignment = 2
+script = ExtResource("8_4svy6")
 
 [node name="V-Sync" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items"]
 layout_mode = 2
@@ -287,6 +300,9 @@ text = "Wyjdź"
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/Fullscreen/Control2/Fullscreen" to="SettingsControl/TabContainer/Ogólne/Items/Fullscreen/Control2/Fullscreen" method="_on_visibility_changed"]
 [connection signal="item_selected" from="SettingsControl/TabContainer/Ogólne/Items/Resolution/Control2/Resolution" to="SettingsControl/TabContainer/Ogólne/Items/Resolution/Control2/Resolution" method="_on_item_selected"]
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/Resolution/Control2/Resolution" to="SettingsControl/TabContainer/Ogólne/Items/Resolution/Control2/Resolution" method="_on_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider" to="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider" method="_on_value_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider" to="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider/Label" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider" to="SettingsControl/TabContainer/Ogólne/Items/Brightness/Control2/HSlider" method="_on_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" to="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" method="_on_pressed"]
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" to="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" method="_on_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" to="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" method="_on_pressed"]
