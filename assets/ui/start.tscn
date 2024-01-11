@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cegjsp2htmfvs"]
+
+[node name="start" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]

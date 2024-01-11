@@ -1,0 +1,9 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://cl40wo664e8bh"]
+
+[ext_resource type="Texture2D" uid="uid://wo47b2124dqa" path="res://assets/ui/menu — kopia.png" id="1_0gjic"]
+
+[resource]
+texture = ExtResource("1_0gjic")
+expand_margin_left = 15.0
+expand_margin_top = 17.0
+expand_margin_right = 17.0

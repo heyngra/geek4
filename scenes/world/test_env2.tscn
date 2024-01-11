@@ -1,8 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://tgyi5i31ixy5"]
+[gd_scene load_steps=7 format=3 uid="uid://tgyi5i31ixy5"]
 
 [ext_resource type="TileSet" uid="uid://b0lf3l2i5fu80" path="res://assets/tilesets/test_env2.tres" id="1_fugok"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_ml5gi"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="4_kfoi5"]
+[ext_resource type="Texture2D" uid="uid://bodmc2ql1eonv" path="res://assets/textures/szafka prawa.png" id="4_vd8dv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hq1g"]
+texture = ExtResource("4_vd8dv")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vcwrg"]
+sources/0 = SubResource("TileSetAtlasSource_1hq1g")
 
 [node name="test_env2" type="Node2D"]
 
@@ -32,3 +55,14 @@ visible = false
 energy = 0.45
 shadow_enabled = true
 shadow_filter = 2
+
+[node name="world" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="world"]
+tile_set = SubResource("TileSet_vcwrg")
+format = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="world/TileMap"]
+position = Vector2(186, -32)
+scale = Vector2(0.59375, 0.46875)
+texture = ExtResource("4_vd8dv")

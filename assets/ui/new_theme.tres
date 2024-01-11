@@ -1,6 +1,15 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://bsqhwid6yo128"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bsqhwid6yo128"]
 
 [ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="1_amom8"]
+[ext_resource type="Texture2D" uid="uid://djc0q57dm5pct" path="res://assets/ui/tlo.png" id="1_l8un4"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_febi0"]
+texture = ExtResource("1_l8un4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_510wa"]
+texture = ExtResource("1_l8un4")
 
 [resource]
 default_font = ExtResource("1_amom8")
+Panel/styles/panel = SubResource("StyleBoxTexture_febi0")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_510wa")
