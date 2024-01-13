@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnnrtc5icpat1"]
+
+[ext_resource type="Script" path="res://scenes/ui/InteractPopup.cs" id="1_g7dgy"]
+[ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="1_yirw0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w0rdv"]
+line_spacing = 2.0
+font = ExtResource("1_yirw0")
+font_size = 17
+font_color = Color(0.576471, 0.713726, 0.854902, 1)
+shadow_size = 2
+shadow_color = Color(0.466667, 0.588235, 0.709804, 1)
+
+[node name="Interact" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_g7dgy")
+
+[node name="PanelContainer" type="PanelContainer" parent="Control"]
+layout_direction = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -107.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="Control/PanelContainer"]
+layout_mode = 2
+text = "Press E to 
+interact"
+label_settings = SubResource("LabelSettings_w0rdv")
+horizontal_alignment = 1
+vertical_alignment = 1

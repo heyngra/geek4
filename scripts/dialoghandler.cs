@@ -37,7 +37,7 @@ public class Dialog
 	/// <param name="callback">A function, that is called when the dialog is shown to the user.</param>
 	/// <param name="timeToSkip">Time required until you can go to the next dialog.</param>
 
-	public void AddDialog(String speaker, String text, String art, Action callback=null, float timeToSkip=0.5f)
+	public void AddDialog(String speaker, String text, String art="res://assets/ui/qs.png", Action callback=null, float timeToSkip=0.5f)
 	{
 		DialogQueue.Add(new(speaker, text, art, callback, timeToSkip));
 	}
