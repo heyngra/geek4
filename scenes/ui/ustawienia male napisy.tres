@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cjx63fc28rr0g"]
+
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="1_6g18r"]
+
+[resource]
+font = ExtResource("1_6g18r")
+font_size = 20
+shadow_color = Color(0.258824, 0.258824, 0.258824, 1)

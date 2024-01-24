@@ -1,33 +1,47 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxrrsldc8fvcw"]
+[gd_scene load_steps=23 format=3 uid="uid://cxrrsldc8fvcw"]
 
-[ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="1_b0a28"]
 [ext_resource type="Script" path="res://scenes/ui/SettingsControl.cs" id="1_nh5kt"]
 [ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="2_u4g42"]
+[ext_resource type="Texture2D" uid="uid://be0u770cmgh1y" path="res://assets/ui/ustawienia.png" id="2_x1ocl"]
 [ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="3_4q6rp"]
-[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="4_ulptn"]
+[ext_resource type="LabelSettings" uid="uid://1vg0jkuklk4t" path="res://ustawienia.tres" id="4_31mvo"]
 [ext_resource type="Theme" uid="uid://bhj68x8vfk8s0" path="res://scenes/ui/settingsTheme.tres" id="5_e6cry"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Fullscreen.cs" id="5_mivo0"]
+[ext_resource type="LabelSettings" uid="uid://cjx63fc28rr0g" path="res://scenes/ui/ustawienia male napisy.tres" id="6_02h1e"]
 [ext_resource type="Script" path="res://scenes/ui/settings/VSync.cs" id="6_gjyhc"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Resolution.cs" id="6_p8shx"]
 [ext_resource type="Script" path="res://scenes/ui/settings/statUpdater.cs" id="8_4svy6"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Brightness.cs" id="8_f4joe"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Cursor.cs" id="8_xgscy"]
+[ext_resource type="Texture2D" path="res://assets/ui/grabber.png" id="9_uure5"]
+[ext_resource type="Texture2D" path="res://assets/ui/grabber klik.png" id="10_067q3"]
 [ext_resource type="Script" path="res://scenes/ui/settings/audiobushandler.cs" id="12_2nl3a"]
+[ext_resource type="LabelSettings" uid="uid://oxyulk3oildi" path="res://scenes/ui/ustawienia male napisy dzwiek.tres" id="16_gpoki"]
+[ext_resource type="StyleBox" uid="uid://dged3x7188nhc" path="res://scenes/ui/do hovera.tres" id="18_wtxyf"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_j3kyi"]
-font_size = 32
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ps2px"]
+texture = ExtResource("2_x1ocl")
 
-[sub_resource type="LabelSettings" id="LabelSettings_tj8v5"]
-font = ExtResource("4_ulptn")
-font_size = 20
+[sub_resource type="Theme" id="Theme_ahnnv"]
+HSlider/icons/grabber = ExtResource("9_uure5")
+HSlider/icons/grabber_highlight = ExtResource("10_067q3")
+HSlider/icons/tick = null
+
+[sub_resource type="Theme" id="Theme_bi63j"]
+VSlider/icons/grabber = ExtResource("9_uure5")
+VSlider/icons/grabber_highlight = ExtResource("10_067q3")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7cjfo"]
+bg_color = Color(0.615686, 0.745098, 0.882353, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [node name="Settings" type="CanvasLayer"]
 layer = 3
 
 [node name="SettingsControl" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,7 +54,7 @@ script = ExtResource("1_nh5kt")
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
 [node name="Panel" type="Panel" parent="SettingsControl"]
 layout_mode = 1
@@ -49,17 +63,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = ExtResource("1_b0a28")
+theme_override_styles/panel = SubResource("StyleBoxTexture_ps2px")
 
 [node name="Label" type="Label" parent="SettingsControl"]
 layout_mode = 1
-offset_left = 16.0
-offset_top = 15.0
-offset_right = 396.0
-offset_bottom = 69.0
+offset_left = 42.0
+offset_top = 14.0
+offset_right = 372.0
+offset_bottom = 115.0
 theme = ExtResource("2_u4g42")
 text = "Ustawienia"
-label_settings = SubResource("LabelSettings_j3kyi")
+label_settings = ExtResource("4_31mvo")
 vertical_alignment = 1
 
 [node name="TabContainer" type="TabContainer" parent="SettingsControl"]
@@ -69,10 +83,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -305.5
-offset_top = -122.0
-offset_right = 305.5
-offset_bottom = 122.0
+offset_left = -271.0
+offset_top = -114.0
+offset_right = 268.0
+offset_bottom = 128.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_e6cry")
@@ -105,7 +119,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Pełny ekran"
-label_settings = SubResource("LabelSettings_tj8v5")
+label_settings = ExtResource("6_02h1e")
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items/Fullscreen"]
@@ -139,7 +153,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Rozdzielczość"
-label_settings = SubResource("LabelSettings_tj8v5")
+label_settings = ExtResource("6_02h1e")
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items/Resolution"]
@@ -174,7 +188,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Jasność"
-label_settings = SubResource("LabelSettings_tj8v5")
+label_settings = ExtResource("6_02h1e")
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items/Brightness"]
@@ -193,6 +207,7 @@ offset_left = -86.0
 offset_right = 1.0
 offset_bottom = 27.0
 grow_horizontal = 0
+theme = SubResource("Theme_ahnnv")
 theme_override_constants/center_grabber = 0
 theme_override_constants/grabber_offset = 0
 rounded = true
@@ -225,7 +240,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "V-Sync"
-label_settings = SubResource("LabelSettings_tj8v5")
+label_settings = ExtResource("6_02h1e")
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items/V-Sync"]
@@ -260,7 +275,7 @@ layout_mode = 1
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Niestandardowy Kursor"
-label_settings = SubResource("LabelSettings_tj8v5")
+label_settings = ExtResource("6_02h1e")
 horizontal_alignment = 1
 
 [node name="Control2" type="Control" parent="SettingsControl/TabContainer/Ogólne/Items/Cursor"]
@@ -281,20 +296,21 @@ grow_horizontal = 0
 button_pressed = true
 script = ExtResource("8_xgscy")
 
-[node name="Dźwiek" type="MarginContainer" parent="SettingsControl/TabContainer"]
+[node name="Dźwięk" type="MarginContainer" parent="SettingsControl/TabContainer"]
 visible = false
 layout_mode = 2
+theme = SubResource("Theme_bi63j")
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="GridContainer" type="GridContainer" parent="SettingsControl/TabContainer/Dźwiek"]
+[node name="GridContainer" type="GridContainer" parent="SettingsControl/TabContainer/Dźwięk"]
 layout_mode = 2
 theme_override_constants/h_separation = 40
 columns = 4
 
-[node name="Master" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+[node name="Master" type="Control" parent="SettingsControl/TabContainer/Dźwięk/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -303,7 +319,7 @@ AudioBusName = "Master"
 Slider = NodePath("VSlider")
 Label = NodePath("VSlider/Label")
 
-[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Master"]
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Master"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -312,8 +328,9 @@ offset_left = -8.0
 offset_right = 8.0
 offset_bottom = 161.0
 grow_horizontal = 2
+theme_override_icons/grabber = ExtResource("9_uure5")
 
-[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider"]
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Master/VSlider"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -327,9 +344,10 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Master - 0 db"
+label_settings = ExtResource("16_gpoki")
 horizontal_alignment = 1
 
-[node name="Music" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+[node name="Music" type="Control" parent="SettingsControl/TabContainer/Dźwięk/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -338,7 +356,7 @@ AudioBusName = "Music"
 Slider = NodePath("VSlider")
 Label = NodePath("VSlider/Label")
 
-[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Music"]
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Music"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -348,7 +366,7 @@ offset_right = 8.0
 offset_bottom = 161.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider"]
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Music/VSlider"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -362,9 +380,10 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Master - 0 db"
+label_settings = ExtResource("16_gpoki")
 horizontal_alignment = 1
 
-[node name="SFX" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+[node name="SFX" type="Control" parent="SettingsControl/TabContainer/Dźwięk/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -373,7 +392,7 @@ AudioBusName = "SFX"
 Slider = NodePath("VSlider")
 Label = NodePath("VSlider/Label")
 
-[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX"]
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -383,7 +402,7 @@ offset_right = 8.0
 offset_bottom = 161.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider"]
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX/VSlider"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -397,9 +416,10 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Master - 0 db"
+label_settings = ExtResource("16_gpoki")
 horizontal_alignment = 1
 
-[node name="Ambience" type="Control" parent="SettingsControl/TabContainer/Dźwiek/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
+[node name="Ambience" type="Control" parent="SettingsControl/TabContainer/Dźwięk/GridContainer" node_paths=PackedStringArray("Slider", "Label")]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -408,7 +428,7 @@ AudioBusName = "Ambient"
 Slider = NodePath("VSlider")
 Label = NodePath("VSlider/Label")
 
-[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience"]
+[node name="VSlider" type="VSlider" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -418,7 +438,7 @@ offset_right = 8.0
 offset_bottom = 161.0
 grow_horizontal = 2
 
-[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider"]
+[node name="Label" type="Label" parent="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience/VSlider"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -432,9 +452,10 @@ offset_bottom = 31.0
 grow_horizontal = 2
 grow_vertical = 0
 text = "Master - 0 db"
+label_settings = ExtResource("16_gpoki")
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SettingsControl/TabContainer/Dźwiek"]
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsControl/TabContainer/Dźwięk"]
 visible = false
 layout_mode = 2
 
@@ -451,8 +472,15 @@ offset_right = -14.0
 offset_bottom = -8.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.933333, 1)
+theme_override_colors/font_pressed_color = Color(0.466667, 0.588235, 0.709804, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_4q6rp")
 theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_7cjfo")
+theme_override_styles/hover = ExtResource("18_wtxyf")
+theme_override_styles/pressed = ExtResource("18_wtxyf")
+theme_override_styles/focus = ExtResource("18_wtxyf")
 text = "Wyjdź"
 
 [connection signal="pressed" from="SettingsControl/TabContainer/Ogólne/Items/Fullscreen/Control2/Fullscreen" to="SettingsControl/TabContainer/Ogólne/Items/Fullscreen/Control2/Fullscreen" method="_on_pressed"]
@@ -466,12 +494,12 @@ text = "Wyjdź"
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" to="SettingsControl/TabContainer/Ogólne/Items/V-Sync/Control2/V-Sync" method="_on_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" to="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" method="_on_pressed"]
 [connection signal="visibility_changed" from="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" to="SettingsControl/TabContainer/Ogólne/Items/Cursor/Control2/CustomCursor" method="_on_visibility_changed"]
-[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Master" method="_on_slider_value_changed"]
-[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Master" method="_on_slider_visibility_changed"]
-[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Music" method="_on_slider_value_changed"]
-[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Music" method="_on_slider_visibility_changed"]
-[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX" method="_on_slider_value_changed"]
-[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/SFX" method="_on_slider_visibility_changed"]
-[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience" method="_on_slider_value_changed"]
-[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwiek/GridContainer/Ambience" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Master" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Master/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Master" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Music" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Music/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Music" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/SFX" method="_on_slider_visibility_changed"]
+[connection signal="value_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience" method="_on_slider_value_changed"]
+[connection signal="visibility_changed" from="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience/VSlider" to="SettingsControl/TabContainer/Dźwięk/GridContainer/Ambience" method="_on_slider_visibility_changed"]
 [connection signal="pressed" from="SettingsControl/ExitButton" to="SettingsControl" method="_on_exit_button_pressed"]

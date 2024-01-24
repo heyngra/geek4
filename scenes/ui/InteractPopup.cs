@@ -43,9 +43,9 @@ public partial class InteractPopup : Control
 		interactables.Sort(((Node a, Node b) =>
 		{
 			return (a.GetParent<Node2D>().GlobalPosition-
-			       maria.GlobalPosition).Length() >
-			       (b.GetParent<Node2D>().GlobalPosition-
-			       maria.GlobalPosition).Length() ? 1 : -1;
+				   maria.GlobalPosition).Length() >
+				   (b.GetParent<Node2D>().GlobalPosition-
+				   maria.GlobalPosition).Length() ? 1 : -1;
 		}));
 		if (interactables.Count == 0) return;
 		interactable closest = interactables[0] as interactable;

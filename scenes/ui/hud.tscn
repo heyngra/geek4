@@ -1,46 +1,88 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc6wynxohdo3x"]
+[gd_scene load_steps=11 format=3 uid="uid://cc6wynxohdo3x"]
 
 [ext_resource type="Script" path="res://scenes/ui/HUDControl.cs" id="1_3pm3g"]
-[ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="1_deqba"]
-[ext_resource type="Texture2D" uid="uid://b8jy1ds6obrkn" path="res://assets/ui/hp.png" id="2_den5p"]
+[ext_resource type="Texture2D" uid="uid://4ml5ewrhtnus" path="res://assets/ui/bc do hp.png" id="2_ibnxr"]
+[ext_resource type="Texture2D" uid="uid://dtda4vol4arj7" path="res://assets/ui/maria lvl.png" id="3_2n87c"]
+[ext_resource type="Theme" uid="uid://xktlhhn0nsgu" path="res://male przyciski.tres" id="3_qwr5c"]
+[ext_resource type="Theme" uid="uid://cyvdw0vq7e0pb" path="res://male menu.tres" id="5_n5t5k"]
+[ext_resource type="LabelSettings" uid="uid://die331h2xywah" path="res://literki duze z bc do hp.tres" id="6_2xhyn"]
+[ext_resource type="LabelSettings" uid="uid://dfwk37ig0npy4" path="res://hp.tres" id="7_746rx"]
+[ext_resource type="LabelSettings" uid="uid://bywag8vs3eayn" path="res://exp.tres" id="8_hsfhf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hyis"]
-texture = ExtResource("2_den5p")
-expand_margin_left = 4.0
-expand_margin_right = 4.0
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_elgrk"]
+texture = ExtResource("2_ibnxr")
 
-[sub_resource type="LabelSettings" id="LabelSettings_iah3u"]
-font_size = 14
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bxvco"]
+texture = ExtResource("3_2n87c")
 
 [node name="HUD" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 38.0
+grow_horizontal = 2
+size_flags_vertical = 4
 script = ExtResource("1_3pm3g")
 
 [node name="PanelContainer" type="PanelContainer" parent="Control"]
-layout_mode = 1
-offset_left = 25.0
-offset_top = 3.0
-offset_right = 149.0
-offset_bottom = 23.0
-
-[node name="ProgressBar" type="ProgressBar" parent="Control/PanelContainer"]
-layout_mode = 2
-size_flags_vertical = 1
-theme_override_styles/background = SubResource("StyleBoxTexture_3hyis")
-show_percentage = false
-
-[node name="Label" type="Label" parent="Control"]
 layout_mode = 0
-offset_left = 1.0
-offset_top = 8.0
-offset_right = 41.0
-offset_bottom = 34.0
-theme_override_fonts/font = ExtResource("1_deqba")
-text = "HP
-"
-label_settings = SubResource("LabelSettings_iah3u")
+offset_right = 679.0
+offset_bottom = 37.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_elgrk")
+
+[node name="quest" type="Button" parent="Control"]
+layout_mode = 2
+offset_left = 583.0
+offset_top = 6.0
+offset_right = 609.0
+offset_bottom = 31.0
+theme = ExtResource("3_qwr5c")
+
+[node name="postac" type="PanelContainer" parent="Control"]
+layout_mode = 0
+offset_right = 53.0
+offset_bottom = 38.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_bxvco")
+
+[node name="menu" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 6.0
+offset_right = 653.0
+offset_bottom = 31.0
+theme = ExtResource("5_n5t5k")
+
+[node name="miejsce" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 5.0
+offset_right = 552.0
+offset_bottom = 33.0
+text = "laaaaaaaaa laaaaaaaaaaaaaa laaaaaaaaaaaaa laaaaaaaaaaa"
+label_settings = ExtResource("6_2xhyn")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="exp" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 7.0
+offset_right = 84.0
+offset_bottom = 30.0
+text = "HP"
+label_settings = ExtResource("7_746rx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="hp" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 7.0
+offset_right = 197.0
+offset_bottom = 30.0
+text = "EXP"
+label_settings = ExtResource("8_hsfhf")
+horizontal_alignment = 1
+vertical_alignment = 1
