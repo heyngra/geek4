@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cxrrsldc8fvcw"]
+[gd_scene load_steps=24 format=3 uid="uid://cxrrsldc8fvcw"]
 
 [ext_resource type="Script" path="res://scenes/ui/SettingsControl.cs" id="1_nh5kt"]
 [ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="2_u4g42"]
@@ -13,14 +13,16 @@
 [ext_resource type="Script" path="res://scenes/ui/settings/statUpdater.cs" id="8_4svy6"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Brightness.cs" id="8_f4joe"]
 [ext_resource type="Script" path="res://scenes/ui/settings/Cursor.cs" id="8_xgscy"]
-[ext_resource type="Texture2D" path="res://assets/ui/grabber.png" id="9_uure5"]
-[ext_resource type="Texture2D" path="res://assets/ui/grabber klik.png" id="10_067q3"]
+[ext_resource type="Texture2D" uid="uid://dh2j2yi6n5p5k" path="res://assets/ui/grabber.png" id="9_uure5"]
+[ext_resource type="Texture2D" uid="uid://blh6ug0x2cwim" path="res://assets/ui/grabber klik.png" id="10_067q3"]
 [ext_resource type="Script" path="res://scenes/ui/settings/audiobushandler.cs" id="12_2nl3a"]
 [ext_resource type="LabelSettings" uid="uid://oxyulk3oildi" path="res://scenes/ui/ustawienia male napisy dzwiek.tres" id="16_gpoki"]
 [ext_resource type="StyleBox" uid="uid://dged3x7188nhc" path="res://scenes/ui/do hovera.tres" id="18_wtxyf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ps2px"]
 texture = ExtResource("2_x1ocl")
+
+[sub_resource type="Theme" id="Theme_sglex"]
 
 [sub_resource type="Theme" id="Theme_ahnnv"]
 HSlider/icons/grabber = ExtResource("9_uure5")
@@ -42,6 +44,7 @@ corner_radius_bottom_left = 4
 layer = 3
 
 [node name="SettingsControl" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -171,6 +174,7 @@ anchor_right = 1.0
 offset_left = -78.0
 offset_bottom = 31.0
 grow_horizontal = 0
+theme = SubResource("Theme_sglex")
 fit_to_longest_item = false
 script = ExtResource("6_p8shx")
 

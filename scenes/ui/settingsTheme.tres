@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dbquklc1pl5ej" path="res://assets/ui/check.png" id="2_ewb7t"]
 [ext_resource type="StyleBox" uid="uid://ij7mp8m4byr6" path="res://scenes/ui/focus jasny.tres" id="2_gf7q3"]
 [ext_resource type="Texture2D" uid="uid://cr5d6j3wr6gfp" path="res://assets/ui/un check.png" id="3_ky8o5"]
-[ext_resource type="Texture2D" path="res://assets/ui/arrow down.png" id="4_284cm"]
+[ext_resource type="Texture2D" uid="uid://do3s11rhogmub" path="res://assets/ui/arrow down.png" id="4_284cm"]
 [ext_resource type="StyleBox" uid="uid://0mrsartr8747" path="res://scenes/ui/hover rozdzialka.tres" id="5_lts0x"]
 [ext_resource type="StyleBox" uid="uid://dyrvwivtg6lp" path="res://scenes/ui/rozdzialka2.tres" id="5_obwh0"]
 [ext_resource type="StyleBox" uid="uid://cwyt4srducknk" path="res://scenes/ui/dzwiek jasny.tres" id="8_mx6t4"]
@@ -30,7 +30,6 @@ expand_margin_right = 11.0
 content_margin_left = 3.0
 content_margin_top = 2.0
 content_margin_right = 6.0
-bg_color = Color(0.431373, 0.552941, 0.670588, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
