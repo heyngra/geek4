@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="1_ogh8r"]
 [ext_resource type="TileSet" uid="uid://b0lf3l2i5fu80" path="res://assets/tilesets/test_env2.tres" id="2_dnhth"]
 [ext_resource type="Script" path="res://scenes/ui/TitleScreenControl.cs" id="2_tyc4g"]
-[ext_resource type="PackedScene" uid="uid://dspt7tk0xunun" path="res://scenes/world/test_env3.tscn" id="4_8fmq0"]
+[ext_resource type="PackedScene" uid="uid://f6asi5gqamdk" path="res://scenes/world/hospital_corridor.tscn" id="3_mblat"]
 [ext_resource type="Script" path="res://scenes/ui/LoadGame.cs" id="5_jcf3j"]
 [ext_resource type="StyleBox" uid="uid://cl40wo664e8bh" path="res://menutlo.tres" id="5_xsp5a"]
 [ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="6_aldpt"]
@@ -72,7 +72,7 @@ offset_right = 40.0
 offset_bottom = 20.0
 grow_vertical = 2
 script = ExtResource("2_tyc4g")
-NewGameScene = ExtResource("4_8fmq0")
+NewGameScene = ExtResource("3_mblat")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/TitleScreenControl"]
 layout_mode = 1

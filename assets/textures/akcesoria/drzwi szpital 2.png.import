@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgkxtidikqfu5"
-path="res://.godot/imported/un radio.png-a2770ccf49f155be050d86e8365ee17a.ctex"
+uid="uid://ci7eakde8e8dd"
+path="res://.godot/imported/drzwi szpital 2.png-28f927741db3eb855a3f9417f1127df2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/icons/un radio.png"
-dest_files=["res://.godot/imported/un radio.png-a2770ccf49f155be050d86e8365ee17a.ctex"]
+source_file="res://assets/textures/akcesoria/drzwi szpital 2.png"
+dest_files=["res://.godot/imported/drzwi szpital 2.png-28f927741db3eb855a3f9417f1127df2.ctex"]
 
 [params]
 
