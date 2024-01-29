@@ -12,6 +12,7 @@ public partial class singleton : Node
     public SaveHandler SaveHandler { get; set; }
     public dialoghandler Dialoghandler { get; set; }
     public ConfigHandler ConfigHandler { get; set; }
+    public QuestHandler QuestHandler { get; set; }
 
     public string OverrideSaveName = "singleton";
 
@@ -42,6 +43,7 @@ public partial class singleton : Node
         Dialoghandler = GetNode<dialoghandler>("/root/Gui/Dialog/DialogControl");
         SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
         ConfigHandler = GetNode<ConfigHandler>("/root/ConfigHandler");
+        QuestHandler = GetNode<QuestHandler>("/root/QuestHandler");
         
         // load config in settings
         foreach (var node in GetAllChildren(GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl")))

@@ -3,12 +3,12 @@
 If you want to save data from a Node, you need to create a method called `SaveData`. It has to return `Godot.Collections.Dictionary<string, Variant>`. For example:
 ```csharp
 public Godot.Collections.Dictionary<string, Variant> SaveData()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>
-		{
-			{"lorem", "ipsum"}
-		};
-	}
+{
+    return new Godot.Collections.Dictionary<string, Variant>
+    {
+        {"lorem", "ipsum"}
+    };
+}
 ```
 
 # How to load data?
@@ -26,12 +26,12 @@ public string OverrideSaveName = "dolor";
 
 // Saving
 public Godot.Collections.Dictionary<string, Variant> SaveData()
-	{
-		return new Godot.Collections.Dictionary<string, Variant>
-		{
-			{"lorem", "ipsum"}
-		};
-	}
+{
+    return new Godot.Collections.Dictionary<string, Variant>
+    {
+        {"lorem", "ipsum"}
+    };
+}
 
 // Loading from that Node
 GetNode<singleton>("/root/singleton").SaveHandler.GetValue(this, "lorem");

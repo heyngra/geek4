@@ -27,6 +27,7 @@ shadow_offset = Vector2(1, 0.5)
 [node name="Interact" type="CanvasLayer"]
 
 [node name="Control" type="Control" parent="."]
+visible = false
 layout_direction = 2
 layout_mode = 3
 anchors_preset = 0

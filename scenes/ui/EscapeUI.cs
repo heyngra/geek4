@@ -19,14 +19,18 @@ public partial class EscapeUI : Control
 
 		if (Input.IsActionJustPressed("ui_menu") && !Singleton.UiLock && !Visible)
 		{
-			Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
-			Visible = !Visible;
-			Singleton.UiLock = Visible;
-			GetNode<Button>("PanelContainer/VBoxContainer/PlayButton").GrabFocus();
+			OpenMenu();
 		}
 	}
 
-	public void exitMenu()
+	public void OpenMenu()
+	{
+		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
+		Visible = !Visible;
+		Singleton.UiLock = Visible;
+		GetNode<Button>("PanelContainer/VBoxContainer/PlayButton").GrabFocus();
+	}
+	public void ExitMenu()
 	{
 		Visible = false;
 		Singleton.UiLock = false;
@@ -35,7 +39,7 @@ public partial class EscapeUI : Control
 	public async void _on_exit_button_pressed()
 	{
 		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
-		exitMenu();
+		ExitMenu();
 		await ToSignal(GetTree().CreateTimer(Singleton.Transition.LoadTransition("dissolve")), "timeout");
 		Singleton.SaveHandler.SaveGame();
 		maria_2 maria = Singleton.Maria;
@@ -52,7 +56,7 @@ public partial class EscapeUI : Control
 	public void _on_play_button_pressed()
 	{
 		Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
-		exitMenu();
+		ExitMenu();
 	}
 	
 	public void _on_settings_button_pressed()

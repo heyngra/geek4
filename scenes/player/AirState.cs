@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Geek4.scripts.quests;
 
 public partial class AirState : State
 {
@@ -36,13 +37,20 @@ public partial class AirState : State
             else
             {
                 Singleton.GotoScene("res://scenes/world/test_env2.tscn");
-
                 Dialog dialog = new Dialog();
                 
                 dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
                 dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");
                 dialog.AddDialog("Kamila", "a nie w Elblągu.", "res://assets/ui/qs.png");
                 dialog.AddDialog("Kamil", "Aha, no to faktycznie.", "res://assets/ui/Haley.png");
+                if (Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)) != null && !Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)).IsStarted)
+                {
+                    dialog.AddDialog("Maria", "Powinnam porozmawiać z szafką...", "res://assets/ui/qs.png", () =>
+                    {
+                        Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)).StartQuest();
+                    });
+                }
+                
                 
                 Singleton.Dialoghandler.PlayDialog(dialog);
                 Singleton.Dialoghandler.PlayNextDialog();

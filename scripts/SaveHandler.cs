@@ -5,7 +5,10 @@ using System.Collections.Generic;
 public partial class SaveHandler : Node
 {
     private singleton Singleton;
-
+    /// <summary>
+    /// Invoke all actions when the game save file is loaded.
+    /// </summary>
+    public readonly List<Action> OnLoad = new();
     public override void _Ready()
     {
         Singleton = GetNode<singleton>("/root/Singleton");
@@ -67,6 +70,7 @@ public partial class SaveHandler : Node
         var save = new Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Variant>>((Godot.Collections.Dictionary)json.Data);
         
         Singleton.Save = save;
+        OnLoad.ForEach(action => action.Invoke());
     }
 
     public object GetValue(Node self, string key, string forceName = null)

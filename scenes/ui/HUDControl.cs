@@ -15,4 +15,13 @@ public partial class HUDControl : Godot.Control
 	{
 		Visible = !Singleton.UiLock;
 	}
+
+	public void _on_quest_pressed()
+	{
+		GetNode<QuestControl>("/root/Gui/QuestMenu/QuestControl").OpenMenu();
+	}
+	public void _on_menu_pressed()
+	{
+		GetNode<EscapeUI>("/root/Gui/EscapeUI/EscapeUIControl").OpenMenu();
+	}
 }
