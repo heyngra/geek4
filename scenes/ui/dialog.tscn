@@ -207,7 +207,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl/arrow_down"]
-autoplay = "animation"
 libraries = {
 "": SubResource("AnimationLibrary_a216n")
 }
+autoplay = "animation"
