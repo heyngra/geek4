@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfu4j305akkaw"
-path="res://.godot/imported/trawa.png-1bac0c9e33b11c5c15b5f1ce2bed9b10.ctex"
+uid="uid://benesiln8b5rj"
+path="res://.godot/imported/klik menu.png-89283971fa7e242fcbb3487b09cc7e21.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/textures/trawa.png"
-dest_files=["res://.godot/imported/trawa.png-1bac0c9e33b11c5c15b5f1ce2bed9b10.ctex"]
+source_file="res://assets/ui/klik menu.png"
+dest_files=["res://.godot/imported/klik menu.png-89283971fa7e242fcbb3487b09cc7e21.ctex"]
 
 [params]
 
@@ -21,7 +21,7 @@ compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

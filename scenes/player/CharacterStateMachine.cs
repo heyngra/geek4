@@ -57,6 +57,7 @@ public partial class CharacterStateMachine : Node
     
     public override void _Input(InputEvent @event)
     {
+        if (GetNode<singleton>("/root/Singleton").UiLock) return;
         CurrentState.StateInput(@event);
     }
 }

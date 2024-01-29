@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://ba7w1s4hn672a"]
+
+[ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="1_56q7q"]
+
+[resource]
+line_spacing = 2.0
+font = ExtResource("1_56q7q")
+font_size = 40
+font_color = Color(0.576471, 0.713726, 0.854902, 1)
+shadow_size = 6
+shadow_color = Color(0.466667, 0.588235, 0.709804, 1)

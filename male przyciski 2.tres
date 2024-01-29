@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cdlfy5cgyj3cv"]
+
+[ext_resource type="Texture2D" uid="uid://3ouhbl20g8eb" path="res://assets/ui/klik hover.png" id="1_ijn0p"]
+[ext_resource type="Texture2D" uid="uid://dg1ecygrrarwg" path="res://assets/ui/klik.png" id="2_5w55g"]
+[ext_resource type="Texture2D" uid="uid://d4jpf2fmpv5qt" path="res://assets/ui/klik pressed.png" id="3_gh3uk"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4n2cg"]
+bg_color = Color(0.25098, 0.392157, 0.529412, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.392157, 0.529412, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5lvfw"]
+texture = ExtResource("1_ijn0p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yvyba"]
+texture = ExtResource("2_5w55g")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sfnwe"]
+texture = ExtResource("3_gh3uk")
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_4n2cg")
+Button/styles/hover = SubResource("StyleBoxTexture_5lvfw")
+Button/styles/normal = SubResource("StyleBoxTexture_yvyba")
+Button/styles/pressed = SubResource("StyleBoxTexture_sfnwe")

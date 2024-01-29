@@ -1,0 +1,77 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c13f8qarn8iww"]
+
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="1_aa0g8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_662rm"]
+bg_color = Color(0.839216, 0.894118, 0.94902, 1)
+border_color = Color(0.717647, 0.811765, 0.909804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhy6o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.25098, 0.392157, 0.529412, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ebcn5"]
+bg_color = Color(0.729412, 0.827451, 0.92549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.576471, 0.713726, 0.854902, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4hlu"]
+bg_color = Color(0.576471, 0.713726, 0.854902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.466667, 0.588235, 0.709804, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nna5"]
+bg_color = Color(0.466667, 0.588235, 0.709804, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.364706, 0.482353, 0.6, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+shadow_color = Color(0, 0, 0, 0)
+
+[resource]
+default_font = ExtResource("1_aa0g8")
+default_font_size = 16
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_disabled_color = Color(0.576471, 0.713726, 0.854902, 1)
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_aa0g8")
+Button/styles/disabled = SubResource("StyleBoxFlat_662rm")
+Button/styles/focus = SubResource("StyleBoxFlat_yhy6o")
+Button/styles/hover = SubResource("StyleBoxFlat_ebcn5")
+Button/styles/normal = SubResource("StyleBoxFlat_n4hlu")
+Button/styles/pressed = SubResource("StyleBoxFlat_3nna5")

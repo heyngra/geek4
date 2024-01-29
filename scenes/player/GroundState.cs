@@ -14,7 +14,7 @@ public partial class GroundState : State
     
     public override void StateProcess(double delta)
     {
-        if (!Character.IsOnFloor())
+        if (!Character.IsOnFloor() && Character.Velocity.Y > 0)
         {
             NextState = GetState<AirState>();
             Playback.Travel("fall");

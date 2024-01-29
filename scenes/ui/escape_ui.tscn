@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://c05tu4jjikoup"]
+
+[ext_resource type="Script" path="res://scenes/ui/EscapeUI.cs" id="1_kdu55"]
+[ext_resource type="StyleBox" path="res://menutlo.tres" id="2_gbipm"]
+[ext_resource type="Theme" uid="uid://c13f8qarn8iww" path="res://scenes/ui/przycisk.tres" id="4_0jfan"]
+[ext_resource type="FontFile" uid="uid://cdenrmgxxtpj6" path="res://assets/fonts/Peaberry/Peaberry Monospace/PeaberryMono.ttf" id="4_y8020"]
+
+[sub_resource type="Gradient" id="Gradient_kik5h"]
+interpolation_mode = 1
+colors = PackedColorArray(0, 0, 0, 0.117647, 0, 0, 0, 0.117647)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wv8sf"]
+gradient = SubResource("Gradient_kik5h")
+
+[sub_resource type="Theme" id="Theme_b0dxf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hg2d"]
+line_spacing = 2.0
+font = ExtResource("4_y8020")
+font_size = 40
+font_color = Color(0.576471, 0.713726, 0.854902, 1)
+shadow_size = 6
+shadow_color = Color(0.466667, 0.588235, 0.709804, 1)
+
+[node name="EscapeUI" type="CanvasLayer"]
+
+[node name="EscapeUIControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kdu55")
+
+[node name="TextureRect" type="TextureRect" parent="EscapeUIControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -753.0
+offset_top = -404.0
+offset_right = 744.0
+offset_bottom = 504.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_wv8sf")
+expand_mode = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="EscapeUIControl"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -112.5
+offset_right = 110.0
+offset_bottom = 112.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_b0dxf")
+theme_override_styles/panel = ExtResource("2_gbipm")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EscapeUIControl/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Menu"
+label_settings = SubResource("LabelSettings_6hg2d")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="PlayButton" type="Button" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0jfan")
+theme_override_fonts/font = ExtResource("4_y8020")
+theme_override_font_sizes/font_size = 21
+text = "Graj"
+icon_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="SettingsButton" type="Button" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0jfan")
+theme_override_fonts/font = ExtResource("4_y8020")
+theme_override_font_sizes/font_size = 21
+text = "Ustawienia"
+
+[node name="MarginContainer3" type="MarginContainer" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="ExitButton" type="Button" parent="EscapeUIControl/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_0jfan")
+theme_override_fonts/font = ExtResource("4_y8020")
+theme_override_font_sizes/font_size = 21
+text = "Zapisz i wyjdź"
+
+[connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/PlayButton" to="EscapeUIControl" method="_on_play_button_pressed"]
+[connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/SettingsButton" to="EscapeUIControl" method="_on_settings_button_pressed"]
+[connection signal="pressed" from="EscapeUIControl/PanelContainer/VBoxContainer/ExitButton" to="EscapeUIControl" method="_on_exit_button_pressed"]

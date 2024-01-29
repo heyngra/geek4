@@ -1,0 +1,123 @@
+[gd_scene load_steps=3 format=3 uid="uid://cq8m0fb4wuros"]
+
+[ext_resource type="Script" path="res://scenes/ui/QuestList.cs" id="1_8262j"]
+[ext_resource type="Script" path="res://scenes/ui/QuestControl.cs" id="1_dwk2b"]
+
+[node name="QuestMenu" type="CanvasLayer"]
+layer = 2
+
+[node name="QuestControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_dwk2b")
+
+[node name="PanelContainer" type="PanelContainer" parent="QuestControl"]
+layout_mode = 0
+offset_left = -168.0
+offset_top = -130.0
+offset_right = 213.0
+offset_bottom = 169.0
+
+[node name="Control2" type="Control" parent="QuestControl/PanelContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="QuestControl/PanelContainer/Control2"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -124.5
+offset_bottom = 112.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="QuestControl/PanelContainer/Control2/PanelContainer"]
+layout_mode = 2
+
+[node name="QuestName" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nazwa Zadania"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="QuestDescription" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 10
+text = "Opis zadania"
+autowrap_mode = 2
+
+[node name="MilestoneName" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Nazwa milestone'a hgfhgfhfh"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StepName" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+text = "Opis stepu"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="QuestControl/PanelContainer/Control2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_bottom = 26.0
+grow_horizontal = 0
+text = "Opis zadania"
+horizontal_alignment = 1
+
+[node name="Control" type="Control" parent="QuestControl/PanelContainer"]
+layout_mode = 2
+
+[node name="ItemList" type="ItemList" parent="QuestControl/PanelContainer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -274.0
+offset_right = 169.0
+offset_bottom = -39.0
+grow_vertical = 0
+allow_reselect = true
+item_count = 2
+item_0/text = "Zadanie 1"
+item_1/text = "Zadanie 2"
+script = ExtResource("1_8262j")
+
+[node name="Label" type="Label" parent="QuestControl/PanelContainer/Control"]
+layout_mode = 1
+offset_right = 168.0
+offset_bottom = 26.0
+text = "Lista zadań"
+horizontal_alignment = 1
+
+[node name="ExitButton" type="Button" parent="QuestControl/PanelContainer/Control"]
+layout_mode = 2
+offset_left = 304.0
+offset_top = 265.0
+offset_right = 376.0
+offset_bottom = 296.0
+text = "Wyjdź"
+
+[connection signal="item_selected" from="QuestControl/PanelContainer/Control/ItemList" to="QuestControl/PanelContainer/Control/ItemList" method="_on_item_selected"]
+[connection signal="visibility_changed" from="QuestControl/PanelContainer/Control/ItemList" to="QuestControl/PanelContainer/Control/ItemList" method="_on_visibility_changed"]
+[connection signal="pressed" from="QuestControl/PanelContainer/Control/ExitButton" to="QuestControl" method="_on_exit_button_pressed"]

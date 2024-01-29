@@ -1,0 +1,21 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cyvdw0vq7e0pb"]
+
+[ext_resource type="StyleBox" uid="uid://8ee8qnycmf0i" path="res://focus maly przycisk.tres" id="1_b2s0c"]
+[ext_resource type="Texture2D" uid="uid://co5bn3xji4imw" path="res://assets/ui/klik menu hover.png" id="2_7iqxs"]
+[ext_resource type="Texture2D" uid="uid://benesiln8b5rj" path="res://assets/ui/klik menu.png" id="3_f6vll"]
+[ext_resource type="Texture2D" uid="uid://bkpeyqm5jawu2" path="res://assets/ui/klik menu pressed.png" id="4_j3lce"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2sdjg"]
+texture = ExtResource("2_7iqxs")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_csulj"]
+texture = ExtResource("3_f6vll")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1af5f"]
+texture = ExtResource("4_j3lce")
+
+[resource]
+Button/styles/focus = ExtResource("1_b2s0c")
+Button/styles/hover = SubResource("StyleBoxTexture_2sdjg")
+Button/styles/normal = SubResource("StyleBoxTexture_csulj")
+Button/styles/pressed = SubResource("StyleBoxTexture_1af5f")

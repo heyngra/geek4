@@ -1,0 +1,213 @@
+[gd_scene load_steps=16 format=3 uid="uid://bkgda3j4nhuw0"]
+
+[ext_resource type="Script" path="res://scripts/dialoghandler.cs" id="1_6i1gl"]
+[ext_resource type="Theme" uid="uid://bsqhwid6yo128" path="res://assets/ui/new_theme.tres" id="1_8k8yi"]
+[ext_resource type="Texture2D" uid="uid://dg53045thqycu" path="res://assets/ui/Haley.png" id="3_8613w"]
+[ext_resource type="StyleBox" uid="uid://vdkend2j5imi" path="res://scenes/ui/dialog.tres" id="3_kwk2y"]
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="6_0muag"]
+[ext_resource type="LabelSettings" uid="uid://dw7sff22gpw7p" path="res://assets/fonts/style/dialog.tres" id="6_ijfq2"]
+[ext_resource type="Texture2D" uid="uid://do3s11rhogmub" path="res://assets/ui/arrow down.png" id="8_m5yqu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6wuy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xepon"]
+font = ExtResource("6_0muag")
+font_size = 11
+font_color = Color(0.964706, 0.964706, 0.972549, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 0.537255)
+shadow_offset = Vector2(0.915, 1)
+
+[sub_resource type="Animation" id="Animation_145e2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(111.645, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_wnxbj"]
+resource_name = "dialog_appear"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DialogControl:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:offset:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(111.645, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anqn5"]
+_data = {
+"RESET": SubResource("Animation_145e2"),
+"dialog_appear": SubResource("Animation_wnxbj")
+}
+
+[sub_resource type="Theme" id="Theme_4wo4q"]
+
+[sub_resource type="Animation" id="Animation_7nrtj"]
+resource_name = "animation"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Vector2(266, -38), Vector2(266, -43), Vector2(266, -38)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a216n"]
+_data = {
+"animation": SubResource("Animation_7nrtj")
+}
+
+[node name="Dialog" type="CanvasLayer"]
+offset = Vector2(0, 111.645)
+transform = Transform2D(1, 0, 0, 1, 0, 111.645)
+
+[node name="DialogControl" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 0.0549927
+offset_right = 0.0549927
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_6i1gl")
+
+[node name="Panel" type="Panel" parent="DialogControl"]
+layout_mode = 0
+offset_left = -320.0
+offset_top = -108.0
+offset_right = 320.0
+offset_bottom = 1.0
+theme = ExtResource("1_8k8yi")
+theme_override_styles/panel = ExtResource("3_kwk2y")
+
+[node name="Panel2" type="Panel" parent="DialogControl"]
+layout_mode = 0
+offset_left = -298.0
+offset_top = -91.0
+offset_right = -219.0
+offset_bottom = -15.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_f6wuy")
+
+[node name="Art" type="TextureRect" parent="DialogControl"]
+layout_mode = 0
+offset_left = -292.055
+offset_top = -88.645
+offset_right = -222.055
+offset_bottom = -10.645
+texture = ExtResource("3_8613w")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Speaker" type="Label" parent="DialogControl"]
+layout_mode = 0
+offset_left = -302.055
+offset_top = -11.645
+offset_right = -216.055
+offset_bottom = 5.35501
+text = "Marie's Mom"
+label_settings = SubResource("LabelSettings_xepon")
+horizontal_alignment = 1
+text_overrun_behavior = 1
+
+[node name="Text" type="Label" parent="DialogControl"]
+layout_mode = 0
+offset_left = -174.0
+offset_top = -87.0
+offset_right = 290.0
+offset_bottom = -13.0
+text = "Lorem impsum dolor sit amet. "
+label_settings = ExtResource("6_ijfq2")
+autowrap_mode = 3
+text_overrun_behavior = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_anqn5")
+}
+
+[node name="arrow_down" type="TextureRect" parent="DialogControl"]
+layout_mode = 0
+offset_left = 266.0
+offset_top = -38.0
+offset_right = 290.0
+offset_bottom = -13.0
+theme = SubResource("Theme_4wo4q")
+texture = ExtResource("8_m5yqu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogControl/arrow_down"]
+autoplay = "animation"
+libraries = {
+"": SubResource("AnimationLibrary_a216n")
+}

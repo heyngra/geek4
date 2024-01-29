@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpx05pkelqepw"]
+
+[ext_resource type="PackedScene" uid="uid://bkgda3j4nhuw0" path="res://scenes/ui/dialog.tscn" id="2_4r2g8"]
+[ext_resource type="PackedScene" uid="uid://c05tu4jjikoup" path="res://scenes/ui/escape_ui.tscn" id="2_kd8os"]
+[ext_resource type="PackedScene" uid="uid://cc6wynxohdo3x" path="res://scenes/ui/hud.tscn" id="3_6cnth"]
+[ext_resource type="PackedScene" uid="uid://cxrrsldc8fvcw" path="res://scenes/ui/settings.tscn" id="4_pakts"]
+[ext_resource type="PackedScene" uid="uid://dnnrtc5icpat1" path="res://scenes/ui/interact.tscn" id="5_lgrxi"]
+[ext_resource type="PackedScene" uid="uid://cq8m0fb4wuros" path="res://scenes/ui/questmenu.tscn" id="6_via44"]
+
+[node name="gui" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Dialog" parent="." instance=ExtResource("2_4r2g8")]
+layer = 2
+
+[node name="EscapeUI" parent="." instance=ExtResource("2_kd8os")]
+layer = 2
+
+[node name="HUD" parent="." instance=ExtResource("3_6cnth")]
+layer = 2
+
+[node name="Settings" parent="." instance=ExtResource("4_pakts")]
+
+[node name="Interact" parent="." instance=ExtResource("5_lgrxi")]
+
+[node name="QuestMenu" parent="." instance=ExtResource("6_via44")]

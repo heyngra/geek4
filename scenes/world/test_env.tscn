@@ -1,12 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bfxhbp2u41je6"]
+[gd_scene load_steps=6 format=3 uid="uid://bfxhbp2u41je6"]
 
 [ext_resource type="PackedScene" uid="uid://bbx32kau6fe4s" path="res://scenes/player/maria.tscn" id="1_dumyr"]
-[ext_resource type="Texture2D" uid="uid://dfu4j305akkaw" path="res://assets/textures/trawa.png" id="2_hgkmp"]
 [ext_resource type="PackedScene" uid="uid://4rbcsjbf3g5f" path="res://scenes/objects/test_box.tscn" id="3_itm0g"]
 [ext_resource type="Script" path="res://scripts/interact_popup.cs" id="4_g5r22"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h84ia"]
-texture = ExtResource("2_hgkmp")
 use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
