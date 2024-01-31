@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cc6wynxohdo3x"]
+[gd_scene load_steps=14 format=3 uid="uid://cc6wynxohdo3x"]
 
 [ext_resource type="Script" path="res://scenes/ui/HUDControl.cs" id="1_3pm3g"]
 [ext_resource type="Texture2D" uid="uid://4ml5ewrhtnus" path="res://assets/ui/bc do hp.png" id="2_ibnxr"]
@@ -6,8 +6,12 @@
 [ext_resource type="Theme" uid="uid://xktlhhn0nsgu" path="res://male przyciski.tres" id="3_qwr5c"]
 [ext_resource type="Theme" uid="uid://cyvdw0vq7e0pb" path="res://male menu.tres" id="5_n5t5k"]
 [ext_resource type="LabelSettings" uid="uid://die331h2xywah" path="res://literki duze z bc do hp.tres" id="6_2xhyn"]
+[ext_resource type="Theme" uid="uid://dpghals308hjp" path="res://hp_bar.tres" id="6_ysph8"]
 [ext_resource type="LabelSettings" uid="uid://dfwk37ig0npy4" path="res://hp.tres" id="7_746rx"]
+[ext_resource type="Script" path="res://scenes/ui/hp_bar.cs" id="7_oulob"]
 [ext_resource type="LabelSettings" uid="uid://bywag8vs3eayn" path="res://exp.tres" id="8_hsfhf"]
+[ext_resource type="Theme" uid="uid://byw24kj0ci3nm" path="res://exp_bar.tres" id="8_o7qs8"]
+[ext_resource type="Script" path="res://scenes/ui/exp_bar.cs" id="9_scfyf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_elgrk"]
 texture = ExtResource("2_ibnxr")
@@ -81,6 +85,30 @@ text = "EXP"
 label_settings = ExtResource("8_hsfhf")
 vertical_alignment = 1
 
+[node name="hp_bar" type="ProgressBar" parent="Control/PanelContainer/Control/HSplitContainer/hp"]
+layout_mode = 0
+offset_left = -92.5
+offset_top = -1.0
+offset_right = 33.5
+offset_bottom = 28.0
+scale = Vector2(0.50141, 0.5)
+theme = ExtResource("6_ysph8")
+min_value = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("7_oulob")
+
+[node name="exp_bar" type="ProgressBar" parent="Control/PanelContainer/Control/HSplitContainer/hp/hp_bar"]
+offset_left = 239.325
+offset_right = 494.325
+offset_bottom = 60.0
+scale = Vector2(0.50141, 0.5)
+theme = ExtResource("8_o7qs8")
+min_value = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("9_scfyf")
+
 [node name="Control2" type="Control" parent="Control/PanelContainer/Control"]
 layout_mode = 1
 anchors_preset = 0
@@ -94,6 +122,7 @@ layout_mode = 1
 offset_left = -0.5
 offset_right = 234.5
 offset_bottom = 28.0
+scale = Vector2(1.00462, 1)
 text = "laaaaaaaaa laaaaaaaaaaaaaa laaaaaaaaaaaaa laaaaaaaaaaa"
 label_settings = ExtResource("6_2xhyn")
 horizontal_alignment = 1
