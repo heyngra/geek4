@@ -81,6 +81,34 @@ text = "EXP"
 label_settings = ExtResource("8_hsfhf")
 vertical_alignment = 1
 
+<<<<<<< Updated upstream
+=======
+[node name="hp_bar" type="ProgressBar" parent="Control/PanelContainer/Control/HSplitContainer/hp"]
+layout_mode = 0
+offset_left = -92.5
+offset_top = -1.0
+offset_right = 33.5
+offset_bottom = 28.0
+scale = Vector2(0.50141, 0.5)
+theme = ExtResource("6_ysph8")
+min_value = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("7_oulob")
+
+[node name="exp_bar" type="ProgressBar" parent="Control/PanelContainer/Control/HSplitContainer/hp/hp_bar"]
+layout_mode = 0
+offset_left = 239.325
+offset_right = 494.325
+offset_bottom = 60.0
+scale = Vector2(0.50141, 0.5)
+theme = ExtResource("8_o7qs8")
+min_value = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("9_scfyf")
+
+>>>>>>> Stashed changes
 [node name="Control2" type="Control" parent="Control/PanelContainer/Control"]
 layout_mode = 1
 anchors_preset = 0

@@ -4,7 +4,6 @@ using System;
 public partial class Cursor : CheckBox
 {
 	private bool _cursorenabled = false;
-	
 	public void _on_pressed()
 	{
 		_cursorenabled = ButtonPressed;
@@ -24,11 +23,13 @@ public partial class Cursor : CheckBox
 	{
 		if (_cursorenabled)
 		{
-			//
+			var custom = ResourceLoader.Load("res://assets/textures/kursor.png");
+			Input.SetCustomMouseCursor(custom);
+
 		}
 		else
 		{
-			//
+			Input.SetCustomMouseCursor(null);
 		}
 	}
 }
