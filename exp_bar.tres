@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://byw24kj0ci3nm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gkep"]
+bg_color = Color(0.886275, 0.709804, 0.14902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kx7wy"]
+bg_color = Color(0.945098, 0.764706, 0.152941, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[resource]
+ProgressBar/styles/background = SubResource("StyleBoxFlat_8gkep")
+ProgressBar/styles/fill = SubResource("StyleBoxFlat_kx7wy")

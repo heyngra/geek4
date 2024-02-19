@@ -16,7 +16,9 @@ public partial class singleton : Node
 
     public string OverrideSaveName = "singleton";
 
-    public float HP = 100; // to test saving
+    public float HP = 100f;
+    public float EXP = 100f;
+
     
     public Godot.Collections.Dictionary<string, Godot.Collections.Dictionary<string, Variant>> Save = null;
     /// <summary>
@@ -208,10 +210,8 @@ public partial class singleton : Node
     {
         return new Godot.Collections.Dictionary<string, Variant>
         {
-            {"HP", HP}
+            {"HP", HP},
+            {"EXP", EXP}
         };
     }
-    
-    
-    
 }
