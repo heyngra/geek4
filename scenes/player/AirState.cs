@@ -39,10 +39,10 @@ public partial class AirState : State
                 Singleton.GotoScene("res://scenes/world/test_env2.tscn");
                 Dialog dialog = new Dialog();
                 
-                dialog.AddDialog("Kamil", "Ale nie chce mi się iść do szkoły!", "res://assets/ui/Haley.png");
-                dialog.AddDialog("Kamila", "No mi też, ale ja mieszkam na Bagnie", "res://assets/ui/qs.png");
-                dialog.AddDialog("Kamila", "a nie w Elblągu.", "res://assets/ui/qs.png");
-                dialog.AddDialog("Kamil", "Aha, no to faktycznie.", "res://assets/ui/Haley.png");
+                dialog.AddDialog("Kamila", "Ale nie chce mi się rysować!", "res://assets/ui/Haley.png");
+                dialog.AddDialog("Kamil", "No ale musisz rysować, bo nie skończymy gry", "res://assets/ui/qs.png");
+                dialog.AddDialog("Kamila", "Nie obchodzi mnie to.", "res://assets/ui/Haley.png");
+                dialog.AddDialog("Kamil", "No i mamy problem..." );
                 if (Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)) != null && !Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)).IsStarted)
                 {
                     dialog.AddDialog("Maria", "Powinnam porozmawiać z szafką...", "res://assets/ui/qs.png", () =>
