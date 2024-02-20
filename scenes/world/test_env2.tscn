@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://tgyi5i31ixy5"]
+[gd_scene load_steps=12 format=3 uid="uid://tgyi5i31ixy5"]
 
 [ext_resource type="TileSet" uid="uid://b0lf3l2i5fu80" path="res://assets/tilesets/test_env2.tres" id="1_fugok"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_ml5gi"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/world/test2.cs" id="5_ej1ux"]
 [ext_resource type="Texture2D" uid="uid://dwritvie412n8" path="res://assets/textures/łóżko bokiem.png" id="5_j0u6l"]
 [ext_resource type="PackedScene" uid="uid://p1x4fnjbna8j" path="res://scenes/ui/interactable.tscn" id="5_nytbn"]
+[ext_resource type="Script" path="res://scenes/world/test3.cs" id="8_f4nr5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1hq1g"]
 texture = ExtResource("4_vd8dv")
@@ -93,4 +94,14 @@ script = ExtResource("5_ej1ux")
 [node name="interactable" parent="world/TileMap/Sprite2D" instance=ExtResource("5_nytbn")]
 position = Vector2(-25.2632, -10.6667)
 
+[node name="Sprite2D2" type="Sprite2D" parent="world/TileMap"]
+position = Vector2(-301, -36)
+scale = Vector2(0.598144, 0.531738)
+texture = ExtResource("4_vd8dv")
+script = ExtResource("8_f4nr5")
+
+[node name="interactable" parent="world/TileMap/Sprite2D2" instance=ExtResource("5_nytbn")]
+position = Vector2(-25.2632, -10.6667)
+
 [connection signal="Interact" from="world/TileMap/Sprite2D/interactable" to="world/TileMap/Sprite2D" method="_on_interactable_interact"]
+[connection signal="Interact" from="world/TileMap/Sprite2D2/interactable" to="world/TileMap/Sprite2D2" method="_on_interactable_interact"]
