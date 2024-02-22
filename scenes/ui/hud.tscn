@@ -99,6 +99,7 @@ show_percentage = false
 script = ExtResource("7_oulob")
 
 [node name="exp_bar" type="ProgressBar" parent="Control/PanelContainer/Control/HSplitContainer/hp/hp_bar"]
+layout_mode = 0
 offset_left = 239.325
 offset_right = 494.325
 offset_bottom = 60.0
