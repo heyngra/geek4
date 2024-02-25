@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Collections.Generic;
 using Geek4.scripts.quests;
 
 public partial class test2 : Sprite2D
@@ -11,8 +12,12 @@ public partial class test2 : Sprite2D
 		if (Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)).GetStepName() == "Talk with the Szafka xD")
 		{
 			Dialog dialogQuest = new Dialog();
-			dialogQuest.AddDialog("Szafka", "Porozmawiałaś ze mną!");
-			dialogQuest.AddDialog("Maria", "Tak! :D");
+			dialogQuest.AddDialog("Szafka", "Porozmawiałaś ze mną?");
+			dialogQuest.AddChooseDialog("Maria", "Muszę wybrać mądrze...", new Dictionary<string, Action>
+			{
+				{"Tak", () => {GD.Print("Tak");Singleton.Dialoghandler._currentDialog.DialogQueue.Insert(0, new DialogSequence("Szafka", "Hmm..."));}},
+				{"Nie", () => {GD.Print("Nie");Singleton.Dialoghandler._currentDialog.DialogQueue.Clear();}}
+			}, "res://assets/ui/maria lvl.png");
 			dialogQuest.AddDialog("Szafka", "Dziękuje <3", "res://assets/ui/qs.png", () =>
 			{
 				Singleton.QuestHandler.GetQuestInstance(typeof(ExampleQuest)).CompleteStep(0, 0);
