@@ -40,17 +40,14 @@ texture = ExtResource("13_4y4yo")
 
 [node name="Ławka3" type="Sprite2D" parent="TablicaKorkowa/Ławka2"]
 position = Vector2(100.571, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("13_4y4yo")
 
 [node name="Ławka4" type="Sprite2D" parent="TablicaKorkowa/Ławka2/Ławka3"]
 position = Vector2(-340.571, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("13_4y4yo")
 
 [node name="Ławka5" type="Sprite2D" parent="TablicaKorkowa/Ławka2/Ławka3/Ławka4"]
 position = Vector2(441.143, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("13_4y4yo")
 
 [node name="DrzwiSzkola1" type="Sprite2D" parent="."]

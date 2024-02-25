@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c6k27pp55aefc"]
+
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="1_4f1c6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_134di"]
+bg_color = Color(0.933333, 0.937255, 0.945098, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[resource]
+ItemList/colors/font_color = Color(0.466667, 0.588235, 0.709804, 1)
+ItemList/colors/font_hovered_color = Color(0.576471, 0.713726, 0.854902, 1)
+ItemList/colors/font_selected_color = Color(0.666667, 0.788235, 0.917647, 1)
+Label/colors/font_color = Color(0.576471, 0.713726, 0.854902, 1)
+Label/fonts/font = ExtResource("1_4f1c6")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_134di")

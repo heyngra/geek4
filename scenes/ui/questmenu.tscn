@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq8m0fb4wuros"]
+[gd_scene load_steps=12 format=3 uid="uid://cq8m0fb4wuros"]
 
 [ext_resource type="Script" path="res://scenes/ui/QuestList.cs" id="1_8262j"]
 [ext_resource type="Script" path="res://scenes/ui/QuestControl.cs" id="1_dwk2b"]
+[ext_resource type="Theme" uid="uid://dla2rfglw5ttn" path="res://assets/ui/themes/questmenu.tres" id="2_5qcyy"]
+[ext_resource type="Theme" uid="uid://c6k27pp55aefc" path="res://assets/ui/themes/panelquestmenu.tres" id="3_aaymm"]
+[ext_resource type="LabelSettings" uid="uid://dwkajtghmmhj2" path="res://assets/ui/themes/labelquest2.tres" id="4_q7nsa"]
+[ext_resource type="LabelSettings" uid="uid://brx5orgqeny4k" path="res://assets/ui/themes/label3(wieksze).tres" id="5_ua5ao"]
+[ext_resource type="FontFile" uid="uid://2buf502e8qw3" path="res://assets/fonts/Peaberry/Peaberry Base/PeaberryBase.ttf" id="7_jwy72"]
+[ext_resource type="StyleBox" uid="uid://chf81q0kf7mbf" path="res://assets/ui/themes/test2.tres" id="8_m71k3"]
+[ext_resource type="StyleBox" uid="uid://cp3yx2opkxtwa" path="res://assets/ui/themes/test4.tres" id="9_k5eq8"]
+[ext_resource type="StyleBox" uid="uid://dmxxxn7omf5u0" path="res://assets/ui/themes/test5.tres" id="10_7edd2"]
+[ext_resource type="StyleBox" uid="uid://b06u4i5xvxjlm" path="res://assets/ui/themes/test6.tres" id="11_e05xl"]
 
 [node name="QuestMenu" type="CanvasLayer"]
 layer = 2
@@ -30,6 +39,7 @@ offset_left = -168.0
 offset_top = -130.0
 offset_right = 213.0
 offset_bottom = 169.0
+theme = ExtResource("2_5qcyy")
 
 [node name="Control2" type="Control" parent="QuestControl/PanelContainer"]
 layout_mode = 2
@@ -42,10 +52,12 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -171.0
-offset_top = -124.5
-offset_bottom = 112.5
+offset_top = -113.5
+offset_right = -16.0
+offset_bottom = 99.5
 grow_horizontal = 0
 grow_vertical = 2
+theme = ExtResource("3_aaymm")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="QuestControl/PanelContainer/Control2/PanelContainer"]
 layout_mode = 2
@@ -53,6 +65,7 @@ layout_mode = 2
 [node name="QuestName" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Nazwa Zadania"
+label_settings = ExtResource("4_q7nsa")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -60,11 +73,13 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 10
 text = "Opis zadania"
+label_settings = ExtResource("4_q7nsa")
 autowrap_mode = 2
 
 [node name="MilestoneName" type="Label" parent="QuestControl/PanelContainer/Control2/PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Nazwa milestone'a hgfhgfhfh"
+label_settings = ExtResource("4_q7nsa")
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -72,6 +87,7 @@ autowrap_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 11
 text = "Opis stepu"
+label_settings = ExtResource("4_q7nsa")
 autowrap_mode = 2
 
 [node name="Label" type="Label" parent="QuestControl/PanelContainer/Control2"]
@@ -79,10 +95,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -168.0
+offset_left = -187.0
+offset_top = 3.0
 offset_bottom = 26.0
 grow_horizontal = 0
 text = "Opis zadania"
+label_settings = ExtResource("5_ua5ao")
 horizontal_alignment = 1
 
 [node name="Control" type="Control" parent="QuestControl/PanelContainer"]
@@ -93,10 +111,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_top = -274.0
-offset_right = 169.0
-offset_bottom = -39.0
+offset_left = 15.0
+offset_top = -263.0
+offset_right = 171.0
+offset_bottom = -49.0
 grow_vertical = 0
+theme = ExtResource("3_aaymm")
 allow_reselect = true
 item_count = 2
 item_0/text = "Zadanie 1"
@@ -105,9 +125,11 @@ script = ExtResource("1_8262j")
 
 [node name="Label" type="Label" parent="QuestControl/PanelContainer/Control"]
 layout_mode = 1
-offset_right = 168.0
+offset_top = 3.0
+offset_right = 183.0
 offset_bottom = 26.0
 text = "Lista zadań"
+label_settings = ExtResource("5_ua5ao")
 horizontal_alignment = 1
 
 [node name="ExitButton" type="Button" parent="QuestControl/PanelContainer/Control"]
@@ -116,6 +138,12 @@ offset_left = 304.0
 offset_top = 265.0
 offset_right = 376.0
 offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("7_jwy72")
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = ExtResource("8_m71k3")
+theme_override_styles/hover = ExtResource("9_k5eq8")
+theme_override_styles/pressed = ExtResource("10_7edd2")
+theme_override_styles/focus = ExtResource("11_e05xl")
 text = "Wyjdź"
 
 [connection signal="item_selected" from="QuestControl/PanelContainer/Control/ItemList" to="QuestControl/PanelContainer/Control/ItemList" method="_on_item_selected"]
