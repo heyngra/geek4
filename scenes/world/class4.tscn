@@ -1,12 +1,14 @@
-[gd_scene load_steps=28 format=3 uid="uid://bhiwkiit6niuk"]
+[gd_scene load_steps=30 format=3 uid="uid://bhiwkiit6niuk"]
 
 [ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_xq4ee"]
 [ext_resource type="Texture2D" uid="uid://bils1oul7sn7m" path="res://assets/textures/meble/okno 4.png" id="2_jb4ty"]
 [ext_resource type="Texture2D" uid="uid://cu48pv6a80xi4" path="res://assets/textures/npc/szkola/siedzi profesor sprite.png" id="3_x6sjx"]
 [ext_resource type="Texture2D" uid="uid://b563e4v2smuif" path="res://assets/textures/meble/biurko.png" id="4_2pgrq"]
+[ext_resource type="Script" path="res://scenes/world/dialog_profesor.cs" id="4_bh1su"]
 [ext_resource type="Texture2D" uid="uid://c8vwcgyqyj7vr" path="res://assets/textures/akcesoria/tablica.png" id="5_skv4b"]
 [ext_resource type="Texture2D" uid="uid://d27bjf3vr3xog" path="res://assets/textures/meble/ławka.png" id="6_lsoxc"]
 [ext_resource type="Texture2D" uid="uid://bfnbr4a3wlofg" path="res://assets/textures/akcesoria/mop w wiadrze.png" id="7_2wv02"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="7_23e4r"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="8_o2in4"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="9_bpckh"]
 [ext_resource type="Texture2D" uid="uid://bqvniam5451xy" path="res://assets/textures/meble/drzwi szkola 2.png" id="10_ape6e"]
@@ -162,6 +164,7 @@ scale = Vector2(0.715987, 0.755725)
 sprite_frames = SubResource("SpriteFrames_a4hgb")
 animation = &"idle"
 autoplay = "idle"
+script = ExtResource("4_bh1su")
 
 [node name="Biurko" type="Sprite2D" parent="profesor 3"]
 position = Vector2(-1.39667, 39.697)
@@ -172,6 +175,14 @@ texture = ExtResource("4_2pgrq")
 position = Vector2(78.2137, -10.5859)
 scale = Vector2(1.39667, 1.40593)
 texture = ExtResource("5_skv4b")
+
+[node name="Node2D2" type="Node2D" parent="profesor 3"]
+position = Vector2(-25.1401, 48.9596)
+
+[node name="Node2D" type="Node2D" parent="profesor 3/Node2D2"]
+position = Vector2(-9.7767, 9.26263)
+scale = Vector2(1, 1)
+script = ExtResource("7_23e4r")
 
 [node name="Ławka" type="Sprite2D" parent="."]
 position = Vector2(60, -27.5)
@@ -203,7 +214,6 @@ position = Vector2(111, -70)
 script = ExtResource("8_o2in4")
 
 [node name="Maria2" parent="." instance=ExtResource("9_bpckh")]
-visible = false
 position = Vector2(111, -46)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
@@ -232,3 +242,5 @@ sprite_frames = SubResource("SpriteFrames_8ue6w")
 animation = &"idle"
 autoplay = "idle"
 flip_h = true
+
+[connection signal="Interact" from="profesor 3/Node2D2/Node2D" to="profesor 3" method="_on_node_2d_interact"]
