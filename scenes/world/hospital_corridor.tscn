@@ -83,39 +83,39 @@ position = Vector2(-152.875, -32.375)
 scale = Vector2(0.996875, 0.908854)
 texture = ExtResource("4_5jcgj")
 
-[node name="DrzwiSzpital3" type="Sprite2D" parent="."]
-position = Vector2(-55.5, -32.25)
-scale = Vector2(1.0375, 0.901042)
+[node name="DrzwiSzpital3" type="Sprite2D" parent="d1"]
+position = Vector2(97.6803, 0.137539)
+scale = Vector2(1.04075, 0.991405)
 texture = ExtResource("6_j3qn3")
 
-[node name="d2" type="Sprite2D" parent="."]
-position = Vector2(40, -32)
-scale = Vector2(0.996875, 0.908854)
+[node name="d2" type="Sprite2D" parent="d1/DrzwiSzpital3"]
+position = Vector2(92.0482, 0.277451)
+scale = Vector2(0.960843, 1.00867)
 texture = ExtResource("4_5jcgj")
 
-[node name="d3" type="Sprite2D" parent="."]
-position = Vector2(135, -32)
-scale = Vector2(0.996875, 0.908854)
+[node name="d3" type="Sprite2D" parent="d1/DrzwiSzpital3/d2"]
+position = Vector2(95.2978, 0)
+scale = Vector2(1, 1)
 texture = ExtResource("4_5jcgj")
 
-[node name="DrzwiSzpital6" type="Sprite2D" parent="."]
-position = Vector2(232, -32)
-scale = Vector2(1.0375, 0.901042)
+[node name="DrzwiSzpital6" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3"]
+position = Vector2(97.3041, 0)
+scale = Vector2(1.04075, 0.991404)
 texture = ExtResource("6_j3qn3")
 
-[node name="DrzwiSzpital7" type="Sprite2D" parent="."]
-position = Vector2(329, -32)
-scale = Vector2(1.0375, 0.901042)
+[node name="DrzwiSzpital7" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3/DrzwiSzpital6"]
+position = Vector2(93.494, 0)
+scale = Vector2(1, 1)
 texture = ExtResource("6_j3qn3")
 
-[node name="d4" type="Sprite2D" parent="."]
-position = Vector2(423, -32)
-scale = Vector2(0.996875, 0.908854)
+[node name="d4" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3/DrzwiSzpital6/DrzwiSzpital7"]
+position = Vector2(90.6024, 0)
+scale = Vector2(0.960844, 1.00867)
 texture = ExtResource("4_5jcgj")
 
-[node name="d5" type="Sprite2D" parent="."]
-position = Vector2(520, -32)
-scale = Vector2(1.025, 0.908854)
+[node name="d5" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3/DrzwiSzpital6/DrzwiSzpital7/d4"]
+position = Vector2(97.3041, 0)
+scale = Vector2(1.02821, 1)
 texture = ExtResource("4_5jcgj")
 
 [node name="Maria2" parent="." instance=ExtResource("3_1br77")]
