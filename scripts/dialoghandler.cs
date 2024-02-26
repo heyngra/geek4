@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DialogSequence
 {
@@ -9,7 +10,7 @@ public class DialogSequence
 	public String Art;
 	public Action Callback;
 	public float TimeToSkip;
-	public DialogSequence(String speaker, String text, String art, Action callback, float timeToSkip)
+	public DialogSequence(String speaker, String text, String art="res://assets/ui/qs.png", Action callback=null, float timeToSkip=0.5f)
 	{
 		Speaker = speaker;
 		Text = text;
@@ -18,6 +19,26 @@ public class DialogSequence
 		TimeToSkip = timeToSkip;
 	}
 }
+
+public class DialogChooseSequence : DialogSequence
+{
+	public DialogChooseSequence(String speaker, String text, String art, Dictionary<String, Action> choices, float timeToSkip) : base(speaker, text, art, null, timeToSkip)
+	{
+		Speaker = speaker;
+		Text = text;
+		Art = art;
+		Choices = choices;
+		TimeToSkip = timeToSkip;
+		
+	}
+
+	public int index = 0;
+	
+	
+	public Dictionary<String, Action> Choices;
+
+}
+
 
 public class Dialog
 {
@@ -41,11 +62,16 @@ public class Dialog
 	{
 		DialogQueue.Add(new(speaker, text, art, callback, timeToSkip));
 	}
+	public void AddChooseDialog(String speaker, String text, Dictionary<String, Action> choices, String art="res://assets/ui/qs.png", float timeToSkip=0.5f)
+	{
+		DialogQueue.Add(new DialogChooseSequence(speaker, text, art, choices, timeToSkip));
+	}
 }
 
 public partial class dialoghandler : Control
 {
-	private Dialog _currentDialog = null;
+	public Dialog _currentDialog = null;
+	private DialogSequence latestSequence;
 	private singleton Singleton;
 	private bool _canProceed = false;
 
@@ -82,13 +108,30 @@ public partial class dialoghandler : Control
 		}
 
 		DialogSequence currentDialogSequence = _currentDialog.DialogQueue[0];
-		_currentDialog.DialogQueue.Remove(currentDialogSequence);
 		GetNode<Label>("Speaker").Text = currentDialogSequence.Speaker;
 		GD.Print(currentDialogSequence.Text);
 		GetNode<Label>("Text").Text = currentDialogSequence.Text;
 		GetNode<TextureRect>("Art").Texture = GD.Load<Texture2D>(currentDialogSequence.Art);
+
+		if (_currentDialog.DialogQueue[0].GetType() == typeof(DialogChooseSequence))
+		{
+			ItemList lista = GetNode<ItemList>("/root/Gui/Dialog/DialogControl/ItemList");
+			lista.Clear();
+			DialogChooseSequence dialogChooseSequence = (DialogChooseSequence) _currentDialog.DialogQueue[0];
+			foreach (var choice in dialogChooseSequence.Choices.Keys)
+			{
+				lista.AddItem(choice);
+			}
+			lista.GrabFocus();
+			lista.Select(0);
+		}
+
+		GetNode<ItemList>("/root/Gui/Dialog/DialogControl/ItemList").Visible = _currentDialog.DialogQueue[0].GetType() == typeof(DialogChooseSequence);
 		currentDialogSequence.Callback?.Invoke();
 
+
+		latestSequence = currentDialogSequence;
+		_currentDialog.DialogQueue.Remove(currentDialogSequence);
 		if (Visible == false)
 		{
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("dialog_appear");
@@ -103,6 +146,19 @@ public partial class dialoghandler : Control
 	{
 
 		GetNode<TextureRect>("arrow_down").Visible = _canProceed;
+		
+		if (latestSequence?.GetType() == typeof(DialogChooseSequence) && _canProceed && Visible)
+		{
+			DialogChooseSequence dialogChooseSequence = (DialogChooseSequence) latestSequence;
+			dialogChooseSequence.index = GetNode<ItemList>("/root/Gui/Dialog/DialogControl/ItemList").GetSelectedItems()[0];
+			if (Input.IsActionJustPressed("ui_accept"))
+			{
+				Singleton.PlayAudio("res://assets/sound/dialog click.mp3", -10, "SFX");
+				dialogChooseSequence.Choices.Values.ToArray()[dialogChooseSequence.index].Invoke();
+				PlayNextDialog();
+				return;
+			}
+		}
 		
 		if ((Input.IsActionJustPressed("ui_accept")) && _canProceed && Visible)
 		{
