@@ -29,8 +29,8 @@ public partial class Sprawdzian : Node2D
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Jak nazywa się liczba, która jest wynikiem dodawania?", new()
 		{
-			{"Suma", () => {}},
-			{"Różnica", () => { Punkty++;}},
+			{"Suma", () => {Punkty++;}},
+			{"Różnica", () => {}},
 			{"Iloczyn", () => { }}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Ile wynosi kwadrat liczby 5?", new()
@@ -60,7 +60,7 @@ public partial class Sprawdzian : Node2D
 		dialog.AddDialog("Maria", "Teraz czas na język rosyjski", "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Jak nazywa sie alfabet rosyjski?", new()
 		{
-			{"Grażdzanką", () => { Punkty++;}},
+			{"Grażdzanka", () => { Punkty++;}},
 			{"Cyrylicą", () => {}},
 			{"Kyrillicą", () => { }}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
