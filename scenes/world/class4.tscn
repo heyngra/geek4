@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bhiwkiit6niuk"]
+[gd_scene load_steps=32 format=3 uid="uid://bhiwkiit6niuk"]
 
 [ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_xq4ee"]
 [ext_resource type="Texture2D" uid="uid://bils1oul7sn7m" path="res://assets/textures/meble/okno 4.png" id="2_jb4ty"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://bqvniam5451xy" path="res://assets/textures/meble/drzwi szkola 2.png" id="10_ape6e"]
 [ext_resource type="Texture2D" uid="uid://bdiywb6lunsgn" path="res://assets/textures/npc/szkola/npc k 1.png" id="11_i4kx4"]
 [ext_resource type="Texture2D" uid="uid://cqvnpb6h2vflx" path="res://assets/textures/npc/szkola/npc k 2.png" id="12_fybnq"]
+[ext_resource type="Texture2D" uid="uid://dn7x4ewfvggiv" path="res://assets/textures/pióro.png" id="15_0gljr"]
+[ext_resource type="Script" path="res://scenes/world/Sprawdzian.cs" id="16_51cjv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_44yot"]
 atlas = ExtResource("3_x6sjx")
@@ -181,7 +183,6 @@ position = Vector2(-25.1401, 48.9596)
 
 [node name="Node2D" type="Node2D" parent="profesor 3/Node2D2"]
 position = Vector2(-9.7767, 9.26263)
-scale = Vector2(1, 1)
 script = ExtResource("7_23e4r")
 
 [node name="Ławka" type="Sprite2D" parent="."]
@@ -243,4 +244,13 @@ animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(66, -26)
+texture = ExtResource("15_0gljr")
+script = ExtResource("16_51cjv")
+
+[node name="Node2D" type="Node2D" parent="Sprite2D"]
+script = ExtResource("7_23e4r")
+
 [connection signal="Interact" from="profesor 3/Node2D2/Node2D" to="profesor 3" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Sprite2D/Node2D" to="Sprite2D" method="_on_node_2d_interact"]
