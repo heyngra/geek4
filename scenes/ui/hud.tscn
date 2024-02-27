@@ -119,6 +119,7 @@ offset_right = 523.0
 offset_bottom = 33.0
 
 [node name="miejsce" type="Label" parent="Control/PanelContainer/Control/Control2"]
+visible = false
 layout_mode = 1
 offset_left = -0.5
 offset_right = 234.5

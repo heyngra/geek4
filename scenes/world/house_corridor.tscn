@@ -55,9 +55,6 @@ script = ExtResource("7_qiaob")
 [node name="Node2D" type="Node2D" parent="Dzrwi - rodzice"]
 script = ExtResource("6_sn4wl")
 
-[node name="Maria2" parent="." instance=ExtResource("1_c8b1p")]
-position = Vector2(111, -46)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.45
 shadow_enabled = true
@@ -93,6 +90,9 @@ texture = ExtResource("7_mfj6j")
 position = Vector2(213, -54)
 scale = Vector2(0.625, 0.625)
 texture = ExtResource("8_1ia0k")
+
+[node name="Maria2" parent="." instance=ExtResource("1_c8b1p")]
+position = Vector2(111, -46)
 
 [connection signal="Interact" from="Dzrwi - rodzeństwo/Node2D" to="Dzrwi - rodzeństwo" method="_on_node_2d_interact"]
 [connection signal="Interact" from="Dzrwi - rodzice/Node2D" to="Dzrwi - rodzice" method="_on_node_2d_interact"]

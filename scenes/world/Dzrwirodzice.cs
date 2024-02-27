@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Geek4.scripts.quests;
 
 public partial class Dzrwirodzice : Sprite2D
 {
@@ -16,6 +17,9 @@ public partial class Dzrwirodzice : Sprite2D
 	{
 		
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
+
+		Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(1, 0);
+		
 		Singleton.GotoScene("res://scenes/world/room_parents.tscn");
 	}
 }

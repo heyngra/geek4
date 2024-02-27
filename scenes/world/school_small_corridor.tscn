@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfhhfamsijtx7"]
+[gd_scene load_steps=17 format=3 uid="uid://cfhhfamsijtx7"]
 
 [ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_go06a"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_s2r5c"]
@@ -7,6 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="3_x2ban"]
 [ext_resource type="Texture2D" uid="uid://dmri3cengfxlo" path="res://assets/textures/meble/drzwi 3 otwarte.png" id="4_a0w3q"]
 [ext_resource type="Texture2D" uid="uid://c0fxxl263gshd" path="res://assets/textures/npc/szkola/pracownik.png" id="5_njjtv"]
+[ext_resource type="Script" path="res://scenes/world/pracownik_szkola.cs" id="5_xis46"]
+[ext_resource type="Script" path="res://scenes/world/SzkolaExit.cs" id="7_pdvxc"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="8_jw06t"]
+[ext_resource type="Script" path="res://scenes/world/SzkolaWejscie2.cs" id="10_ue2v4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b37bw"]
 atlas = ExtResource("5_njjtv")
@@ -69,14 +73,16 @@ scale = Vector2(2.125, 2.19231)
 sprite_frames = SubResource("SpriteFrames_i5p0v")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.207271
 flip_h = true
+script = ExtResource("5_xis46")
+
+[node name="Node2D" type="Node2D" parent="pracownik"]
+script = ExtResource("8_jw06t")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(111, -70)
 script = ExtResource("2_s2r5c")
-
-[node name="Maria2" parent="." instance=ExtResource("3_x2ban")]
-position = Vector2(111, -46)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -89,8 +95,27 @@ position = Vector2(-10, -40)
 scale = Vector2(0.916667, 1)
 texture = ExtResource("4_a0w3q")
 
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte"]
+script = ExtResource("7_pdvxc")
+
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte/Node2D"]
+script = ExtResource("8_jw06t")
+
 [node name="Drzwi3Otwarte2" type="Sprite2D" parent="."]
 position = Vector2(250, -40)
 scale = Vector2(0.916667, 1)
 texture = ExtResource("4_a0w3q")
 flip_h = true
+
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte2"]
+script = ExtResource("10_ue2v4")
+
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte2/Node2D"]
+script = ExtResource("8_jw06t")
+
+[node name="Maria2" parent="." instance=ExtResource("3_x2ban")]
+position = Vector2(230, -24)
+
+[connection signal="Interact" from="pracownik/Node2D" to="pracownik" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Drzwi3Otwarte/Node2D/Node2D" to="Drzwi3Otwarte/Node2D" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Drzwi3Otwarte2/Node2D/Node2D" to="Drzwi3Otwarte2/Node2D" method="_on_node_2d_interact"]

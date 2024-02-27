@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpn0fwtj1whly"]
+[gd_scene load_steps=20 format=3 uid="uid://lrsw5sqy2qro"]
 
 [ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_yoglk"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_cldpl"]
@@ -9,8 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://sxwdjcbcpujc" path="res://assets/textures/akcesoria/ksiazka okragle rogi.png" id="5_2qymf"]
 [ext_resource type="Texture2D" uid="uid://bhc7og13towms" path="res://assets/textures/akcesoria/ksiazka proste rogi.png" id="6_pre6k"]
 [ext_resource type="Texture2D" uid="uid://bt1ogtv7m3u22" path="res://assets/textures/npc/szkola/siedzi dyrektor sprite.png" id="7_fldqk"]
+[ext_resource type="Script" path="res://scenes/world/principal.cs" id="8_jpwit"]
 [ext_resource type="Texture2D" uid="uid://b563e4v2smuif" path="res://assets/textures/meble/biurko.png" id="8_shvmi"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="10_jm7hr"]
 [ext_resource type="Texture2D" uid="uid://bqvniam5451xy" path="res://assets/textures/meble/drzwi szkola 2.png" id="11_k4tb1"]
+[ext_resource type="Script" path="res://scenes/world/principalexit.cs" id="13_0ixg5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrkmm"]
 atlas = ExtResource("7_fldqk")
@@ -120,12 +123,17 @@ position = Vector2(0.677673, 38.6281)
 scale = Vector2(1.35537, 1.35537)
 texture = ExtResource("8_shvmi")
 
+[node name="Node2D2" type="Node2D" parent="AnimatedSprite2D"]
+position = Vector2(-10.1653, 52.1818)
+script = ExtResource("8_jpwit")
+
+[node name="Node2D" type="Node2D" parent="AnimatedSprite2D/Node2D2"]
+scale = Vector2(1, 1)
+script = ExtResource("10_jm7hr")
+
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(111, -70)
 script = ExtResource("2_cldpl")
-
-[node name="Maria2" parent="." instance=ExtResource("3_bj5e6")]
-position = Vector2(111, -46)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.45
@@ -137,3 +145,16 @@ position = Vector2(-8, -41)
 scale = Vector2(0.995312, 1.13542)
 texture = ExtResource("11_k4tb1")
 flip_h = true
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola2"]
+position = Vector2(34.1601, 20.2568)
+script = ExtResource("13_0ixg5")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola2/Node2D"]
+script = ExtResource("10_jm7hr")
+
+[node name="Maria2" parent="." instance=ExtResource("3_bj5e6")]
+position = Vector2(26, -24)
+
+[connection signal="Interact" from="AnimatedSprite2D/Node2D2/Node2D" to="AnimatedSprite2D/Node2D2" method="_on_node_2d_interact"]
+[connection signal="Interact" from="DrzwiSzkola2/Node2D/Node2D" to="DrzwiSzkola2/Node2D" method="_on_node_2d_interact"]

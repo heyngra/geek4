@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3vbtg8rh7c0o"]
+[gd_scene load_steps=15 format=3 uid="uid://d3vbtg8rh7c0o"]
 
 [ext_resource type="TileSet" uid="uid://c20xs2v6nfmuv" path="res://assets/tilesets/hospital_room.tres" id="1_goiy0"]
 [ext_resource type="Texture2D" uid="uid://olirqlttgq8j" path="res://assets/textures/akcesoria/kroplówka.png" id="2_f87yb"]
@@ -6,10 +6,9 @@
 [ext_resource type="Script" path="res://scenes/world/tata_sob.gd" id="4_gfkwn"]
 [ext_resource type="Texture2D" uid="uid://b5k8uy3keb2pf" path="res://assets/textures/zofia/zofia w lozku.png" id="5_ls3r3"]
 [ext_resource type="Texture2D" uid="uid://cpg6uxw2n05o8" path="res://assets/textures/meble/szafka mala bokiem.png" id="6_ltnd1"]
-[ext_resource type="Script" path="res://scripts/player_spawner.cs" id="7_d1nru"]
-[ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="8_6kajc"]
 [ext_resource type="Texture2D" uid="uid://b382h8480n57k" path="res://assets/textures/mama/mama placze sprite.png" id="9_ln2jn"]
 [ext_resource type="Texture2D" uid="uid://cy4w0adgpgffn" path="res://assets/textures/meble/drzwi szpital 2.png" id="10_01jc1"]
+[ext_resource type="Script" path="res://scenes/world/hospital_room1.cs" id="11_n3ktl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayivv"]
 atlas = ExtResource("9_ln2jn")
@@ -59,7 +58,6 @@ layer_1/tile_data = PackedInt32Array(-65521, 262144, 19, -131057, 262144, 19, -1
 
 [node name="Kroplówka" type="Sprite2D" parent="."]
 position = Vector2(221, -50)
-scale = Vector2(1, 1)
 texture = ExtResource("2_f87yb")
 flip_h = true
 
@@ -91,13 +89,6 @@ scale = Vector2(0.59375, 0.583333)
 texture = ExtResource("6_ltnd1")
 flip_h = true
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(111, -70)
-script = ExtResource("7_d1nru")
-
-[node name="Maria2" parent="." instance=ExtResource("8_6kajc")]
-position = Vector2(91, -47)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 energy = 0.45
@@ -109,3 +100,10 @@ position = Vector2(23, -36)
 scale = Vector2(0.8625, 1)
 texture = ExtResource("10_01jc1")
 flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160.44, -44)
+zoom = Vector2(3.38, 3.38)
+
+[node name="hospital_room1" type="Node2D" parent="."]
+script = ExtResource("11_n3ktl")

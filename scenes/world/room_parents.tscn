@@ -1,20 +1,152 @@
-[gd_scene load_steps=16 format=3 uid="uid://btruny8crefi5"]
+[gd_scene load_steps=22 format=3 uid="uid://btruny8crefi5"]
 
 [ext_resource type="TileSet" uid="uid://bnx0ftytp0f35" path="res://assets/tilesets/parents_room.tres" id="1_0tsky"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="1_acuxs"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_d28x7"]
+[ext_resource type="Texture2D" uid="uid://cbyae83k2sfbe" path="res://assets/textures/tata/tata idle.png" id="3_hfvec"]
+[ext_resource type="Script" path="res://scenes/world/Tata_room.cs" id="4_kyhra"]
 [ext_resource type="Texture2D" uid="uid://cg8c6wacncr8t" path="res://assets/textures/meble/dzrwi 2.png" id="4_ruxaw"]
 [ext_resource type="Texture2D" uid="uid://baprrkl0xel7l" path="res://assets/misc/light.png" id="4_txfr0"]
-[ext_resource type="Texture2D" uid="uid://c0dtsejfdoiso" path="res://assets/textures/tata/tata.png" id="4_w00c0"]
 [ext_resource type="Texture2D" uid="uid://cwmtyeo10hjyh" path="res://assets/textures/meble/szafka mala.png" id="5_c2v3o"]
 [ext_resource type="Texture2D" uid="uid://db3xv0pbsfj4a" path="res://assets/textures/meble/lozko 2.png" id="5_h0m8f"]
+[ext_resource type="Texture2D" uid="uid://b5hik7yscd5sd" path="res://assets/textures/tata/tata biegnie.png" id="7_7djs6"]
 [ext_resource type="Texture2D" uid="uid://tgcubcpqeoy3" path="res://assets/textures/akcesoria/krzyz.png" id="8_pv31x"]
 [ext_resource type="Texture2D" uid="uid://csi2ul1md8knl" path="res://assets/textures/akcesoria/flaga.png" id="9_eo6u7"]
 [ext_resource type="Texture2D" uid="uid://duway6rkue0qc" path="res://assets/textures/akcesoria/lampka.png" id="9_imfqy"]
 [ext_resource type="Texture2D" uid="uid://dwemin6axbs7l" path="res://assets/textures/meble/biblioteczka.png" id="10_jf4xv"]
 [ext_resource type="Texture2D" uid="uid://b2dsf353d3x5n" path="res://assets/textures/akcesoria/obraz 1.png" id="11_vg0hh"]
-[ext_resource type="Script" path="res://scenes/world/Dzrwi2.cs" id="14_motoq"]
+[ext_resource type="Script" path="res://scenes/world/Dzrwi4.cs" id="13_0j7n4"]
 [ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="15_iwfbu"]
+
+[sub_resource type="Animation" id="Animation_q0tsg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:hframes")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_hfvec")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_q85i3"]
+resource_name = "idle"
+length = 2.43827
+loop_mode = 1
+step = 0.406372
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_hfvec")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.406372, 0.812744, 1.21912, 1.62549, 2.03186),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_t2att"]
+resource_name = "run"
+length = 0.875013
+loop_mode = 1
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_7djs6")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qoeht"]
+_data = {
+"RESET": SubResource("Animation_q0tsg"),
+"idle": SubResource("Animation_q85i3"),
+"run": SubResource("Animation_t2att")
+}
 
 [node name="room_parents" type="Node2D"]
 
@@ -30,17 +162,8 @@ layer_2/name = "2 plan"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(-72.985, -33.65)
+position = Vector2(-50, -23)
 script = ExtResource("2_d28x7")
-
-[node name="Tata" type="Sprite2D" parent="."]
-position = Vector2(223, -31.8425)
-scale = Vector2(-1.79667, 1.94717)
-texture = ExtResource("4_w00c0")
-
-[node name="PointLight2D" type="PointLight2D" parent="Tata"]
-energy = 0.4
-texture = ExtResource("4_txfr0")
 
 [node name="SzafkaMala" type="Sprite2D" parent="."]
 position = Vector2(111.75, -9)
@@ -87,23 +210,45 @@ position = Vector2(95.5, -63)
 scale = Vector2(1.47917, 1)
 texture = ExtResource("11_vg0hh")
 
-[node name="Maria2" parent="." instance=ExtResource("1_acuxs")]
-position = Vector2(-71, -29)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 energy = 0.45
 shadow_enabled = true
 shadow_filter = 2
 
-[node name="Dzrwi2" type="Sprite2D" parent="."]
+[node name="Dzrwi4" type="Sprite2D" parent="."]
 position = Vector2(-75.9299, -40)
 rotation = 3.14159
 scale = Vector2(0.840635, -1.00331)
 texture = ExtResource("4_ruxaw")
-script = ExtResource("14_motoq")
+script = ExtResource("13_0j7n4")
 
-[node name="Node2D" type="Node2D" parent="Dzrwi2"]
+[node name="Node2D" type="Node2D" parent="Dzrwi4"]
 script = ExtResource("15_iwfbu")
 
-[connection signal="Interact" from="Dzrwi2/Node2D" to="Dzrwi2" method="_on_node_2d_interact"]
+[node name="Tata" type="Sprite2D" parent="."]
+position = Vector2(223, -30)
+rotation = 3.14159
+scale = Vector2(1.79667, -1.94717)
+texture = ExtResource("3_hfvec")
+hframes = 6
+script = ExtResource("4_kyhra")
+
+[node name="PointLight2D" type="PointLight2D" parent="Tata"]
+energy = 0.4
+texture = ExtResource("4_txfr0")
+
+[node name="Node2D" type="Node2D" parent="Tata"]
+script = ExtResource("15_iwfbu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tata"]
+libraries = {
+"": SubResource("AnimationLibrary_qoeht")
+}
+autoplay = "idle"
+
+[node name="Maria2" parent="." instance=ExtResource("1_acuxs")]
+position = Vector2(-51, -24)
+
+[connection signal="Interact" from="Dzrwi4/Node2D" to="Dzrwi4" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Tata/Node2D" to="Tata" method="_on_node_2d_interact"]

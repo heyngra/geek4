@@ -25,7 +25,7 @@ layer_2/name = "2 plan"
 layer_2/tile_data = PackedInt32Array()
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(111, -70)
+position = Vector2(28, -17)
 script = ExtResource("2_fthry")
 
 [node name="LozkoBokiem2" type="Sprite2D" parent="."]
@@ -35,9 +35,6 @@ texture = ExtResource("3_7kftl")
 [node name="ObrazFlaga" type="Sprite2D" parent="."]
 position = Vector2(151, -52)
 texture = ExtResource("4_r4c26")
-
-[node name="Maria2" parent="." instance=ExtResource("3_k55xk")]
-position = Vector2(111, -46)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -72,5 +69,8 @@ script = ExtResource("10_74iiy")
 
 [node name="Node2D" type="Node2D" parent="Dzrwi2"]
 script = ExtResource("11_b15am")
+
+[node name="Maria2" parent="." instance=ExtResource("3_k55xk")]
+position = Vector2(27, -24)
 
 [connection signal="Interact" from="Dzrwi2/Node2D" to="Dzrwi2" method="_on_node_2d_interact"]

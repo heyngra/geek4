@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://o1tn2b2721lw"]
+[gd_scene load_steps=9 format=3 uid="uid://o1tn2b2721lw"]
 
 [ext_resource type="TileSet" uid="uid://cxxedj8eh62yp" path="res://assets/tilesets/school_front.tres" id="1_0bwg0"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="1_8dd2y"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_s6mwo"]
 [ext_resource type="Texture2D" uid="uid://bils1oul7sn7m" path="res://assets/textures/meble/okno 4.png" id="3_q3je1"]
 [ext_resource type="Texture2D" uid="uid://dmri3cengfxlo" path="res://assets/textures/meble/drzwi 3 otwarte.png" id="4_sr30b"]
+[ext_resource type="PackedScene" uid="uid://dtxpbr8e55ump" path="res://scenes/objects/rower.tscn" id="5_1ixcf"]
+[ext_resource type="Script" path="res://scenes/world/SzkolaWejscie.cs" id="5_fi24b"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="6_swa7k"]
 
 [node name="SchoolFront" type="Node2D"]
 
@@ -49,9 +52,6 @@ texture = ExtResource("3_q3je1")
 position = Vector2(123.774, 0)
 texture = ExtResource("3_q3je1")
 
-[node name="Maria2" parent="." instance=ExtResource("2_s6mwo")]
-position = Vector2(111, -46)
-
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
 energy = 0.45
@@ -63,7 +63,21 @@ position = Vector2(271.5, -72)
 scale = Vector2(0.6875, 1)
 texture = ExtResource("4_sr30b")
 
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte"]
+script = ExtResource("5_fi24b")
+
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte/Node2D"]
+script = ExtResource("6_swa7k")
+
 [node name="Okno6" type="Sprite2D" parent="."]
 position = Vector2(253, -154)
 scale = Vector2(0.6625, 0.725)
 texture = ExtResource("3_q3je1")
+
+[node name="Rower" parent="." instance=ExtResource("5_1ixcf")]
+position = Vector2(1, -32)
+
+[node name="Maria2" parent="." instance=ExtResource("2_s6mwo")]
+position = Vector2(22, -24)
+
+[connection signal="Interact" from="Drzwi3Otwarte/Node2D/Node2D" to="Drzwi3Otwarte/Node2D" method="_on_node_2d_interact"]

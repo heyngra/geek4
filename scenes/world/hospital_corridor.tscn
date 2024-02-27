@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://f6asi5gqamdk"]
+[gd_scene load_steps=13 format=3 uid="uid://f6asi5gqamdk"]
 
 [ext_resource type="Texture2D" uid="uid://brmuq6gel231n" path="res://assets/textures/bc/kafelki - sciana.png" id="1_5pui6"]
 [ext_resource type="TileSet" uid="uid://c1hb1cxvk0xtb" path="res://assets/tilesets/hospital_corridor.tres" id="1_h0i8k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="4_0026s"]
 [ext_resource type="Script" path="res://scenes/world/Drzwi3Otwarte.cs" id="4_un7g5"]
 [ext_resource type="Texture2D" uid="uid://cuf6ea5ut4a47" path="res://assets/textures/meble/drzwi szpital 3.png" id="6_j3qn3"]
+[ext_resource type="Script" path="res://scenes/world/Matkaroomdoor.cs" id="11_u05v1"]
 
 [node name="hospital_corridor" type="Node2D"]
 
@@ -95,7 +96,6 @@ texture = ExtResource("4_5jcgj")
 
 [node name="d3" type="Sprite2D" parent="d1/DrzwiSzpital3/d2"]
 position = Vector2(95.2978, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("4_5jcgj")
 
 [node name="DrzwiSzpital6" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3"]
@@ -105,7 +105,6 @@ texture = ExtResource("6_j3qn3")
 
 [node name="DrzwiSzpital7" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3/DrzwiSzpital6"]
 position = Vector2(93.494, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("6_j3qn3")
 
 [node name="d4" type="Sprite2D" parent="d1/DrzwiSzpital3/d2/d3/DrzwiSzpital6/DrzwiSzpital7"]
@@ -118,8 +117,16 @@ position = Vector2(97.3041, 0)
 scale = Vector2(1.02821, 1)
 texture = ExtResource("4_5jcgj")
 
+[node name="Matka room" type="Node2D" parent="d1/DrzwiSzpital3/d2/d3"]
+position = Vector2(-16.0498, 4.40114)
+scale = Vector2(1.02821, 1)
+script = ExtResource("11_u05v1")
+
+[node name="Node2D" type="Node2D" parent="d1/DrzwiSzpital3/d2/d3/Matka room"]
+script = ExtResource("4_0026s")
+
 [node name="Maria2" parent="." instance=ExtResource("3_1br77")]
-position = Vector2(111, -46)
+position = Vector2(118, -25)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -128,3 +135,4 @@ shadow_enabled = true
 shadow_filter = 2
 
 [connection signal="Interact" from="Drzwi3Otwarte/Node2D" to="Drzwi3Otwarte" method="_on_node_interact"]
+[connection signal="Interact" from="d1/DrzwiSzpital3/d2/d3/Matka room/Node2D" to="d1/DrzwiSzpital3/d2/d3/Matka room" method="_on_node_2d_interact"]

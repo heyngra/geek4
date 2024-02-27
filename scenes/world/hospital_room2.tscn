@@ -1,14 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://d00mmrqxkjsas"]
+[gd_scene load_steps=13 format=3 uid="uid://d00mmrqxkjsas"]
 
 [ext_resource type="TileSet" uid="uid://c20xs2v6nfmuv" path="res://assets/tilesets/hospital_room.tres" id="1_l80bc"]
 [ext_resource type="Texture2D" uid="uid://olirqlttgq8j" path="res://assets/textures/akcesoria/kroplówka.png" id="2_2dmk0"]
 [ext_resource type="SpriteFrames" uid="uid://bwhhx4vrjd741" path="res://assets/textures/tata/tata_placze_anim.tres" id="3_p78r6"]
-[ext_resource type="Script" path="res://scenes/world/tata_sob.gd" id="4_jsmlq"]
+[ext_resource type="Script" path="res://scenes/world/tata_sob.cs" id="4_7gacp"]
 [ext_resource type="Texture2D" uid="uid://7niqw4br2nhv" path="res://assets/textures/mama/mama w łóżku 2.png" id="5_cswoy"]
 [ext_resource type="Texture2D" uid="uid://cpg6uxw2n05o8" path="res://assets/textures/meble/szafka mala bokiem.png" id="6_212d5"]
+[ext_resource type="Script" path="res://scenes/world/MamaWŁóżku2.cs" id="6_qmf1d"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="7_cuk5n"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="7_ujtg6"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="8_amyef"]
 [ext_resource type="Texture2D" uid="uid://cy4w0adgpgffn" path="res://assets/textures/meble/drzwi szpital 2.png" id="9_jocwj"]
+[ext_resource type="Script" path="res://scenes/world/drzwi_hospital_room2.cs" id="11_qwdvq"]
 
 [node name="hospital_room2" type="Node2D"]
 
@@ -22,7 +25,6 @@ layer_1/tile_data = PackedInt32Array(-65521, 262144, 19, -131057, 262144, 19, -1
 
 [node name="Kroplówka" type="Sprite2D" parent="."]
 position = Vector2(221, -50)
-scale = Vector2(1, 1)
 texture = ExtResource("2_2dmk0")
 flip_h = true
 
@@ -33,13 +35,18 @@ scale = Vector2(1.95833, 2.1859)
 sprite_frames = ExtResource("3_p78r6")
 animation = &"sob"
 autoplay = "sob"
-script = ExtResource("4_jsmlq")
+frame_progress = 0.926119
+script = ExtResource("4_7gacp")
 
 [node name="MamaWŁóżku2" type="Sprite2D" parent="."]
 position = Vector2(194, -44)
 scale = Vector2(1.05385, 1)
 texture = ExtResource("5_cswoy")
 flip_h = true
+script = ExtResource("6_qmf1d")
+
+[node name="Node2D" type="Node2D" parent="MamaWŁóżku2"]
+script = ExtResource("7_ujtg6")
 
 [node name="SzafkaMalaBokiem" type="Sprite2D" parent="."]
 position = Vector2(238.75, -14)
@@ -50,9 +57,6 @@ flip_h = true
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(111, -70)
 script = ExtResource("7_cuk5n")
-
-[node name="Maria2" parent="." instance=ExtResource("8_amyef")]
-position = Vector2(91, -47)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -65,3 +69,16 @@ position = Vector2(23, -36)
 scale = Vector2(0.8625, 1)
 texture = ExtResource("9_jocwj")
 flip_h = true
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzpital2"]
+position = Vector2(38.2609, 11)
+script = ExtResource("11_qwdvq")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzpital2/Node2D"]
+script = ExtResource("7_ujtg6")
+
+[node name="Maria2" parent="." instance=ExtResource("8_amyef")]
+position = Vector2(49, -24)
+
+[connection signal="Interact" from="MamaWŁóżku2/Node2D" to="MamaWŁóżku2" method="_on_node_2d_interact"]
+[connection signal="Interact" from="DrzwiSzpital2/Node2D/Node2D" to="DrzwiSzpital2/Node2D" method="_on_node_2d_interact"]

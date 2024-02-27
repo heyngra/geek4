@@ -16,6 +16,6 @@ public partial class Dzrwimaria : Sprite2D
 	{
 		
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
-		Singleton.GotoScene("res://scenes/world/room_maria.tscn");
+		Singleton.GotoScene("res://scenes/world/room_maria.tscn",default, false, new(201, -24));
 	}
 }

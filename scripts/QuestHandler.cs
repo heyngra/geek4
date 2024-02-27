@@ -33,6 +33,8 @@ public partial class QuestHandler : Node
 	public void QuestRegisterer()
 	{
 		RegisterQuest(ExampleQuest.RegisterQuest());
+		RegisterQuest(ProblematyczneDziecinstwo.RegisterQuest());
+		RegisterQuest(Edukacja.RegisterQuest());
 	}
 	
 	public Quest GetQuestInstance(Type questType)
@@ -46,7 +48,6 @@ public partial class QuestHandler : Node
 		}
 		return null;
 	}
-
 	public Godot.Collections.Dictionary<string, Variant> SaveData()
 	{
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://biafecd82qpx0"]
+[gd_scene load_steps=20 format=3 uid="uid://biafecd82qpx0"]
 
 [ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_8rird"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_ud5cw"]
@@ -13,7 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://cljhs6ensxbgh" path="res://assets/textures/ikonki/numerki/trojkat.png" id="8_jrmf4"]
 [ext_resource type="Texture2D" uid="uid://b4qysnnlyypkb" path="res://assets/textures/ikonki/numerki/kolo.png" id="9_v7hv2"]
 [ext_resource type="Texture2D" uid="uid://cv64w2o46oj75" path="res://assets/textures/meble/ławka 2.png" id="13_4y4yo"]
+[ext_resource type="Script" path="res://scenes/world/doornr4enter.cs" id="13_d1r5p"]
+[ext_resource type="Script" path="res://scenes/world/principal_enter.cs" id="13_egnu0"]
+[ext_resource type="Script" path="res://scenes/world/DrzwiSzkolaKorytarz.cs" id="14_63iex"]
 [ext_resource type="Texture2D" uid="uid://dmri3cengfxlo" path="res://assets/textures/meble/drzwi 3 otwarte.png" id="14_i5wsl"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="15_2xklw"]
+[ext_resource type="Script" path="res://scenes/world/doornr2school.cs" id="15_ci62o"]
 
 [node name="SchoolCorridor" type="Node2D"]
 
@@ -111,8 +116,24 @@ position = Vector2(164.571, 22.5)
 scale = Vector2(1.02857, 1.07292)
 texture = ExtResource("7_0cc5a")
 
-[node name="Maria2" parent="." instance=ExtResource("3_xrpg2")]
-position = Vector2(111, -46)
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/4/DrzwiSzkola-Dyrektor"]
+script = ExtResource("13_egnu0")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/4/DrzwiSzkola-Dyrektor/Node2D"]
+script = ExtResource("15_2xklw")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3"]
+script = ExtResource("13_d1r5p")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/Node2D"]
+script = ExtResource("15_2xklw")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2"]
+position = Vector2(-16, 1.14833)
+script = ExtResource("15_ci62o")
+
+[node name="Node2D" type="Node2D" parent="DrzwiSzkola1/DrzwiSzkola2/Node2D"]
+script = ExtResource("15_2xklw")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 visible = false
@@ -124,3 +145,15 @@ shadow_filter = 2
 position = Vector2(-74, -40)
 scale = Vector2(0.916667, 1)
 texture = ExtResource("14_i5wsl")
+script = ExtResource("14_63iex")
+
+[node name="Node2D" type="Node2D" parent="Drzwi3Otwarte"]
+script = ExtResource("15_2xklw")
+
+[node name="Maria2" parent="." instance=ExtResource("3_xrpg2")]
+position = Vector2(585, -24)
+
+[connection signal="Interact" from="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/4/DrzwiSzkola-Dyrektor/Node2D/Node2D" to="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/4/DrzwiSzkola-Dyrektor/Node2D" method="_on_node_2d_interact"]
+[connection signal="Interact" from="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/Node2D/Node2D" to="DrzwiSzkola1/DrzwiSzkola2/2/DrzwiSzkola4/3/DrzwiSzkola4/DrzwiSzkola3/Node2D" method="_on_node_2d_interact"]
+[connection signal="Interact" from="DrzwiSzkola1/DrzwiSzkola2/Node2D/Node2D" to="DrzwiSzkola1/DrzwiSzkola2/Node2D" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Drzwi3Otwarte/Node2D" to="Drzwi3Otwarte" method="_on_node_2d_interact"]

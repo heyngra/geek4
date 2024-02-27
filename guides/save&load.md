@@ -4,10 +4,10 @@ If you want to save data from a Node, you need to create a method called `SaveDa
 ```csharp
 public Godot.Collections.Dictionary<string, Variant> SaveData()
 {
-    return new Godot.Collections.Dictionary<string, Variant>
-    {
-        {"lorem", "ipsum"}
-    };
+	return new Godot.Collections.Dictionary<string, Variant>
+	{
+		{"lorem", "ipsum"}
+	};
 }
 ```
 
@@ -27,10 +27,10 @@ public string OverrideSaveName = "dolor";
 // Saving
 public Godot.Collections.Dictionary<string, Variant> SaveData()
 {
-    return new Godot.Collections.Dictionary<string, Variant>
-    {
-        {"lorem", "ipsum"}
-    };
+	return new Godot.Collections.Dictionary<string, Variant>
+	{
+		{"lorem", "ipsum"}
+	};
 }
 
 // Loading from that Node

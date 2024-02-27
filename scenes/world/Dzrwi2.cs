@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Geek4.scripts.quests;
 
 public partial class Dzrwi2 : Sprite2D
 {
@@ -17,7 +18,10 @@ public partial class Dzrwi2 : Sprite2D
 	{
 		
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
-		Singleton.GotoScene("res://scenes/world/house_corridor.tscn");
+		Singleton.GotoScene("res://scenes/world/house_corridor.tscn", "dissolve", false, new(-68, -25));
+
+		Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(0,1);
+		
 	}
 	
 }

@@ -16,7 +16,7 @@ public partial class NewGame : Button
 	{
 		Singleton.Save = new();
 		Singleton.SaveHandler.OnLoad.ForEach(action => action.Invoke());
-		Singleton.GotoScene(Scene.ResourcePath);
+		Singleton.GotoScene(Scene.ResourcePath, default, true);
 		CanvasLayer n = null;
 		foreach (Node allChild in singleton.GetAllChildren(GetTree().CurrentScene)) if (allChild is CanvasLayer) n = (CanvasLayer) allChild;
 		n!.Visible = false;

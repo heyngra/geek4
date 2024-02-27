@@ -46,7 +46,6 @@ public partial class singleton : Node
         SaveHandler = GetNode<SaveHandler>("/root/SaveHandler");
         ConfigHandler = GetNode<ConfigHandler>("/root/ConfigHandler");
         QuestHandler = GetNode<QuestHandler>("/root/QuestHandler");
-        
         // load config in settings
         foreach (var node in GetAllChildren(GetNode<SettingsControl>("/root/Gui/Settings/SettingsControl")))
         {
@@ -65,18 +64,20 @@ public partial class singleton : Node
     /// <param name="path">Scene path</param>
     /// <param name="transition">Transition used in changing scene</param>
     /// <param name="ignoreSave">Ignore saving the game while changing scenes></param>
-    public void GotoScene(string path, string transition = "dissolve", bool ignoreSave=false)
+    /// <param name="newLocation">The location Maria should be spawned into.</param>
+    public void GotoScene(string path, string transition = "dissolve", bool ignoreSave=false, Vector2 newLocation = new())
     {
-        CallDeferred(MethodName.DeferredGotoScene, path, transition, ignoreSave);
+        CallDeferred(MethodName.DeferredGotoScene, path, transition, ignoreSave, newLocation);
     }
     /// <summary>
     /// Use this method to pause the current scene, and then 
     /// </summary>
     /// <param name="path">Path to scene that will show up after pausing</param>
     /// <param name="transition">Transition used in changing scene</param>
-    public void PauseScene(string path, string transition = "dissolve")
+    /// <param name="newLocation">The location Maria should be spawned into.</param>
+    public void PauseScene(string path, string transition = "dissolve", Vector2 newLocation = new())
     {
-        CallDeferred(MethodName.DeferredPauseScene, path, transition);
+        CallDeferred(MethodName.DeferredPauseScene, path, transition, newLocation);
     }
     /// <summary>
     /// Gets all children of a node, recursively.
@@ -95,9 +96,8 @@ public partial class singleton : Node
         }
     }
 
-    private async void DeferredGotoScene(string path, string transition, bool ignoreSave=false)
+    private async void DeferredGotoScene(string path, string transition, bool ignoreSave=false, Vector2 newLocation = new())
     {
-
         maria_2 maria = Maria;
         if (maria == null)
         {
@@ -116,7 +116,6 @@ public partial class singleton : Node
         SaveHandler.SaveGame();
         maria?.GetParent().RemoveChild(maria); // maria? == if (maria != null)
         PackedScene nextScene = null;
-        
         if (PausedScenes.ContainsKey(CurrentScene.SceneFilePath))
         {
             GetTree().Root.RemoveChild(CurrentScene);
@@ -160,6 +159,10 @@ public partial class singleton : Node
         {
             CurrentScene.AddChild(maria);
             maria.EmitSignal("SceneChange");
+            if (newLocation != Vector2.Zero)
+            {
+                maria.GlobalPosition = newLocation;
+            }
         }
 
         GetTree().CurrentScene = CurrentScene;
@@ -167,11 +170,11 @@ public partial class singleton : Node
         Transition.UnloadTransition("dissolve");
     }
 
-    private void DeferredPauseScene(string path, string transition)
+    private void DeferredPauseScene(string path, string transition, Vector2 newLocation = new())
     {
         PausedScenes.Add(CurrentScene.SceneFilePath, CurrentScene);
         GD.Print("Paused scene "+CurrentScene.SceneFilePath);
-        DeferredGotoScene(path, transition, true);
+        DeferredGotoScene(path, transition, true, newLocation);
     }
 
     /// <summary>

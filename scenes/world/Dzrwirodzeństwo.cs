@@ -18,8 +18,8 @@ public partial class Dzrwirodzeństwo : Sprite2D
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
 		Dialog dialog = new Dialog();
 		
-		dialog.AddDialog("Maria", "To jest pokój mojego rodzeństwa.");
-		dialog.AddDialog("Maria", "Nie powinnam im zaglądać do pokoju bez pytania.");
+		dialog.AddDialog("Maria", "To jest pokój mojego rodzeństwa.", "res://assets/textures/maria/idle/maria-glowa.png");
+		dialog.AddDialog("Maria", "Nie powinnam im zaglądać do pokoju bez pytania.", "res://assets/textures/maria/idle/maria-glowa.png");
 		
 		Singleton.Dialoghandler.PlayDialog(dialog);
 	}

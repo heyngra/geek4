@@ -1,7 +1,8 @@
 using Godot;
 using System;
+using Geek4.scripts.quests;
 
-public partial class Drzwi3 : Sprite2D
+public partial class Drzwi3 : Node2D
 {
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -16,15 +17,9 @@ public partial class Drzwi3 : Sprite2D
 	public void _on_interact_interact()
 	{
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
-
-
-		Dialog dialog = new();
-	
-		dialog.AddDialog("Testowa szafka", "Przenoszę cię do środka szpitala!", "res://assets/ui/qs.png", () =>
-		{
-			Singleton.GotoScene("res://scenes/world/hospital_corridor.tscn");
-		});
-	
-		Singleton.Dialoghandler.PlayDialog(dialog);
-	}
+		
+		Singleton.GotoScene("res://scenes/world/hospital_corridor.tscn", default, default, new(-265, -25));
+		
+		Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(2,1);
+		}
 }
