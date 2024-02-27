@@ -1,0 +1,139 @@
+[gd_scene load_steps=17 format=3 uid="uid://cpn0fwtj1whly"]
+
+[ext_resource type="TileSet" uid="uid://dqyn1rfwi8gx3" path="res://assets/tilesets/school_corridor.tres" id="1_yoglk"]
+[ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_cldpl"]
+[ext_resource type="Texture2D" uid="uid://bils1oul7sn7m" path="res://assets/textures/meble/okno 4.png" id="2_jg84x"]
+[ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="3_bj5e6"]
+[ext_resource type="Texture2D" uid="uid://dwi2vp808nsmr" path="res://assets/textures/akcesoria/obraz 3.png" id="3_gjoqo"]
+[ext_resource type="Texture2D" uid="uid://dwemin6axbs7l" path="res://assets/textures/meble/biblioteczka.png" id="4_67jbt"]
+[ext_resource type="Texture2D" uid="uid://sxwdjcbcpujc" path="res://assets/textures/akcesoria/ksiazka okragle rogi.png" id="5_2qymf"]
+[ext_resource type="Texture2D" uid="uid://bhc7og13towms" path="res://assets/textures/akcesoria/ksiazka proste rogi.png" id="6_pre6k"]
+[ext_resource type="Texture2D" uid="uid://bt1ogtv7m3u22" path="res://assets/textures/npc/szkola/siedzi dyrektor sprite.png" id="7_fldqk"]
+[ext_resource type="Texture2D" uid="uid://b563e4v2smuif" path="res://assets/textures/meble/biurko.png" id="8_shvmi"]
+[ext_resource type="Texture2D" uid="uid://bqvniam5451xy" path="res://assets/textures/meble/drzwi szkola 2.png" id="11_k4tb1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qrkmm"]
+atlas = ExtResource("7_fldqk")
+region = Rect2(0, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sk6t"]
+atlas = ExtResource("7_fldqk")
+region = Rect2(164, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aqa6g"]
+atlas = ExtResource("7_fldqk")
+region = Rect2(328, 0, 164, 164)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aegst"]
+atlas = ExtResource("7_fldqk")
+region = Rect2(492, 0, 164, 164)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ua3wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qrkmm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6sk6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aqa6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aegst")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[node name="PrincipalRoom" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_yoglk")
+format = 2
+layer_0/name = "ziemia"
+layer_0/tile_data = PackedInt32Array(65535, 1572864, 20, 131071, 1572864, 21, 196607, 1572864, 22, 262143, 1572864, 23, 15, 1769472, 20, 65551, 1769472, 21, 131087, 1769472, 22, 196623, 1769472, 23, 0, 1638400, 20, 65536, 1638400, 21, 131072, 1638400, 22, 196608, 1638400, 23, 1, 1703936, 20, 65537, 1703936, 21, 131073, 1703936, 22, 196609, 1703936, 23, 2, 1638400, 20, 65538, 1638400, 21, 131074, 1638400, 22, 196610, 1638400, 23, 3, 1703936, 20, 65539, 1703936, 21, 131075, 1703936, 22, 196611, 1703936, 23, 4, 1638400, 20, 65540, 1638400, 21, 131076, 1638400, 22, 196612, 1638400, 23, 5, 1703936, 20, 65541, 1703936, 21, 131077, 1703936, 22, 196613, 1703936, 23, 6, 1638400, 20, 65542, 1638400, 21, 131078, 1638400, 22, 196614, 1638400, 23, 7, 1703936, 20, 65543, 1703936, 21, 131079, 1703936, 22, 196615, 1703936, 23, 8, 1638400, 20, 65544, 1638400, 21, 131080, 1638400, 22, 196616, 1638400, 23, 9, 1703936, 20, 65545, 1703936, 21, 131081, 1703936, 22, 196617, 1703936, 23, 10, 1638400, 20, 65546, 1638400, 21, 131082, 1638400, 22, 196618, 1638400, 23, 11, 1703936, 20, 65547, 1703936, 21, 131083, 1703936, 22, 196619, 1703936, 23, 12, 1638400, 20, 65548, 1638400, 21, 131084, 1638400, 22, 196620, 1638400, 23, 13, 1638400, 20, 65549, 1638400, 21, 131085, 1638400, 22, 196621, 1638400, 23, 14, 1703936, 20, 65550, 1703936, 21, 131086, 1703936, 22, 196622, 1703936, 23)
+layer_1/name = "sciana"
+layer_1/tile_data = PackedInt32Array(-262145, 2293760, 0, -196609, 2293760, 1, -131073, 2293760, 2, -65537, 2293760, 3, -1, 2293760, 4, -327665, 2555904, 0, -262129, 2555904, 1, -196593, 2555904, 2, -131057, 2555904, 3, -65521, 2555904, 4, -327680, 2359296, 0, -262144, 2359296, 1, -196608, 2359296, 2, -131072, 2359296, 3, -65536, 2359296, 4, -327679, 2424832, 0, -262143, 2424832, 1, -196607, 2424832, 2, -131071, 2424832, 3, -65535, 2424832, 4, -327678, 2490368, 0, -262142, 2490368, 1, -196606, 2490368, 2, -131070, 2490368, 3, -65534, 2490368, 4, -327677, 2359296, 0, -262141, 2359296, 1, -196605, 2359296, 2, -131069, 2359296, 3, -65533, 2359296, 4, -327676, 2424832, 0, -262140, 2424832, 1, -196604, 2424832, 2, -131068, 2424832, 3, -65532, 2424832, 4, -327675, 2490368, 0, -262139, 2490368, 1, -196603, 2490368, 2, -131067, 2490368, 3, -65531, 2490368, 4, -327674, 2359296, 0, -262138, 2359296, 1, -196602, 2359296, 2, -131066, 2359296, 3, -65530, 2359296, 4, -327673, 2424832, 0, -262137, 2424832, 1, -196601, 2424832, 2, -131065, 2424832, 3, -65529, 2424832, 4, -327672, 2490368, 0, -262136, 2490368, 1, -196600, 2490368, 2, -131064, 2490368, 3, -65528, 2490368, 4, -327671, 2359296, 0, -262135, 2359296, 1, -196599, 2359296, 2, -131063, 2359296, 3, -65527, 2359296, 4, -327670, 2424832, 0, -262134, 2424832, 1, -196598, 2424832, 2, -131062, 2424832, 3, -65526, 2424832, 4, -327669, 2490368, 0, -262133, 2490368, 1, -196597, 2490368, 2, -131061, 2490368, 3, -65525, 2490368, 4, -327668, 2359296, 0, -262132, 2359296, 1, -196596, 2359296, 2, -131060, 2359296, 3, -65524, 2359296, 4, -327667, 2424832, 0, -262131, 2424832, 1, -196595, 2424832, 2, -131059, 2424832, 3, -65523, 2424832, 4, -327666, 2490368, 0, -262130, 2490368, 1, -196594, 2490368, 2, -131058, 2490368, 3, -65522, 2490368, 4, -393217, 2293760, 0, -327681, 2293760, 1, -524289, 2293760, 0, -458753, 2293760, 1, -655361, 2293760, 0, -589825, 2293760, 1, -458737, 2555904, 0, -393201, 2555904, 1, -589809, 2555904, 0, -524273, 2555904, 1, -720881, 2555904, 0, -655345, 2555904, 1, -720896, 2359296, 0, -655360, 2359296, 1, -720895, 2424832, 0, -655359, 2424832, 1, -720894, 2490368, 0, -655358, 2490368, 1, -589824, 2359296, 0, -524288, 2359296, 1, -589823, 2424832, 0, -524287, 2424832, 1, -589822, 2490368, 0, -524286, 2490368, 1, -458752, 2359296, 0, -393216, 2359296, 1, -458751, 2424832, 0, -393215, 2424832, 1, -458750, 2490368, 0, -393214, 2490368, 1, -720893, 2359296, 0, -655357, 2359296, 1, -720892, 2424832, 0, -655356, 2424832, 1, -720891, 2490368, 0, -655355, 2490368, 1, -589821, 2359296, 0, -524285, 2359296, 1, -589820, 2424832, 0, -524284, 2424832, 1, -589819, 2490368, 0, -524283, 2490368, 1, -458749, 2359296, 0, -393213, 2359296, 1, -458748, 2424832, 0, -393212, 2424832, 1, -458747, 2490368, 0, -393211, 2490368, 1, -720890, 2359296, 0, -655354, 2359296, 1, -720889, 2424832, 0, -655353, 2424832, 1, -720888, 2490368, 0, -655352, 2490368, 1, -589818, 2359296, 0, -524282, 2359296, 1, -589817, 2424832, 0, -524281, 2424832, 1, -589816, 2490368, 0, -524280, 2490368, 1, -458746, 2359296, 0, -393210, 2359296, 1, -458745, 2424832, 0, -393209, 2424832, 1, -458744, 2490368, 0, -393208, 2490368, 1, -720887, 2359296, 0, -655351, 2359296, 1, -720886, 2424832, 0, -655350, 2424832, 1, -720885, 2490368, 0, -655349, 2490368, 1, -589815, 2359296, 0, -524279, 2359296, 1, -589814, 2424832, 0, -524278, 2424832, 1, -589813, 2490368, 0, -524277, 2490368, 1, -458743, 2359296, 0, -393207, 2359296, 1, -458742, 2424832, 0, -393206, 2424832, 1, -458741, 2490368, 0, -393205, 2490368, 1, -720884, 2359296, 0, -655348, 2359296, 1, -720883, 2424832, 0, -655347, 2424832, 1, -720882, 2490368, 0, -655346, 2490368, 1, -589812, 2359296, 0, -524276, 2359296, 1, -589811, 2424832, 0, -524275, 2424832, 1, -589810, 2490368, 0, -524274, 2490368, 1, -458740, 2359296, 0, -393204, 2359296, 1, -458739, 2424832, 0, -393203, 2424832, 1, -458738, 2490368, 0, -393202, 2490368, 1)
+
+[node name="Okno4" type="Sprite2D" parent="."]
+position = Vector2(198, -84)
+texture = ExtResource("2_jg84x")
+
+[node name="Okno5" type="Sprite2D" parent="Okno4"]
+position = Vector2(-105, 0)
+texture = ExtResource("2_jg84x")
+
+[node name="Obraz3" type="Sprite2D" parent="Okno4"]
+position = Vector2(-190.5, -16)
+scale = Vector2(0.895833, 1)
+texture = ExtResource("3_gjoqo")
+
+[node name="Biblioteczka" type="Sprite2D" parent="."]
+position = Vector2(119, -39.25)
+scale = Vector2(0.671875, 0.98125)
+texture = ExtResource("4_67jbt")
+
+[node name="KsiazkaOkragleRogi" type="Sprite2D" parent="Biblioteczka"]
+position = Vector2(-21.5814, -27.8481)
+scale = Vector2(1.48837, 1.10759)
+texture = ExtResource("5_2qymf")
+
+[node name="KsiazkaOkragleRogi2" type="Sprite2D" parent="Biblioteczka/KsiazkaOkragleRogi"]
+position = Vector2(5, 0)
+scale = Vector2(0.875, 1)
+texture = ExtResource("5_2qymf")
+
+[node name="KsiazkaOkragleRogi3" type="Sprite2D" parent="Biblioteczka/KsiazkaOkragleRogi/KsiazkaOkragleRogi2"]
+position = Vector2(22.2857, 0)
+scale = Vector2(1.07143, 1)
+texture = ExtResource("5_2qymf")
+
+[node name="KsiazkaProsteRogi" type="Sprite2D" parent="Biblioteczka/KsiazkaOkragleRogi/KsiazkaOkragleRogi2/KsiazkaOkragleRogi3"]
+position = Vector2(-26.6667, 17.6)
+scale = Vector2(0.866666, 0.942857)
+texture = ExtResource("6_pre6k")
+
+[node name="KsiazkaProsteRogi2" type="Sprite2D" parent="Biblioteczka/KsiazkaOkragleRogi/KsiazkaOkragleRogi2/KsiazkaOkragleRogi3/KsiazkaProsteRogi"]
+position = Vector2(24, -3.8147e-06)
+scale = Vector2(0.961538, 1)
+texture = ExtResource("6_pre6k")
+
+[node name="KsiazkaOkragleRogi4" type="Sprite2D" parent="Biblioteczka/KsiazkaOkragleRogi/KsiazkaOkragleRogi2/KsiazkaOkragleRogi3/KsiazkaProsteRogi/KsiazkaProsteRogi2"]
+position = Vector2(-3.83997, 18.1818)
+scale = Vector2(1.04, 1)
+texture = ExtResource("5_2qymf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(196.5, -60.5)
+scale = Vector2(0.737805, 0.737805)
+sprite_frames = SubResource("SpriteFrames_ua3wm")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.431225
+
+[node name="Biurko" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(0.677673, 38.6281)
+scale = Vector2(1.35537, 1.35537)
+texture = ExtResource("8_shvmi")
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(111, -70)
+script = ExtResource("2_cldpl")
+
+[node name="Maria2" parent="." instance=ExtResource("3_bj5e6")]
+position = Vector2(111, -46)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.45
+shadow_enabled = true
+shadow_filter = 2
+
+[node name="DrzwiSzkola2" type="Sprite2D" parent="."]
+position = Vector2(-8, -41)
+scale = Vector2(0.995312, 1.13542)
+texture = ExtResource("11_k4tb1")
+flip_h = true
