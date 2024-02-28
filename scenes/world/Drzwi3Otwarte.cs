@@ -16,15 +16,6 @@ public partial class Drzwi3Otwarte : Sprite2D
 	public void _on_node_interact()
 	{
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
-
-
-		Dialog dialog = new();
-	
-		dialog.AddDialog("Testowa szafka", "Przenoszę cię do test_env2!", "res://assets/ui/qs.png", () =>
-		{
-			Singleton.GotoScene("res://scenes/world/room_maria.tscn");
-		});
-	
-		Singleton.Dialoghandler.PlayDialog(dialog);
+		Singleton.GotoScene("res://scenes/world/hospital.tscn", default, default, new(120, -24));
 	}
 }

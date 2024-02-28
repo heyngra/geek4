@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using Geek4.scripts.quests;
 
 public partial class Dzrwiwyjsciowe : Sprite2D
 {
@@ -16,6 +17,12 @@ public partial class Dzrwiwyjsciowe : Sprite2D
 	{
 		
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
-		Singleton.GotoScene("res://scenes/world/test_env2.tscn");
+		if (Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).IsStepMilestone(2,0))
+		{
+			Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(2,0);
+
+		}
+		Singleton.GotoScene("res://scenes/world/house_front.tscn");
+		
 	}
 }

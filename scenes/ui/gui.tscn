@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dpx05pkelqepw"]
+[gd_scene load_steps=8 format=3 uid="uid://dpx05pkelqepw"]
 
 [ext_resource type="PackedScene" uid="uid://bkgda3j4nhuw0" path="res://scenes/ui/dialog.tscn" id="2_4r2g8"]
 [ext_resource type="PackedScene" uid="uid://c05tu4jjikoup" path="res://scenes/ui/escape_ui.tscn" id="2_kd8os"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cxrrsldc8fvcw" path="res://scenes/ui/settings.tscn" id="4_pakts"]
 [ext_resource type="PackedScene" uid="uid://dnnrtc5icpat1" path="res://scenes/ui/interact.tscn" id="5_lgrxi"]
 [ext_resource type="PackedScene" uid="uid://cq8m0fb4wuros" path="res://scenes/ui/questmenu.tscn" id="6_via44"]
+[ext_resource type="Script" path="res://scenes/ui/CanvasLayer.cs" id="7_gr2ft"]
 
 [node name="gui" type="Control"]
 layout_mode = 3
@@ -33,3 +34,15 @@ layer = 2
 [node name="Interact" parent="." instance=ExtResource("5_lgrxi")]
 
 [node name="QuestMenu" parent="." instance=ExtResource("6_via44")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+visible = false
+script = ExtResource("7_gr2ft")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = -167.0
+offset_top = -98.0
+offset_right = 822.0
+offset_bottom = 465.0
+color = Color(0, 0, 0, 1)

@@ -170,6 +170,7 @@ public partial class Quest : Node
     }
     public void StartQuest()
     {
+        PrerequisitQuests.ForEach(quest => { if (!quest.QuestCompleted) return; });
         IsStarted = true;
     }
     public void CompleteQuest()
@@ -201,6 +202,12 @@ public partial class Quest : Node
     {
         return GetCurrentMilestone()?.MilestoneSteps.IndexOf(GetCurrentMilestone()?.GetCurrentStep()) ?? -1;
     }
+    
+    public MilestoneStep GetStepFromMilestone(int milestone, int step)
+    {
+        return QuestMilestones[milestone]?.MilestoneSteps[step];
+    } 
+    
     public void CompleteMilestone()
     {
         QuestMilestone currentMilestone = GetCurrentMilestone();

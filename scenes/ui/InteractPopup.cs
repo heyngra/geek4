@@ -34,7 +34,7 @@ public partial class InteractPopup : Control
 		
 		foreach(var obj in singleton.GetAllChildren(Singleton.CurrentScene))
 		{
-			if (obj is interactable)
+			if (obj is interactable && (obj as interactable).Visible)
 			{
 				interactables.Add(obj);
 			}

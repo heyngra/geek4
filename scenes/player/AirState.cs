@@ -30,7 +30,7 @@ public partial class AirState : State
             singleton Singleton = GetNode<singleton>("/root/Singleton");
             if (GD.Randi() % 2 == 1)
             {
-                Singleton.PauseScene("res://scenes/world/test_env3.tscn");
+                Singleton.PauseScene("res://scenes/world/test_env3.tscn", "dissolve", new(-120, 4));
                 Singleton.Dialoghandler.PlayNextDialog();
                 
             }

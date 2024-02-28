@@ -72,6 +72,11 @@ public partial class maria_2 : CharacterBody2D
 		}
 		_animationTree.Set("parameters/Move/blend_position", _direction.X);
 		_sprite.FlipH = _direction.X < 0 || !(_direction.X > 0) && _sprite.FlipH; // Flip the sprite if the direction is negative, or positive. Don't flip it, if it's 0.
-	}	
+	}
+
+	public void ZoomCamera(float scale)
+	{
+		GetNode<Camera2D>("Camera2D").Zoom = new Vector2((float)(2.5*scale), (float)(2.5*scale));
+	}
 	
 }

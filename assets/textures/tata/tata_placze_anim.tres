@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://bwhhx4vrjd741"]
+
+[ext_resource type="Texture2D" uid="uid://bpnsd5wdjv13d" path="res://assets/textures/tata/tata placze.png" id="1_d3ld1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giqh7"]
+atlas = ExtResource("1_d3ld1")
+region = Rect2(0, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dlgih"]
+atlas = ExtResource("1_d3ld1")
+region = Rect2(26, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gotxc"]
+atlas = ExtResource("1_d3ld1")
+region = Rect2(52, 0, 24, 39)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh35g"]
+atlas = ExtResource("1_d3ld1")
+region = Rect2(78, 0, 24, 39)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_giqh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dlgih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gotxc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh35g")
+}],
+"loop": true,
+"name": &"sob",
+"speed": 2.0
+}]

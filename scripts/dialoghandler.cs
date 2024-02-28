@@ -43,7 +43,10 @@ public class DialogChooseSequence : DialogSequence
 public class Dialog
 {
 	public readonly List<DialogSequence> DialogQueue = new();
-
+	/// <summary>
+	/// Callback that is called after finishing the entire dialog and closing the gui.
+	/// </summary>
+	public Action FinishCallback = null;
 	public Dialog(params DialogSequence[] dialogSequences)
 	{
 		DialogQueue.AddRange(dialogSequences);
@@ -102,6 +105,7 @@ public partial class dialoghandler : Control
 			await ToSignal(GetTree().CreateTimer(GetNode<AnimationPlayer>("AnimationPlayer").GetAnimation("dialog_appear").Length), "timeout");
 			GetNode<AnimationPlayer>("AnimationPlayer").Play("RESET"); // really ugly way, but Visible = false doesn't work.
 			//Visible = false;
+			_currentDialog.FinishCallback?.Invoke();
 			Singleton.UiLock = false;
 			_currentDialog = null;
 			return;

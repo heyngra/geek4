@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dky6yxss0itow"]
+[gd_scene load_steps=33 format=3 uid="uid://dky6yxss0itow"]
 
 [ext_resource type="Script" path="res://scenes/player/maria_2.cs" id="1_cp08y"]
 [ext_resource type="Texture2D" uid="uid://y2qlxl24lih2" path="res://assets/textures/maria/idle/anim.png" id="2_i625f"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scenes/player/AirState.cs" id="9_j4fkc"]
 [ext_resource type="Texture2D" uid="uid://baprrkl0xel7l" path="res://assets/misc/light.png" id="9_sad0j"]
 [ext_resource type="Script" path="res://scenes/player/StateDebugLabel.cs" id="10_2886u"]
+[ext_resource type="Texture2D" uid="uid://boulic63sk4o3" path="res://assets/textures/akcesoria/medal.png" id="11_rk766"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eq6pb"]
 radius = 8.0
@@ -505,3 +506,9 @@ texture_scale = 0.6
 
 [node name="Ciemnosc" type="CanvasModulate" parent="."]
 color = Color(0.145098, 0.0862745, 0.0901961, 1)
+
+[node name="Medal" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -0.8)
+scale = Vector2(0.15, 0.1375)
+texture = ExtResource("11_rk766")
