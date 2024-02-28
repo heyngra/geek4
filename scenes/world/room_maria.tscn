@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7aq2447q23r0"]
+[gd_scene load_steps=13 format=3 uid="uid://7aq2447q23r0"]
 
 [ext_resource type="TileSet" uid="uid://dwxhd82bdag72" path="res://assets/tilesets/room_maria.tres" id="1_03yc3"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="2_fthry"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cpg6uxw2n05o8" path="res://assets/textures/meble/szafka mala bokiem.png" id="4_d6r1i"]
 [ext_resource type="Texture2D" uid="uid://duway6rkue0qc" path="res://assets/textures/akcesoria/lampka.png" id="4_fe154"]
 [ext_resource type="Texture2D" uid="uid://x3bueavvxdwk" path="res://assets/textures/akcesoria/obraz flaga.png" id="4_r4c26"]
+[ext_resource type="Script" path="res://scenes/world/ciuchy.cs" id="4_x6lx0"]
 [ext_resource type="Texture2D" uid="uid://c4clr3mc6nvwe" path="res://assets/textures/akcesoria/konstytucja.png" id="5_pbsxy"]
 [ext_resource type="Texture2D" uid="uid://cg8c6wacncr8t" path="res://assets/textures/meble/dzrwi 2.png" id="7_obqfc"]
 [ext_resource type="Script" path="res://scenes/world/Dzrwi2.cs" id="10_74iiy"]
@@ -31,6 +32,12 @@ script = ExtResource("2_fthry")
 [node name="LozkoBokiem2" type="Sprite2D" parent="."]
 position = Vector2(48, -50)
 texture = ExtResource("3_7kftl")
+
+[node name="Node2D" type="Node2D" parent="LozkoBokiem2"]
+script = ExtResource("4_x6lx0")
+
+[node name="Node2D" type="Node2D" parent="LozkoBokiem2/Node2D"]
+script = ExtResource("11_b15am")
 
 [node name="ObrazFlaga" type="Sprite2D" parent="."]
 position = Vector2(151, -52)
@@ -73,4 +80,5 @@ script = ExtResource("11_b15am")
 [node name="Maria2" parent="." instance=ExtResource("3_k55xk")]
 position = Vector2(27, -24)
 
+[connection signal="Interact" from="LozkoBokiem2/Node2D/Node2D" to="LozkoBokiem2/Node2D" method="_on_node_2d_interact"]
 [connection signal="Interact" from="Dzrwi2/Node2D" to="Dzrwi2" method="_on_node_2d_interact"]

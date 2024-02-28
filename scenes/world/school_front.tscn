@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://o1tn2b2721lw"]
+[gd_scene load_steps=10 format=3 uid="uid://o1tn2b2721lw"]
 
 [ext_resource type="TileSet" uid="uid://cxxedj8eh62yp" path="res://assets/tilesets/school_front.tres" id="1_0bwg0"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="1_8dd2y"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dtxpbr8e55ump" path="res://scenes/objects/rower.tscn" id="5_1ixcf"]
 [ext_resource type="Script" path="res://scenes/world/SzkolaWejscie.cs" id="5_fi24b"]
 [ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="6_swa7k"]
+[ext_resource type="Script" path="res://scenes/world/celebracja.cs" id="9_j43fp"]
 
 [node name="SchoolFront" type="Node2D"]
 
@@ -79,5 +80,8 @@ position = Vector2(1, -32)
 
 [node name="Maria2" parent="." instance=ExtResource("2_s6mwo")]
 position = Vector2(22, -24)
+
+[node name="Node2D2" type="Node2D" parent="."]
+script = ExtResource("9_j43fp")
 
 [connection signal="Interact" from="Drzwi3Otwarte/Node2D/Node2D" to="Drzwi3Otwarte/Node2D" method="_on_node_2d_interact"]

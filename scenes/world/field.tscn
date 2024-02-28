@@ -1,12 +1,16 @@
-[gd_scene load_steps=23 format=3 uid="uid://c05l11eh5jfoh"]
+[gd_scene load_steps=27 format=3 uid="uid://q6saigugr36b"]
 
-[ext_resource type="TileSet" uid="uid://2h6xxtdfsqqr" path="res://assets/tilesets/village.tres" id="1_2y7r0"]
+[ext_resource type="TileSet" uid="uid://2vqoshtjwyyx" path="res://assets/tilesets/village.tres" id="1_2y7r0"]
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="1_w0pm2"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_sojny"]
 [ext_resource type="Texture2D" uid="uid://cpgeanm4n3ff5" path="res://assets/textures/npc/dziadek sprite.png" id="3_ma3u4"]
+[ext_resource type="Script" path="res://scenes/world/cow_thanker.cs" id="3_qvf6e"]
 [ext_resource type="Texture2D" uid="uid://boa0knh0fd37v" path="res://assets/textures/zwierzeta/krowa je.png" id="4_cdl28"]
 [ext_resource type="Texture2D" uid="uid://dfc0tiai5mksb" path="res://assets/textures/meble/plot.png" id="5_nueuq"]
 [ext_resource type="Texture2D" uid="uid://n181qswrr1vr" path="res://assets/textures/meble/bramka.png" id="6_vndbn"]
+[ext_resource type="Script" path="res://scenes/world/fieldexit.cs" id="8_88plq"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="9_ly5np"]
+[ext_resource type="Script" path="res://scenes/world/FieldEventHandler.cs" id="11_sle5j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t2mnu"]
 atlas = ExtResource("4_cdl28")
@@ -133,28 +137,34 @@ sprite_frames = SubResource("SpriteFrames_7tajn")
 animation = &"am am"
 autoplay = "am am"
 
-[node name="cow2" type="AnimatedSprite2D" parent="cow"]
-position = Vector2(-76.7915, 5.69325)
-scale = Vector2(0.844622, 0.758282)
+[node name="cow2" type="AnimatedSprite2D" parent="."]
+position = Vector2(241.001, -29)
+scale = Vector2(1.24219, 1.20703)
 sprite_frames = SubResource("SpriteFrames_u0v4b")
 animation = &"am am"
 autoplay = "am am"
 frame_progress = 0.689561
 flip_h = true
+script = ExtResource("3_qvf6e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Node2D" type="Node2D" parent="cow2"]
+script = ExtResource("9_ly5np")
+
+[node name="Dziadek" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(15, -39.375)
 scale = Vector2(2.23077, 2.39103)
 sprite_frames = SubResource("SpriteFrames_3pkrd")
 animation = &"idle"
 autoplay = "idle"
+frame_progress = 0.738097
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(111, -70)
 script = ExtResource("1_w0pm2")
 
 [node name="Maria2" parent="." instance=ExtResource("2_sojny")]
-position = Vector2(111, -46)
+position = Vector2(89, -25)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.45
@@ -192,3 +202,16 @@ texture = ExtResource("5_nueuq")
 [node name="Bramka" type="Sprite2D" parent="Plot/Plot2/Plot2/Plot2/Plot3/Plot2/Plot2"]
 position = Vector2(-318, 0)
 texture = ExtResource("6_vndbn")
+
+[node name="Node2D2" type="Node2D" parent="."]
+position = Vector2(-19, -18)
+script = ExtResource("8_88plq")
+
+[node name="Node2D" type="Node2D" parent="Node2D2"]
+script = ExtResource("9_ly5np")
+
+[node name="handler" type="Node2D" parent="."]
+script = ExtResource("11_sle5j")
+
+[connection signal="Interact" from="cow2/Node2D" to="cow2" method="_on_node_2d_interact"]
+[connection signal="Interact" from="Node2D2/Node2D" to="Node2D2" method="_on_node_2d_interact"]

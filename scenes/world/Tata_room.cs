@@ -12,8 +12,7 @@ public partial class Tata_room : Sprite2D
 	public override void _Ready()
 	{
 		Singleton = GetNode<singleton>("/root/Singleton");
-		if (Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).GetStepFromMilestone(1, 1)
-		    .StepCompleted)
+		if (Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).GetStepFromMilestone(1, 1).StepCompleted&&!Singleton.QuestHandler.GetQuestInstance(typeof(Wies)).IsStarted)
 		{
 			QueueFree();
 		}
@@ -45,6 +44,35 @@ public partial class Tata_room : Sprite2D
 			
 			Singleton.Dialoghandler.PlayDialog(dialog);
 
+		}
+
+		else if (Singleton.QuestHandler.GetQuestInstance(typeof(Wies)).IsStepMilestone(0, 0))
+		{
+			Dialog dialog = new();
+			
+			dialog.AddDialog("Maria", "Zdałam egzamin!", "res://assets/textures/maria/idle/maria-glowa.png");
+			dialog.AddDialog("Tata", "Jestem z ciebie dumna córeczko!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "W takim razie mam dla ciebie nową informację!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Maria", "Hmm?", "res://assets/textures/maria/idle/maria-glowa.png");
+			dialog.AddDialog("Tata", "Jedziemy na wieś! Pakuj się i jedziemy!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Maria", "Na wieś? Dlaczego?", "res://assets/textures/maria/idle/maria-glowa.png");
+			dialog.AddDialog("Tata", "Musimy odpocząć po śmierci matki. To będzie dobre dla naszej całej rodziny.", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "Idź do swojego pokoju i się spakuj!", "res://assets/textures/tata/tata-glowa.png");
+
+			dialog.FinishCallback = () =>
+			{
+				Singleton.QuestHandler.GetQuestInstance(typeof(Wies)).CompleteStep(0, 0);
+			};
+			
+			Singleton.Dialoghandler.PlayDialog(dialog);
+		}
+		else if (Singleton.QuestHandler.GetQuestInstance(typeof(Wies)).IsStepMilestone(0, 1))
+		{
+			Dialog dialog = new();
+			
+			dialog.AddDialog("Tata", "Nie ma na co czekać! Pakuj się i jedziemy!", "res://assets/textures/tata/tata-glowa.png");
+			
+			Singleton.Dialoghandler.PlayDialog(dialog);
 		}
 	}
 

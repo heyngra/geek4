@@ -24,14 +24,25 @@ public partial class rower_script : Node2D
 		Dictionary<string, Action> actions = new();
 
 		actions.Add("Do domu", () => Singleton.GotoScene("res://scenes/world/house_front.tscn", default, default, new(330, -24)));
-		
-		actions.Add("Do szpitala", () => Singleton.GotoScene("res://scenes/world/hospital.tscn", default, default, new(-160, -24)));
+
+		if (Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).GetStepFromMilestone(2, 0)
+		    .StepCompleted)
+		{
+			actions.Add("Do szpitala", () => Singleton.GotoScene("res://scenes/world/hospital.tscn", default, default, new(-160, -24)));
+
+		}
 
 		if (Singleton.QuestHandler.GetQuestInstance(typeof(Edukacja)).IsStarted)
 		{
 			actions.Add("Do szkoły",
 				() => Singleton.GotoScene("res://scenes/world/school_front.tscn", default, default, new(22, -24)));
 		}
+
+		if (Singleton.QuestHandler.GetQuestInstance(typeof(Wies)).GetStepFromMilestone(0, 1).StepCompleted)
+		{
+			actions.Add("Na wieś!", () => Singleton.GotoScene("res://scenes/world/village_house.tscn", default, default, new(-18, -25)));
+		}
+		
 		
 		actions.Add("Nigdzie", () => { });
 		dialog.AddChooseDialog("Maria", "Gdzie chciałabym się udać...", actions, "res://assets/textures/maria/idle/maria-glowa.png");

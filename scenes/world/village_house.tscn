@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://cmcow6hkvpd4u"]
+[gd_scene load_steps=12 format=3 uid="uid://bdjfi2b4fkcr3"]
 
 [ext_resource type="Script" path="res://scripts/player_spawner.cs" id="1_ggh1m"]
-[ext_resource type="TileSet" uid="uid://2h6xxtdfsqqr" path="res://assets/tilesets/village.tres" id="1_n3in0"]
+[ext_resource type="TileSet" uid="uid://2vqoshtjwyyx" path="res://assets/tilesets/village.tres" id="1_n3in0"]
 [ext_resource type="Texture2D" uid="uid://bcbriyh2d0xe0" path="res://assets/textures/meble/okno 3.png" id="2_gjgus"]
 [ext_resource type="PackedScene" uid="uid://dky6yxss0itow" path="res://scenes/player/maria_2.tscn" id="2_mcs7v"]
 [ext_resource type="Texture2D" uid="uid://dk5oekbd60uin" path="res://assets/textures/meble/drzwi 5.png" id="3_lak4e"]
 [ext_resource type="Texture2D" uid="uid://cwntul0vfowoh" path="res://assets/textures/meble/kanapa.png" id="4_lshb1"]
 [ext_resource type="Texture2D" uid="uid://d0riwqa1a3nbb" path="res://assets/textures/meble/stolik z obrusem.png" id="7_nsalj"]
+[ext_resource type="Script" path="res://scenes/world/villagehouseexit.cs" id="7_r0qhk"]
+[ext_resource type="Script" path="res://scenes/ui/interactable.cs" id="8_6w3fh"]
+[ext_resource type="PackedScene" uid="uid://dtxpbr8e55ump" path="res://scenes/objects/rower.tscn" id="9_n64am"]
+[ext_resource type="Script" path="res://scenes/world/villageroomfirstenter.cs" id="11_2xyr4"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -32,11 +36,8 @@ scale = Vector2(1.65625, 1.35156)
 texture = ExtResource("4_lshb1")
 
 [node name="Node2D" type="Node2D" parent="."]
-position = Vector2(111, -70)
+position = Vector2(-13, -24)
 script = ExtResource("1_ggh1m")
-
-[node name="Maria2" parent="." instance=ExtResource("2_mcs7v")]
-position = Vector2(111, -46)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 energy = 0.45
@@ -51,3 +52,18 @@ texture = ExtResource("7_nsalj")
 position = Vector2(266, -40)
 scale = Vector2(0.916667, 1)
 texture = ExtResource("3_lak4e")
+script = ExtResource("7_r0qhk")
+
+[node name="Node2D" type="Node2D" parent="Drzwi5"]
+script = ExtResource("8_6w3fh")
+
+[node name="Rower" parent="." instance=ExtResource("9_n64am")]
+position = Vector2(-9, -32)
+
+[node name="Maria2" parent="." instance=ExtResource("2_mcs7v")]
+position = Vector2(248, -24)
+
+[node name="Node2D2" type="Node2D" parent="."]
+script = ExtResource("11_2xyr4")
+
+[connection signal="Interact" from="Drzwi5/Node2D" to="Drzwi5" method="_on_node_2d_interact"]

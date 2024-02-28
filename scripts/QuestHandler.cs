@@ -35,6 +35,7 @@ public partial class QuestHandler : Node
 		RegisterQuest(ExampleQuest.RegisterQuest());
 		RegisterQuest(ProblematyczneDziecinstwo.RegisterQuest());
 		RegisterQuest(Edukacja.RegisterQuest());
+		RegisterQuest(Wies.RegisterQuest());
 	}
 	
 	public Quest GetQuestInstance(Type questType)

@@ -125,13 +125,14 @@ public partial class Sprawdzian : Node2D
 			{"Wodę", () => {}},
 			{"Tlenek Węgla", () => { Punkty++;}}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
-		dialog.AddChooseDialog("Maria", "\"Pamiętaj, chemiku, zawsze wlewaj kwas do wody\" - jakie bezpieczne postępowanie zaleca się stosować podczas mieszania kwasów z wodą?", new()
+		dialog.AddDialog("Maria", "Pamiętaj, chemiku, zawsze wlewaj kwas do wody\"", "res://assets/textures/maria/idle/maria-glowa.png");
+		dialog.AddChooseDialog("Maria", "\"jakie bezpieczne postępowanie zaleca się stosować podczas mieszania kwasów z wodą?", new()
 		{
 			{"Najpierw wlewaj kwas, a następnie wodę", () => {}},
 			{"Najpierw wlewaj wodę, a następnie kwas", () => {Punkty++;}},
 			{"Wlej kwas i wodę jednocześnie", () => {}}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
-		dialog.AddDialog("Maria", "Skończyłam czas sprawdzić odpowiedzi", "res://assets/textures/maria/idle/maria-glowa.png",
+		dialog.AddDialog("Maria", "Skończyłam. Czas sprawdzić odpowiedzi", "res://assets/textures/maria/idle/maria-glowa.png",
 			() =>
 			{
 				if (Punkty > 10)

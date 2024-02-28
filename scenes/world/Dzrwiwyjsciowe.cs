@@ -17,8 +17,12 @@ public partial class Dzrwiwyjsciowe : Sprite2D
 	{
 		
 		singleton Singleton = GetNode<singleton>("/root/Singleton");
+		if (Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).IsStepMilestone(2,0))
+		{
+			Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(2,0);
+
+		}
 		Singleton.GotoScene("res://scenes/world/house_front.tscn");
 		
-		Singleton.QuestHandler.GetQuestInstance(typeof(ProblematyczneDziecinstwo)).CompleteStep(2,0);
 	}
 }
