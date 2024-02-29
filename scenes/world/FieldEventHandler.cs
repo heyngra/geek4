@@ -23,9 +23,9 @@ public partial class FieldEventHandler : Node2D
 
 			Singleton.CurrentScene.GetNode<AnimatedSprite2D>("Dziadek").Visible = true;
 			
-			dialog.AddDialog("Dziadek", "Witaj Maria!", "res://assets/textures/npc/dziadek-glowa.png");
+			dialog.AddDialog("Dziadek", "Witaj Mario!", "res://assets/textures/npc/dziadek-glowa.png");
 			
-			dialog.AddDialog("Maria", "Hej dziadek, potrzebujesz w czymś pomocy?", "res://assets/textures/maria/idle/maria-glowa.png");
+			dialog.AddDialog("Maria", "Hej dziadku, potrzebujesz w czymś pomocy?", "res://assets/textures/maria/idle/maria-glowa.png");
 			
 			dialog.AddDialog("Dziadek", "Pomogłabyś mi ogarnąć krowy?", "res://assets/textures/npc/dziadek-glowa.png");
 			dialog.AddDialog("Dziadek", "Mam na to za mało sił...", "res://assets/textures/npc/dziadek-glowa.png");

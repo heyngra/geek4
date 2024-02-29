@@ -61,8 +61,8 @@ public partial class Sprawdzian : Node2D
 		dialog.AddChooseDialog("Maria", "Jak nazywa sie alfabet rosyjski?", new()
 		{
 			{"Grażdzanka", () => { Punkty++;}},
-			{"Cyrylicą", () => {}},
-			{"Kyrillicą", () => { }}
+			{"Cyrylica", () => {}},
+			{"Kyrillica", () => { }}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Które słowo oznacza \"Kawa\" po rosyjsku?", new()
 		{
@@ -103,8 +103,8 @@ public partial class Sprawdzian : Node2D
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Jaki jest wzór chemiczny na wodę?", new()
 		{
-			{"CO2", () => {}},
-			{"H2O", () => { Punkty++;}},
+			{"CO\u2082", () => {}},
+			{"H\u2082O", () => { Punkty++;}},
 			{"NaCl", () => {}}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddChooseDialog("Maria", "Który gaz jest niezbędny do oddychania?", new()
@@ -125,8 +125,8 @@ public partial class Sprawdzian : Node2D
 			{"Wodę", () => {}},
 			{"Tlenek Węgla", () => { Punkty++;}}
 		}, "res://assets/textures/maria/idle/maria-glowa.png");
-		dialog.AddDialog("Maria", "Pamiętaj, chemiku, zawsze wlewaj kwas do wody\"", "res://assets/textures/maria/idle/maria-glowa.png");
-		dialog.AddChooseDialog("Maria", "\"jakie bezpieczne postępowanie zaleca się stosować podczas mieszania kwasów z wodą?", new()
+		dialog.AddDialog("Maria", "\"Pamiętaj chemiku młody, wlewaj zawsze kwas do wody\"", "res://assets/textures/maria/idle/maria-glowa.png");
+		dialog.AddChooseDialog("Maria", "Jakie bezpieczne postępowanie zaleca się stosować podczas mieszania kwasów z wodą?", new()
 		{
 			{"Najpierw wlewaj kwas, a następnie wodę", () => {}},
 			{"Najpierw wlewaj wodę, a następnie kwas", () => {Punkty++;}},

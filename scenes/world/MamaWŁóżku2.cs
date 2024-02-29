@@ -31,7 +31,7 @@ public partial class MamaWŁóżku2 : Sprite2D
 		dialog.AddDialog("Maria", "Mamo, co się dzieje?", "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddDialog("Mama", "Maria, kochanie... Musisz być silna...", "res://assets/textures/mama/mama-glowa.png");
 		dialog.AddDialog("Mama", "...", "res://assets/textures/mama/mama-glowa.png");
-		dialog.AddDialog("Tata", "Pójdź do domu sama, Maria. Ja zostanę z mamą.", "res://assets/textures/tata/tata-glowa.png");
+		dialog.AddDialog("Tata", "Pójdź do domu sama, Mario. Ja zostanę z mamą.", "res://assets/textures/tata/tata-glowa.png");
 
 		dialog.FinishCallback = () =>
 		{

@@ -34,7 +34,7 @@ public partial class hospital_room1 : Node2D
 		dialog.AddDialog("Tata", "Niech twoja dusza spoczywa w pokoju...", "res://assets/textures/tata/tata-glowa.png", null, 2F);
 		dialog.AddDialog("Maria", "Zofia! Powiesz coś, prawda?", "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddDialog("Zofia", "...", "res://assets/ludziki/zofia lezy.png", null, 1F);
-		dialog.AddDialog("Tata", "Wracamy do domu, córcio.", "res://assets/textures/tata/tata-glowa.png", null, 1F);
+		dialog.AddDialog("Tata", "Wracamy do domu, córciu.", "res://assets/textures/tata/tata-glowa.png", null, 1F);
 
 		dialog.FinishCallback = () =>
 		{

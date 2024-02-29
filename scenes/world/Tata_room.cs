@@ -51,12 +51,12 @@ public partial class Tata_room : Sprite2D
 			Dialog dialog = new();
 			
 			dialog.AddDialog("Maria", "Zdałam egzamin!", "res://assets/textures/maria/idle/maria-glowa.png");
-			dialog.AddDialog("Tata", "Jestem z ciebie dumna córeczko!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "Jestem z ciebie dumny córeczko!", "res://assets/textures/tata/tata-glowa.png");
 			dialog.AddDialog("Tata", "W takim razie mam dla ciebie nową informację!", "res://assets/textures/tata/tata-glowa.png");
 			dialog.AddDialog("Maria", "Hmm?", "res://assets/textures/maria/idle/maria-glowa.png");
-			dialog.AddDialog("Tata", "Jedziemy na wieś! Pakuj się i jedziemy!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "Jedziemy na wieś! Pakuj się i wyjeżdzamy!", "res://assets/textures/tata/tata-glowa.png");
 			dialog.AddDialog("Maria", "Na wieś? Dlaczego?", "res://assets/textures/maria/idle/maria-glowa.png");
-			dialog.AddDialog("Tata", "Musimy odpocząć po śmierci matki. To będzie dobre dla naszej całej rodziny.", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "Musimy odpocząć po tym co się stało mamie. To będzie dobre dla naszej całej rodziny.", "res://assets/textures/tata/tata-glowa.png");
 			dialog.AddDialog("Tata", "Idź do swojego pokoju i się spakuj!", "res://assets/textures/tata/tata-glowa.png");
 
 			dialog.FinishCallback = () =>
@@ -70,7 +70,7 @@ public partial class Tata_room : Sprite2D
 		{
 			Dialog dialog = new();
 			
-			dialog.AddDialog("Tata", "Nie ma na co czekać! Pakuj się i jedziemy!", "res://assets/textures/tata/tata-glowa.png");
+			dialog.AddDialog("Tata", "Nie ma na co czekać! Pakuj się i wyjeżdzamy!", "res://assets/textures/tata/tata-glowa.png");
 			
 			Singleton.Dialoghandler.PlayDialog(dialog);
 		}

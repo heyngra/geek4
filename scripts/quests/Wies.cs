@@ -20,7 +20,7 @@ public partial class Wies : Quest
             new List<MilestoneStep>()
             {
                 new("Pochwal się wynikiem egzaminu z ojcem", "Dom"),
-                new("Spakuj swoje ciuchy", "Dom"),
+                new("Spakuj swoje ubrania", "Dom"),
                 new("Pojedź na wieś", "Wieś"),
                 new("Rozejrzyj się po wsi", "Wieś"),
                 new("Pomóż dziadkowi (koniec gry)", "Wieś")

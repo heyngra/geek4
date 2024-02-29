@@ -24,7 +24,7 @@ public partial class ciuchy : Node2D
 	{
 		Dialog dialog = new();
 
-		dialog.AddDialog("Maria", "Czy to moje ciuchy?", "res://assets/textures/maria/idle/maria-glowa.png");
+		dialog.AddDialog("Maria", "Czy to moje ubrania?", "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddDialog("Maria", "Chyba tak...", "res://assets/textures/maria/idle/maria-glowa.png");
 		dialog.AddDialog("Maria", "Ciężkie są...", "res://assets/textures/maria/idle/maria-glowa.png", default, 2F);
 		dialog.AddDialog("Maria", "Spakowane!", "res://assets/textures/maria/idle/maria-glowa.png");

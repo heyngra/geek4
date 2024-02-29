@@ -17,7 +17,7 @@ public partial class celebracja : Node2D
 			
 			Singleton.Maria.ZoomCamera(2);
 			
-			dialog.AddDialog("Maria", "Udało mi się! Zdałam szkołę!", "res://assets/textures/maria/idle/maria-glowa.png");
+			dialog.AddDialog("Maria", "Udało mi się! Zdałam egzamin!", "res://assets/textures/maria/idle/maria-glowa.png");
 			dialog.AddDialog("Maria", "Powinnam zobaczyć co u ojca...", "res://assets/textures/maria/idle/maria-glowa.png", default, 1.5F);
 
 			dialog.FinishCallback = () =>
