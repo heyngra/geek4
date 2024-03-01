@@ -29,7 +29,7 @@ public partial class ProblematyczneDziecinstwo : Quest
             new("Porozmawiaj z ojcem", "Dom Marii"),
         }, "Dom Marii");
 
-        QuestMilestone milestone3 = new("Matka", "Czy z nią będzie wszystko dobrze?", new()
+        QuestMilestone milestone3 = new("Matka", "Czy z mamą będzie wszystko dobrze?", new()
         {
             new("Wyjdź z domu", "Dom Marii"),
             new("Pojedź z ojcem do szpitala"),

@@ -19,7 +19,7 @@ public partial class Wies : Quest
         QuestMilestone milestone1 = new("Wizyta na wsi", "",
             new List<MilestoneStep>()
             {
-                new("Pochwal się wynikiem egzaminu z ojcem", "Dom"),
+                new("Pochwal się ojcu wynikiem egzaminu", "Dom"),
                 new("Spakuj swoje ubrania", "Dom"),
                 new("Pojedź na wieś", "Wieś"),
                 new("Rozejrzyj się po wsi", "Wieś"),
